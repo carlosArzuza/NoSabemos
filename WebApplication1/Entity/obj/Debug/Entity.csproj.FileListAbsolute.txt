@@ -1,0 +1,84 @@
+C:\Users\TECNOPARQUE\Documents\Visual Studio 2013\Projects\WebDrummond\Entity\bin\Debug\Entity.dll
+C:\Users\TECNOPARQUE\Documents\Visual Studio 2013\Projects\WebDrummond\Entity\bin\Debug\Entity.pdb
+C:\Users\TECNOPARQUE\Documents\Visual Studio 2013\Projects\WebDrummond\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+C:\Users\TECNOPARQUE\Documents\Visual Studio 2013\Projects\WebDrummond\Entity\obj\Debug\Entity.dll
+C:\Users\TECNOPARQUE\Documents\Visual Studio 2013\Projects\WebDrummond\Entity\obj\Debug\Entity.pdb
+I:\WebDrummond\Entity\bin\Debug\Entity.dll
+I:\WebDrummond\Entity\bin\Debug\Entity.pdb
+I:\WebDrummond\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+I:\WebDrummond\Entity\obj\Debug\Entity.dll
+I:\WebDrummond\Entity\obj\Debug\Entity.pdb
+C:\Users\ADMIN\Desktop\WebDrummond\Entity\bin\Debug\Entity.dll
+C:\Users\ADMIN\Desktop\WebDrummond\Entity\bin\Debug\Entity.pdb
+C:\Users\ADMIN\Desktop\WebDrummond\Entity\obj\Debug\Entity.dll
+C:\Users\ADMIN\Desktop\WebDrummond\Entity\obj\Debug\Entity.pdb
+C:\Users\TECNOPARQUE\Documents\Visual Studio 2013\Projects\WebApplication1\Entity\bin\Debug\Entity.dll
+C:\Users\TECNOPARQUE\Documents\Visual Studio 2013\Projects\WebApplication1\Entity\bin\Debug\Entity.pdb
+C:\Users\TECNOPARQUE\Documents\Visual Studio 2013\Projects\WebApplication1\Entity\obj\Debug\Entity.dll
+C:\Users\TECNOPARQUE\Documents\Visual Studio 2013\Projects\WebApplication1\Entity\obj\Debug\Entity.pdb
+C:\Users\TECNOPARQUE\Documents\GitHub\ProyectoDRM\WebApplication1\Entity\bin\Debug\Entity.dll
+C:\Users\TECNOPARQUE\Documents\GitHub\ProyectoDRM\WebApplication1\Entity\bin\Debug\Entity.pdb
+C:\Users\TECNOPARQUE\Documents\GitHub\ProyectoDRM\WebApplication1\Entity\obj\Debug\Entity.dll
+C:\Users\TECNOPARQUE\Documents\GitHub\ProyectoDRM\WebApplication1\Entity\obj\Debug\Entity.pdb
+D:\Drummond\ProyectoDRM\WebApplication1\Entity\bin\Debug\Entity.dll
+D:\Drummond\ProyectoDRM\WebApplication1\Entity\bin\Debug\Entity.pdb
+D:\Drummond\ProyectoDRM\WebApplication1\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+D:\Drummond\ProyectoDRM\WebApplication1\Entity\obj\Debug\Entity.dll
+D:\Drummond\ProyectoDRM\WebApplication1\Entity\obj\Debug\Entity.pdb
+C:\Users\TECNOPARQUE1\Documents\GitHub\ProyectoDRM\WebApplication1\Entity\bin\Debug\Entity.dll
+C:\Users\TECNOPARQUE1\Documents\GitHub\ProyectoDRM\WebApplication1\Entity\bin\Debug\Entity.pdb
+C:\Users\TECNOPARQUE1\Documents\GitHub\ProyectoDRM\WebApplication1\Entity\obj\Debug\Entity.dll
+C:\Users\TECNOPARQUE1\Documents\GitHub\ProyectoDRM\WebApplication1\Entity\obj\Debug\Entity.pdb
+C:\Users\TECNOPARQUE\Documents\GitHub\ProyectoDRM\WebApplication1\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+C:\15-02-2016\WebApplication1\Entity\bin\Debug\Entity.dll
+C:\15-02-2016\WebApplication1\Entity\bin\Debug\Entity.pdb
+C:\15-02-2016\WebApplication1\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+C:\15-02-2016\WebApplication1\Entity\obj\Debug\Entity.dll
+C:\15-02-2016\WebApplication1\Entity\obj\Debug\Entity.pdb
+C:\Users\ADMIN\Desktop\WebApplication1\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+C:\Users\ADMIN\Desktop\WebApplication1\Entity\obj\Debug\Entity.dll
+C:\Users\ADMIN\Desktop\WebApplication1\Entity\obj\Debug\Entity.pdb
+C:\Users\ADMIN\Desktop\WebApplication1\Entity\bin\Debug\Entity.dll
+C:\Users\ADMIN\Desktop\WebApplication1\Entity\bin\Debug\Entity.pdb
+C:\Users\TECNOPARQUE\Desktop\Drummond\WebApplication1\Entity\bin\Debug\Entity.dll
+C:\Users\TECNOPARQUE\Desktop\Drummond\WebApplication1\Entity\bin\Debug\Entity.pdb
+C:\Users\TECNOPARQUE\Desktop\Drummond\WebApplication1\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+C:\Users\TECNOPARQUE\Desktop\Drummond\WebApplication1\Entity\obj\Debug\Entity.dll
+C:\Users\TECNOPARQUE\Desktop\Drummond\WebApplication1\Entity\obj\Debug\Entity.pdb
+F:\Nueva carpeta\Drummond\WebApplication1\Entity\bin\Debug\Entity.dll
+F:\Nueva carpeta\Drummond\WebApplication1\Entity\bin\Debug\Entity.pdb
+F:\Nueva carpeta\Drummond\WebApplication1\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+F:\Nueva carpeta\Drummond\WebApplication1\Entity\obj\Debug\Entity.dll
+F:\Nueva carpeta\Drummond\WebApplication1\Entity\obj\Debug\Entity.pdb
+F:\drummondnuevo\WebApplication1\Entity\obj\Debug\Entity.dll
+F:\drummondnuevo\WebApplication1\Entity\obj\Debug\Entity.pdb
+F:\drummondnuevo\WebApplication1\Entity\bin\Debug\Entity.dll
+F:\drummondnuevo\WebApplication1\Entity\bin\Debug\Entity.pdb
+F:\drummondnuevo\WebApplication1\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+F:\Respaldodrummond\WebApplication1\Entity\bin\Debug\Entity.dll
+F:\Respaldodrummond\WebApplication1\Entity\bin\Debug\Entity.pdb
+F:\Respaldodrummond\WebApplication1\Entity\bin\Debug\Dal.dll
+F:\Respaldodrummond\WebApplication1\Entity\bin\Debug\EntityFramework.dll
+F:\Respaldodrummond\WebApplication1\Entity\bin\Debug\Dal.pdb
+F:\Respaldodrummond\WebApplication1\Entity\bin\Debug\EntityFramework.xml
+F:\Respaldodrummond\WebApplication1\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+F:\Respaldodrummond\WebApplication1\Entity\obj\Debug\Entity.dll
+F:\Respaldodrummond\WebApplication1\Entity\obj\Debug\Entity.pdb
+E:\Respaldodrummond\WebApplication1\Entity\bin\Debug\Entity.dll
+E:\Respaldodrummond\WebApplication1\Entity\bin\Debug\Entity.pdb
+E:\Respaldodrummond\WebApplication1\Entity\bin\Debug\Dal.dll
+E:\Respaldodrummond\WebApplication1\Entity\bin\Debug\EntityFramework.dll
+E:\Respaldodrummond\WebApplication1\Entity\bin\Debug\Dal.pdb
+E:\Respaldodrummond\WebApplication1\Entity\bin\Debug\EntityFramework.xml
+E:\Respaldodrummond\WebApplication1\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+E:\Respaldodrummond\WebApplication1\Entity\obj\Debug\Entity.dll
+E:\Respaldodrummond\WebApplication1\Entity\obj\Debug\Entity.pdb
+C:\Users\TECNOPARQUE\Desktop\Respaldodrummond\WebApplication1\Entity\bin\Debug\Entity.dll
+C:\Users\TECNOPARQUE\Desktop\Respaldodrummond\WebApplication1\Entity\bin\Debug\Entity.pdb
+C:\Users\TECNOPARQUE\Desktop\Respaldodrummond\WebApplication1\Entity\bin\Debug\Dal.dll
+C:\Users\TECNOPARQUE\Desktop\Respaldodrummond\WebApplication1\Entity\bin\Debug\EntityFramework.dll
+C:\Users\TECNOPARQUE\Desktop\Respaldodrummond\WebApplication1\Entity\bin\Debug\Dal.pdb
+C:\Users\TECNOPARQUE\Desktop\Respaldodrummond\WebApplication1\Entity\bin\Debug\EntityFramework.xml
+C:\Users\TECNOPARQUE\Desktop\Respaldodrummond\WebApplication1\Entity\obj\Debug\Entity.csprojResolveAssemblyReference.cache
+C:\Users\TECNOPARQUE\Desktop\Respaldodrummond\WebApplication1\Entity\obj\Debug\Entity.dll
+C:\Users\TECNOPARQUE\Desktop\Respaldodrummond\WebApplication1\Entity\obj\Debug\Entity.pdb

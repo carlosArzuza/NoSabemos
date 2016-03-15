@@ -1,0 +1,412 @@
+﻿<style type="text/css">
+    .contenedorb {
+        width: 90px;
+        height: 90px;
+        position: absolute;
+        right: 0px;
+        bottom: 0px;
+    }
+
+    .botonF1 {
+        width: 60px;
+        height: 60px;
+        border-radius: 100%;
+        background: #7cb342;
+        right: 0;
+        bottom: 0;
+        position: fixed;
+        margin-right: 16px;
+        margin-bottom: 16px;
+        border: none;
+        outline: none;
+        color: #FFF;
+        font-size: 36px;
+        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+        transition: .1s;
+    }
+
+        .botonF1:active {
+            transform: scale(1.1);
+        }
+</style>
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#/">Inicio</a>
+            </li>
+            <li>
+                <a>Proyecto</a>
+            </li>
+            <li>
+                Proceso competitivo
+            </li>
+            <li>
+                Oferta mercantil
+            </li>
+            <li class="active">
+                <strong>Registro</strong>
+            </li>
+
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+<div class="wrapper wrapper-content animated fadeIn">
+
+    <div class="row" ng-show="visibilidadOff">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <h2>Gestión de Oferta Mercantil</h2>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                    </div>
+                    <div class="tabs-container">
+                        <ul class="nav nav-tabs">
+                            <li class="active"><a data-toggle="tab" href="DatoBasic#tab-1"> Datos basicos</a></li>
+                            <li class=""><a data-toggle="tab" href="DatoBasic#tab-2">Polizas</a></li>
+                            <li class=""><a data-toggle="tab" href="DatoBasic#tab-3">Documentos</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div id="tab-1" class="tab-pane active">
+                                <div class="panel-body">
+                                    <form role="form" name="userForm" novalidate>
+                                        <div class="form-group col-lg-6" ng-class="{'has-error':userForm.competitivo.$invalid && !userForm.competitivo.$pristine }">
+                                            <label>Seleccione proceso competitivo *</label>
+                                            <input type="text" placeholder="" class="form-control" name="competitivo" title="Clic para cargar listado de proceso competitivos" ng-click="Modal();" ng-model="OFM.DETALLE_PS " required>
+                                        </div>
+                                        <div class="form-group col-lg-3" ng-class="{'has-error':userForm.PO.$invalid && !userForm.PO.$pristine }">
+                                            <label>No de PO * </label>
+                                            <input type="text" placeholder="" class="form-control" name="PO" ng-model="OFM.NO_PO" required>
+                                        </div>
+                                        <div class="form-group col-lg-3" ng-class="{'has-error':userForm.contrato.$invalid && !userForm.contrato.$pristine }">
+                                            <label>Nº  de contrato *</label>
+                                            <input type="text" placeholder="" class="form-control" name="contrato" ng-model="OFM.N_OFM" required>
+                                        </div>
+                                    </form>
+
+                                    <div class="form-group col-lg-4" id="data_1">
+                                        <label>Fecha de suspcrición</label>
+                                        <div class="input-group date">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span><input type="text" class="form-control" value="{{CurrentDate | date:'dd/MM/yyyy'}}">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-lg-4" id="data_1">
+                                        <label>Fecha de inicio</label>
+                                        <div class="input-group date">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span><input type="text" class="form-control" ng-model="OFM.FECHA_INIC_OFM" ng-change="configuracion()">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-lg-4" id="data_1">
+                                        <label>Fecha de finalización</label>
+                                        <div class="input-group date">
+                                            <span class="input-group-addon">
+                                                <i class="fa fa-calendar"></i>
+                                            </span><input type="text" class="form-control" ng-model="OFM.FECHA_FINAL_OFM" readonly="">
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group col-lg-4">
+                                        <label>Vigencia del contrato</label>
+                                        <input type="text" placeholder="" class="form-control" ng-model="OFM.VIGENCIA" readonly="">
+                                    </div>
+
+                                    <div class="form-group col-lg-4">
+                                        <label>Titulo del contrato</label>
+                                        <input type="text" placeholder="" class="form-control" ng-model="OFM.TITULO_OFM">
+                                    </div>
+                                    <div class="form-group col-lg-4">
+                                        <label>Vendor</label>
+                                        <input type="text" placeholder="" class="form-control" ng-model="OFM.VENDOR">
+                                    </div>
+
+                                    <div class="form-group col-lg-6">
+                                        <label>Objeto del contrato</label>
+                                        <input type="text" placeholder="" class="form-control" ng-model="OFM.OBJETO_OFM">
+                                    </div>
+
+                                    <div class="form-group col-lg-3">
+                                        <label>Jurisdicción</label>
+                                        <input type="text" placeholder="" class="form-control" ng-model="OFM.LUGRA_EJECUCION_OFM">
+                                    </div>
+
+                                    <div class="form-group col-lg-3">
+                                        <label>Tipo de moneda</label>
+                                        <select class="form-control" ng-model="OFM.TIPO_MONEDA">
+                                            <option></option>
+                                            <option value="COP">COP</option>
+                                            <option value="USD">USD</option>
+                                        </select>
+                                    </div>
+
+                                    <div class="form-group col-lg-4">
+                                        <label>Valor estimado</label>
+                                        <input type="text" placeholder="" class="form-control" ng-model="OFM.VALOR_ESTIMAO_OFM">
+                                    </div>
+
+                                    <div class="form-group col-lg-4">
+                                        <label>Valor real</label>
+                                        <input type="text" placeholder="" class="form-control" ng-model="OFM.VALOR_REAL_OFM">
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div id="tab-2" class="tab-pane">
+                                <div class="panel-body">
+                                    <div class="table-responsive">
+                                        <table class="table table-striped">
+                                            <thead>
+                                                <tr>
+                                                    <th></th>
+                                                    <th style="width:120px">Numero poliza</th>
+                                                    <th>Fecha inicio</th>
+                                                    <th>Fecha de finalización</th>
+                                                    <th>Aseguradora</th>
+                                                    <th>Valor</th>
+                                                    <th>Tipo de poliza</th>
+                                                    <th>Valor asegurador</th>
+                                                    <th></th>
+                                                    <th colspan="3" style="text-align: center">Acciones</th>
+                                                    <th></th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr style="background-color: transparent">
+                                                    <td></td>
+                                                    <td><input type="text" placeholder="" class="form-control" ng-model="Poliza.COD_POLIZA"></td>
+
+                                                    <td style="width:160px;">
+                                                        <div class="form-group" id="data_2">
+                                                            <div class="input-group date">
+                                                                <span class="input-group-addon">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </span><input type="text" class="form-control" ng-model="Poliza.FECHA_INI_POL">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+
+                                                    <td style="width:160px;">
+                                                        <div class="form-group" id="data_3">
+                                                            <div class="input-group date">
+                                                                <span class="input-group-addon">
+                                                                    <i class="fa fa-calendar"></i>
+                                                                </span><input type="text" class="form-control" ng-model="Poliza.FECHA_FINAL_POL">
+                                                            </div>
+                                                        </div>
+                                                    </td>
+                                                    <td style="width:210px;">
+                                                        <select class="select2_demo_1 form-control" ng-model="Poliza.NOMBRE_ASG" style="width:210px;" ng-change="ChangeAseguradora()">
+                                                            <option data-ng-repeat="Aseguradora in Aseguradoras">{{Aseguradora.NOMBRE_ASG}}</option>
+                                                        </select>
+                                                    </td>
+
+                                                    <td><input type="text" placeholder="" class="form-control" ng-model="Poliza.VALOR_POLIZA"></td>
+
+                                                    <td style="width:210px;">
+                                                        <select class="form-control" ng-model="Poliza.NOMBRE_AMP" id="select2_demo_2" style="width:210px;" ng-change="ChangeAmparo()">
+                                                            <option data-ng-repeat="Amparo in Amparos">{{Amparo.NOMBRE_AMP}}</option>
+                                                        </select>
+                                                    </td>
+
+                                                    <td><input type="number" placeholder="" class="form-control" ng-model="Poliza.VALOR_ASEGURADO"></td>
+
+                                                    <td></td>
+                                                    <td style="padding-top:10px">
+                                                        <a href="javasrcritp:;" title="guardar" id="guardar" ng-click="CargarPoliza();"><i class="fa fa-save" style="font-size:20px;color:#1A7BB9;padding-right:5px"></i></a>
+                                                    </td>
+                                                    <!--
+                                                    <td style="padding-top:10px">
+                                                    </td>
+                                                    -->
+
+                                                </tr>
+                                            </tbody>
+                                        </table>
+                                        <div id="lispoliza">
+
+                                        </div>
+                                    </div>
+                                    <br />
+                                </div>
+                            </div>
+                            <div id="tab-3" class="tab-pane">
+                                <div class="panel-body">
+                                    <section id="envio">
+                                        <form id="myForm">
+                                            <input type="file" id="files" name="files[]" onchange="angular.element(this).scope().visualizar()" multiple="multiple">
+                                        </form>
+                                    </section>
+                                    <div id="lista"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="panel-footer">
+                            <center><button type="button" ng-disabled="userForm.$invalid" class="btn btn-primary" ng-click="Add()">Registrar</button></center>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+    <div class="row" ng-show="visibilidadOn">
+
+        <div class="row">
+            <div class="col-lg-12">
+                <div class="ibox float-e-margins">
+                    <div class="ibox-title">
+                        <div class="row">
+                            <div class="col-lg-9">
+                                <h2>Gestion de Oferta Mercantil</h2>
+                            </div>
+                            <div class="col-lg-3">
+                                <div class="input-group">
+                                    <input type="text" placeholder="Buscador" class="input-sm form-control" ng-model="filtro"> <span class="input-group-btn">
+                                        <button type="button" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="hr-line-dashed"></div>
+                    </div>
+                    <div class="tabs-container">
+                        <div class="ibox-content">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th></th>
+                                        <th>Titulo</th>
+                                        <th>Objeto de contrato</th>
+                                        <th>Fech inic proceso</th>
+                                        <th>Fecha de suscripción</th>
+                                        <th>Lugar de ejecución</th>
+                                        <th>Valor estimado</th>
+                                        <th>Detalle</th>
+                                        <th>Acciones</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="gradeX" data-ng-repeat="OFM in OFMS track by $index">
+                                        <th></th>
+                                        <td>{{OFM.TITULO_OFM}}</td>
+                                        <td>{{OFM.OBJETO_OFM}}</td>
+                                        <td>{{OFM.FECHA_INIC_OFM}}</td>
+                                        <td>{{OFM.FECHA_SUSCRIP_OFM}}</td>
+                                        <td>{{OFM.LUGRA_EJECUCION_OFM}}</td>
+                                        <td>{{OFM.VALOR_ESTIMAO_OFM}}</td>
+                                        <td class="center">
+                                            <a ng-href="" title="Ver detalle" data-toggle="modal" data-target="#modalDescripcion" ng-click="detalle()"><i class="fa fa-eye" style="font-size:20px;color:#1A7BB9;"></i></a>
+                                        </td>
+                                        <td style="text-align: center">
+                                            <a href="javasrcritp:;" title="Editar Proyecto" ng-click="edit(Proyec)"><i class="fa fa-edit" style="font-size:20px;color:#1A7BB9;padding-right:5px"></i></a>
+                                            <a href="javasrcritp:;" title="Anular Proyectos" ng-click="removePR(Proyec)"><i class="fa fa-trash" style="font-size:20px;color:#ED5565;"></i></a>
+                                        </td>
+                                    </tr>
+
+                                </tbody>
+
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+</div>
+
+<div class="modal inmodal" id="modalprocesos" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content animated fadeIn">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                <h4 class="modal-title">Listado de procesos competitivos</h4>
+            </div>
+            <div class="modal-body">
+                <div ng-show="ON">
+                    <ul class="nav metismenu" id="side-menu" data-ng-repeat="Proceso in Procesos track by $index" ng-click="detalle()">
+                        <li>
+                            <a><i class="fa fa-folder"></i> <span class="nav-label">{{Proceso.DETALLE_PS}}</span></a>
+                        </li>
+                    </ul>
+                </div>
+                <div ng-show="OFF">
+                    <ul class="nav metismenu" id="side-menu" data-ng-repeat="AspirantesPro in AspirantesPros">
+                        <li ng-click="Cargar()">
+                            <a><i class="fa fa-user"></i> <span class="nav-label">{{AspirantesPro.NOM_RAZONSOCIAL}}</span></a>
+                        </li>
+                    </ul>
+                    <center><button class="btn btn-default " type="button" ng-click="Atras()"><i class="fa fa-reply"></i> Atras</button></center>
+                </div>
+            </div>
+
+            <div class="modal-footer">
+                <button type="submit" class="btn btn-white" data-dismiss="modal">Cerrar</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="contenedorb">
+    <button class="botonF1" ng-click="Mostrar()" ng-show="visibilidadOn">
+        <i class="fa fa-plus" style="font-size:36px;"></i>
+    </button>
+    <button class="botonF1" ng-click="Ocultar()" ng-show="visibilidadOff">
+        <i class="fa fa-mail-reply " style="font-size:36px;"></i>
+    </button>
+</div>
+<script>
+    $(document).ready(function () {
+        $('#data_1 .input-group.date').datepicker({
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
+
+        $('#data_2 .input-group.date').datepicker({
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
+
+        $('#data_3 .input-group.date').datepicker({
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
+
+
+        $(".select2_demo_1").select2();
+        $("#select2_demo_2").select2();
+        document.getElementById("body").className = "md-skin fixed-sidebar fixed-nav pace-done mini-navbar";
+
+    });
+</script>

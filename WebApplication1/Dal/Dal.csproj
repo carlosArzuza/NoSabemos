@@ -1,0 +1,206 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{A84DB0D6-00A2-44E5-BA4A-5E602B145103}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Dal</RootNamespace>
+    <AssemblyName>Dal</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Amparos_Polizas.cs" />
+    <Compile Include="Archivo_Ruta.cs" />
+    <Compile Include="Aseguradoras.cs" />
+    <Compile Include="Aspirantes.cs" />
+    <Compile Include="Aspirante_Proceso.cs" />
+    <Compile Include="Configuraciones.cs" />
+    <Compile Include="Migrations\201602230247383_L.cs" />
+    <Compile Include="Migrations\201602230247383_L.Designer.cs">
+      <DependentUpon>201602230247383_L.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602231529578_ofm.cs" />
+    <Compile Include="Migrations\201602231529578_ofm.Designer.cs">
+      <DependentUpon>201602231529578_ofm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602231606021_Polizas.cs" />
+    <Compile Include="Migrations\201602231606021_Polizas.Designer.cs">
+      <DependentUpon>201602231606021_Polizas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602232040473_poliza-cod.cs" />
+    <Compile Include="Migrations\201602232040473_poliza-cod.Designer.cs">
+      <DependentUpon>201602232040473_poliza-cod.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602241432372_add-estadoPRC.cs" />
+    <Compile Include="Migrations\201602241432372_add-estadoPRC.Designer.cs">
+      <DependentUpon>201602241432372_add-estadoPRC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602241546099_FR-OFM-PROC.cs" />
+    <Compile Include="Migrations\201602241546099_FR-OFM-PROC.Designer.cs">
+      <DependentUpon>201602241546099_FR-OFM-PROC.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201602291435330_aspirantes.cs" />
+    <Compile Include="Migrations\201602291435330_aspirantes.Designer.cs">
+      <DependentUpon>201602291435330_aspirantes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603021624361_cambio-pl.cs" />
+    <Compile Include="Migrations\201603021624361_cambio-pl.Designer.cs">
+      <DependentUpon>201603021624361_cambio-pl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603031936559_keynueva.cs" />
+    <Compile Include="Migrations\201603031936559_keynueva.Designer.cs">
+      <DependentUpon>201603031936559_keynueva.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603031946146_nuevos_a.cs" />
+    <Compile Include="Migrations\201603031946146_nuevos_a.Designer.cs">
+      <DependentUpon>201603031946146_nuevos_a.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603032130326_PO.cs" />
+    <Compile Include="Migrations\201603032130326_PO.Designer.cs">
+      <DependentUpon>201603032130326_PO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603081646497_amparos_polizas.cs" />
+    <Compile Include="Migrations\201603081646497_amparos_polizas.Designer.cs">
+      <DependentUpon>201603081646497_amparos_polizas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603081648063_cambio_polizas.cs" />
+    <Compile Include="Migrations\201603081648063_cambio_polizas.Designer.cs">
+      <DependentUpon>201603081648063_cambio_polizas.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603101557031_Aseg.cs" />
+    <Compile Include="Migrations\201603101557031_Aseg.Designer.cs">
+      <DependentUpon>201603101557031_Aseg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603101953198_update-asg.cs" />
+    <Compile Include="Migrations\201603101953198_update-asg.Designer.cs">
+      <DependentUpon>201603101953198_update-asg.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603111940024_Aspirante_OFM.cs" />
+    <Compile Include="Migrations\201603111940024_Aspirante_OFM.Designer.cs">
+      <DependentUpon>201603111940024_Aspirante_OFM.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603131344125_c.cs" />
+    <Compile Include="Migrations\201603131344125_c.Designer.cs">
+      <DependentUpon>201603131344125_c.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Oferta_Mercantil.cs" />
+    <Compile Include="Orden_Compra.cs" />
+    <Compile Include="Polizas.cs" />
+    <Compile Include="Proceso_Competitivo.cs" />
+    <Compile Include="Proyectos.cs" />
+    <Compile Include="ModelContex.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Proyec_Manager.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201602230247383_L.resx">
+      <DependentUpon>201602230247383_L.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602231529578_ofm.resx">
+      <DependentUpon>201602231529578_ofm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602231606021_Polizas.resx">
+      <DependentUpon>201602231606021_Polizas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602232040473_poliza-cod.resx">
+      <DependentUpon>201602232040473_poliza-cod.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602241432372_add-estadoPRC.resx">
+      <DependentUpon>201602241432372_add-estadoPRC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602241546099_FR-OFM-PROC.resx">
+      <DependentUpon>201602241546099_FR-OFM-PROC.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201602291435330_aspirantes.resx">
+      <DependentUpon>201602291435330_aspirantes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603021624361_cambio-pl.resx">
+      <DependentUpon>201603021624361_cambio-pl.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603031936559_keynueva.resx">
+      <DependentUpon>201603031936559_keynueva.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603031946146_nuevos_a.resx">
+      <DependentUpon>201603031946146_nuevos_a.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603032130326_PO.resx">
+      <DependentUpon>201603032130326_PO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603081646497_amparos_polizas.resx">
+      <DependentUpon>201603081646497_amparos_polizas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603081648063_cambio_polizas.resx">
+      <DependentUpon>201603081648063_cambio_polizas.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603101557031_Aseg.resx">
+      <DependentUpon>201603101557031_Aseg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603101953198_update-asg.resx">
+      <DependentUpon>201603101953198_update-asg.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603111940024_Aspirante_OFM.resx">
+      <DependentUpon>201603111940024_Aspirante_OFM.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603131344125_c.resx">
+      <DependentUpon>201603131344125_c.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

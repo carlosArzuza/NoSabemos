@@ -1,0 +1,118 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>js-xlsx Example</title>
+    <script src="/application/html/js/Niggler/js-xlsx/jszip.js"></script>
+    <script src="/application/html/js/Niggler/js-xlsx/xlsx.js"></script>
+
+
+    <style>
+        #drop {
+            border: 2px dashed #bbb;
+            padding: 25px;
+            text-align: center;
+            font: 20pt bold;
+            color: #bbb;
+        }
+
+        #b64data {
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <input type="radio" name="format" value="csv" checked> CSV<br>
+    <input type="radio" name="format" value="json"> JSON<br>
+    <div id="drop">Drop an XLSX file here to see data in CSV or JSON.</div>
+    <textarea id="b64data">... or paste a base64-encoding here</textarea>
+    <input type="button" id="dotext" value="Click here to process the base64 text" onclick="b64it();" />
+<pre id="out"></pre>
+    <script>
+function get_radio_value( radioName ) {
+  var radios = document.getElementsByName( radioName );
+  for( var i = 0; i < radios.length; i++ ) {
+    if( radios[i].checked ) {
+      return radios[i].value;
+    }
+  }
+}
+
+//Row object array form:
+//Each row is an object with column headers as keys
+function to_json(workbook) {
+  var result = {};
+  workbook.SheetNames.forEach(function(sheetName) {
+    var rObjArr = XLSX.utils.sheet_to_row_object_array(workbook.Sheets[sheetName]);
+    if(rObjArr.length > 0){
+      result[sheetName] = rObjArr;
+    }
+  });
+  return result;
+}
+
+
+function to_csv(workbook) {
+  var result = [];
+  workbook.SheetNames.forEach(function(sheetName) {
+    var rObjArr = XLSX.utils.sheet_to_csv(workbook.Sheets[sheetName]);
+    if(rObjArr.length > 0){
+      result.push("SHEET: " + sheetName);
+      result.push("");
+      result.push(rObjArr);
+    }
+  });
+  return result.join("\n");
+}
+
+var tarea = document.getElementById('b64data');
+function b64it() {
+  var xlsx = XLSX.read(tarea.value, {type: 'base64'});
+  process_xlsx(xlsx);
+}
+
+function process_xlsx(xlsx) {
+  var output = "";
+  if(get_radio_value("format") === "json"){
+    output = JSON.stringify(to_json(xlsx), 2, 2);
+  } else {
+    output = to_csv(xlsx);
+  }
+  if(out.innerText === undefined) out.textContent = output;
+  else out.innerText = output;
+}
+
+var drop = document.getElementById('drop');
+function handleDrop(e) {
+  e.stopPropagation();
+  e.preventDefault();
+  var files = e.dataTransfer.files;
+  var i,f;
+  for (i = 0, f = files[i]; i != files.length; ++i) {
+    var reader = new FileReader();
+    var name = f.name;
+    reader.onload = function(e) {
+      var data = e.target.result;
+      //var xlsx = XLSX.read(data, {type: 'binary'});
+      var arr = String.fromCharCode.apply(null, new Uint8Array(data));
+      var xlsx = XLSX.read(btoa(arr), {type: 'base64'});
+      process_xlsx(xlsx);
+    };
+    //reader.readAsBinaryString(f);
+    reader.readAsArrayBuffer(f);
+  }
+}
+
+function handleDragover(e) {
+  e.stopPropagation();
+  e.preventDefault();
+  e.dataTransfer.dropEffect = 'copy';
+}
+
+if(drop.addEventListener) {
+  drop.addEventListener('dragenter', handleDragover, false);
+  drop.addEventListener('dragover', handleDragover, false);
+  drop.addEventListener('drop', handleDrop, false);
+}
+    </script>
+</body>
+</html>

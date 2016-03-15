@@ -1,0 +1,250 @@
+﻿
+<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#/">Inicio</a>
+            </li>
+            <li>
+                <a>Proyecto</a>
+            </li>
+            <li>
+                <a>Oferta Mercantil</a>
+            </li>
+            <li class="active">
+                <strong>Orden de Compra</strong>
+            </li>
+        </ol>
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+
+<div class="wrapper wrapper-content animated fadeIn">
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="ibox float-e-margins">
+                <div class="ibox-title">
+                    <div class="row">
+                        <div class="col-lg-9">
+                            <h2>Gestión de Orden de Compra</h2>
+                        </div>
+                    </div>
+                    <div class="hr-line-dashed"></div>
+                </div>
+                <div class="tabs-container">
+                    <ul class="nav nav-tabs">
+                        <li class="active"><a data-toggle="tab" href="DatoBasic#tab-1">Información básica</a></li>
+                        <li class=""><a data-toggle="tab" href="DatoBasic#tab-2">Descripción</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div id="tab-1" class="tab-pane active">
+                            <div class="panel-body">
+
+                                <div class="form-group col-lg-4">
+                                    <label>Seleccione un contrato</label>
+                                    <input type="text" placeholder="" class="form-control" ng-click="Modal()" ng-model="Order.NO_OFM">
+                                </div>
+
+                                <div class="form-group col-lg-4" id="data_1">
+                                    <label>Nº  de PO</label>
+                                    <input type="text" placeholder="" class="form-control" ng-model="Order.NUMERO_PO">
+                                </div>
+
+                                <div class="form-group col-lg-4" id="data_1">
+                                    <label class="font-noraml">Fecha de Inicio</label>
+                                    <div class="input-group date">
+                                        <span class="input-group-addon">
+                                            <i class="fa fa-calendar"></i>
+                                        </span><input type="text" class="form-control">
+                                    </div>
+                                </div>
+                                <div class="form-group col-lg-4">
+                                    <label>Comprador</label>
+                                    <input type="text" placeholder="" class="form-control">
+                                </div>
+
+                                <div class="form-group col-lg-4">
+                                    <label>Jurisdicción</label>
+                                    <input type="text" placeholder="" class="form-control">
+                                </div>
+
+                                <div class="form-group col-lg-4">
+                                    <label>AFE</label>
+                                    <input type="text" placeholder="" class="form-control">
+                                </div>
+                                <h3>Información del Contacto</h3>
+                                <hr>
+                                <div class="form-group col-lg-12">
+
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Nombre</th>
+                                                <th>Correo</th>
+                                                <th>Telefono</th>
+                                                <th>Celular</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr>
+                                                <td><input type="text" class="input_table form-control" placeholder="Carlos"></td>
+                                                <td><input type="text" class="input_table form-control" placeholder="@example.com"></td>
+                                                <td><input type="text" class="input_table  form-control" placeholder="0000000"></td>
+                                                <td> <input type="text" class="input_table  form-control" placeholder="0000000"></td>
+                                                <td><a href="javasrcritp:;" title="Adicionar contacto"><i class="fa fa-plus" style="font-size: 20px; padding: 7px"></i></a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+
+                            </div>
+                        </div>
+                        <div id="tab-2" class="tab-pane">
+                            <div class="panel-body">
+
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6 col-sm-12 " style="padding:7px;margin-left:10px;">
+                                        <h5>Seleccione el archivo que desea subir:</h5>
+                                    </div>
+                                </div>
+                                <div class="row">
+
+
+                                    <div class="col-lg-4 col-md-4 col-sm-12" type="file" style="padding: 12px; margin-left: 10px;">
+
+                                        <div class="fileUpload btn verde" style="color: #9E9E9E; transform: translate(-15px,-15px); ">
+                                            <input type="file" id="uploadBtn" name="excel_file" accept=".xlsx" onchange="angular.element(this).scope().fileChanged(this.files);" required="true" class="upload" />
+                                        </div>
+                                    </div>
+
+
+                                    <div class="col-lg-4 col-md-4 col-sm-12" ng-show="sheets" style="padding:7px;">
+                                        <div class="form-group">
+                                            <label for="input" class="pull-left control-label">Seleccione la hoja:</label>
+                                            <div class="col-lg-7 col-md-6" style="margin-top:-8px;">
+                                                <select ng-model="sheet" id="input" class="form-control select2_demo_1" required="required" ng-change="EnviarLista()">
+                                                    <option ng-repeat="(key, value) in sheets">{{key}}</option>
+                                                </select>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="form-group col-lg-12">
+
+
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Producto</th>
+                                                <th>Cantidad</th>
+                                                <th>Unidad</th>
+                                                <th>Valor Unitario</th>
+                                                <th>Valor Total</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr data-ng-repeat="invoices in invoice">
+                                                <td><input type="text" class="input_table form-control" placeholder="" ng-model="invoices.Producto"></td>
+                                                <td><input type="text" class="input_table form-control" placeholder="" ng-model="invoices.Cantidad" ng-required></td>
+                                                <td><input type="text" class="input_table  form-control" placeholder="" ng-model="invoices.Unidad"></td>
+                                                <td><input type="text" class="input_table  form-control" placeholder="" ng-model="invoices.ValorUnitario" ng:required></td>
+                                                <td><input type="text" disabled="true" class="input_table  form-control" value="{{invoices.Cantidad * invoices.ValorUnitario | currency}}"></td>
+                                                <td><a href="javasrcritp:;" title="Eliminar item" ng:click="removeItem($index)"><i class="fa fa-trash" style="font-size: 20px; color: #ED5565; padding: 7px"></i></a></td>
+                                                
+                                            </tr>
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td><h3>Total ejecutado:</h3></td>
+                                                <td><h3>{{total() | currency}}</h3></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a href ng:click="addItem()" class="btn btn-primary">Nuevo Campo</a></td>
+                                                <td></td>
+                                                <td><h3>Disponible:</h3></td>
+                                                <td><h3>{{total() | currency}}</h3></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+                                </div>
+
+                                <br />
+                                <div class="form-group">
+                                    <label for="comment">Observación orden de compra:</label>
+                                    <textarea class="form-control" rows="3" id="Observacion"></textarea>
+                                </div>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="panel-footer" style="background-color:white">
+                        <center><button type="button" class="btn btn-primary">Registrar</button></center>
+                    </div>
+                </div>
+            </div>
+            
+
+
+
+        </div>
+    </div>
+    <div class="modal inmodal" id="modalprocesos" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content animated fadeIn">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span class="sr-only">Close</span></button>
+                    <h4 class="modal-title">Listado Ofertas Mercantiles</h4>
+                </div>
+                <div class="modal-body">
+                    <div ng-show="ON">
+                        <ul class="nav metismenu" id="side-menu" data-ng-repeat="OFM in OFMS track by $index" ng-click="detalle()">
+                            <li>
+                                <a><i class="fa fa-folder"></i> <span class="nav-label">{{OFM.TITULO_OFM}}</span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div ng-show="OFF">
+                        <ul class="nav metismenu" id="side-menu" data-ng-repeat="Order in Orders">
+                            <li ng-click="Cargar()">
+                                <a><i class="fa fa-user"></i> <span class="nav-label">{{Order.NUMERO_PO}}</span></a>
+                            </li>
+                        </ul>
+                        <center><button class="btn btn-default " type="button" ng-click="Atras()"><i class="fa fa-reply"></i> Atras</button></center>
+                    </div>
+                </div>
+
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-white" data-dismiss="modal">Cerrar</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+<script>
+    $(document).ready(function () {
+        $('#data_1 .input-group.date').datepicker({
+            todayBtn: "linked",
+            keyboardNavigation: false,
+            forceParse: false,
+            calendarWeeks: true,
+            autoclose: true
+        });
+
+    });
+
+</script>
+
+

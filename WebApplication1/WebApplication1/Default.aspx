@@ -4,14 +4,16 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml" ng-app="myApp">
 <head runat="server">
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="utf-8" />
     <title>Drummond.Ltda | Index</title>
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-    <link href="font-awesome/css/font-awesome.css" rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet" />
+    <link href="font-awesome/css/font-awesome.css" rel="stylesheet"/>
+
+    <!--My styles-->
+    <link href="css/pagination.css" rel="stylesheet" />
 
     <!-- Toastr style -->
-    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet"
+    <link href="css/plugins/toastr/toastr.min.css" rel="stylesheet" />
 
     <!-- Data Tables -->
     <link href="css/plugins/dataTables/dataTables.bootstrap.css" rel="stylesheet"/>
@@ -32,7 +34,7 @@
 <body  class="md-skin fixed-sidebar fixed-nav pace-done" id="body">
     <form id="form1" runat="server">
     <div>
-      <div id="wrapper" ng-controller="indexController">
+      <div id="wrapper" >
         <nav class="navbar-default navbar-static-side" role="navigation">
             <div class="sidebar-collapse" style="overflow: hidden; width: auto; height: 100%;">
                 <ul class="nav metismenu" id="side-menu">
@@ -55,10 +57,10 @@
                         </div>
                     </li>
                     <li class="active">
-                        <a href="index.html"><i class="fa fa-th-large"></i> <span class="nav-label">Inicio</span></a>
+                        <a href="Default.aspx"><i class="fa fa-th-large"></i> <span class="nav-label">Inicio</span></a>
                     </li>
                     <li class="">
-                        <a><i class="fa fa-tasks"></i> <span class="nav-label">Proyecto</span><span class="fa arrow"></span></a>
+                        <a><i class="fa fa-folder"></i> <span class="nav-label">Proyecto</span><span class="fa arrow"></span></a>
                         <ul class="nav nav-second-level collapse" style="height: 0px;">
 
                             <li><a href="#/Proyectos/Proyectos">Gestión de Proyectos</a></li>
@@ -79,7 +81,7 @@
                     </li>
 
                     <li><a href="#/Notificaciones"><i class="fa fa-bell"></i><span class="nav-label">Notificaciones</span></a></li>
-                    <li><a href="#/Historial"><i class="fa fa-folder"></i><span class="nav-label">Historial</span></a></li>
+                    <li><a href="#/Historial"><i class="fa fa-archive"></i><span class="nav-label">Historial</span></a></li>
                    
                     <li><a href="#/DatosBasicos/ProjectManager"><i class="fa fa-user"></i><span class="nav-label">Project manager</span></a></li>
                     <li><a href="#/DatosBasicos/RegistroVendors"><i class="fa fa-group"></i><span class="nav-label">Vendors</span></a></li>
@@ -297,6 +299,7 @@
 
     <script src="Angular/js/angular/angular.min.js"></script>
     <script src="Angular/js/bootstrap/ui-bootstrap-tpls-0.12.0.min.js"></script>
+    <script src="Angular/js/bootstrap/ui-bootstrap-tpls-0.3.0.min.js"></script>
     <script src="Angular/js/angular/angular-route.min.js"></script>
     <script src="MyScript/Router/Enrutador.js"></script>
     <script src="js/ng-table.min.js"></script>

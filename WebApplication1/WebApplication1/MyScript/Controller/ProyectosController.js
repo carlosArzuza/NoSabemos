@@ -11,6 +11,16 @@
     $rootScope.Proc_Competitivo = {};
     $rootScope.Proc_Competitivos = [];
 
+    $scope.filteredProyecs = []
+  , $scope.currentPageP = 1
+  , $scope.numPerPageP = 10
+  , $scope.maxSize = 6;
+
+    $scope.filteredProManager = []
+  , $scope.currentPagePM = 1
+  , $scope.numPerPagePM = 10
+  , $scope.maxSize = 6;
+
     $scope.Confi = {}
     $scope.Conficto = []; //Listado de contratos
 
@@ -56,7 +66,13 @@
         $scope.Proyec.PROYECT_MANAGER = "";
     }
 
-    
+    $scope.numPagesP = function () {
+        return Math.ceil($scope.Proyecs.length / $scope.numPerPageP);
+    };
+
+    $scope.numPagesPM = function () {
+        return Math.ceil($scope.managers.length / $scope.numPerPagePM);
+    };
 
     $scope.LoaPromanager = function () {
         $('#Modalmanager').modal('show');
@@ -82,6 +98,13 @@
         var promiseGet = ProyectoServices.getAll(); //The Method Call from service
         promiseGet.then(function (pl) {
             $scope.Proyecs = pl.data;
+
+            $scope.$watch('currentPageP + numPerPageP', function () {
+                var begin = (($scope.currentPageP - 1) * $scope.numPerPageP)
+                , end = begin + $scope.numPerPageP;
+
+                $scope.filteredProyecs = $scope.Proyecs.slice(begin, end);
+            });
         },
               function (errorPl) {
                   $log.error('Error al cargar los datos almacenados', errorPl);
@@ -136,6 +159,12 @@
         var promiseGet = ProyectoServices.getAllManager(); //The Method Call from service
         promiseGet.then(function (pl) {
             $scope.managers = pl.data;
+            $scope.$watch('currentPagePM + numPerPagePM', function () {
+                var begin = (($scope.currentPagePM - 1) * $scope.numPerPagePM)
+                , end = begin + $scope.numPerPagePM;
+
+                $scope.filteredProManager = $scope.managers.slice(begin, end);
+            });
         },
               function (errorPl) {
                   $log.error('Error al cargar los datos almacenados', errorPl);

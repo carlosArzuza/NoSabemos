@@ -101,19 +101,6 @@
     $scope.showJSONPreview = true;
     $scope.json_string = "";
 
-    $scope.fileChanged = function (files) {
-        $scope.isProcessing = true;
-        $scope.sheets = [];
-        $scope.excelFile = files[0];
-        XLSXReaderService.readFile($scope.excelFile, $scope.showPreview, $scope.showJSONPreview).then(function (xlsxData) {
-            $scope.sheets = xlsxData.sheets;
-            $scope.isProcessing = false;
-            // mi ediciones
-            var file_name = document.getElementById("uploadBtn").value;
-            console.log("Excel " + $scope.sheets["Orden"]);
-        });
-    };
-
     $scope.mensajeError = "Debe seleccionar una hoja valida."
     $scope.mensajeSuccess = "Se han cargado los datos de manera exitosa."
 
@@ -143,6 +130,20 @@
 
         }, 1100);
     }
+
+
+    $scope.fileChanged = function (files) {
+        $scope.isProcessing = true;
+        $scope.sheets = [];
+        $scope.excelFile = files[0];
+        XLSXReaderService.readFile($scope.excelFile, $scope.showPreview, $scope.showJSONPreview).then(function (xlsxData) {
+            $scope.sheets = xlsxData.sheets;
+            $scope.isProcessing = false;
+            // mi ediciones
+            var file_name = document.getElementById("uploadBtn").value;
+            console.log("Excel " + $scope.sheets["Orden"]);
+        });
+    };
 
     $scope.EnviarLista = function () {
         // reiniciamos siempre el modal

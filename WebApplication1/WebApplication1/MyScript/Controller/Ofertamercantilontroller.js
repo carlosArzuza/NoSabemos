@@ -18,6 +18,11 @@
 
     var Polizas = [];///Vector de Polizas creadas
 
+    $scope.filteredOMercantil = []
+  , $scope.currentPageOM = 1
+  , $scope.numPerPageOM = 10
+  , $scope.maxSize = 6;
+
     initialize();
 
     $scope.CurrentDate = new Date();//Fecha actual
@@ -104,6 +109,10 @@
         $scope.OFM.VENDOR = "";
     }
 
+    $scope.numPagesOM = function () {
+        return Math.ceil($scope.OFMS.length / $scope.numPerPageOM);
+    };
+
     function loadRecordProcoesos() {
         var promiseGet = ProcompetitivoServices.getprocesoAP(); //The Method Call from service
         promiseGet.then(function (pl) {
@@ -119,6 +128,13 @@
         var promiseGet = OfertamercantilServices.getAll(); //The Method Call from service
         promiseGet.then(function (pl) {
             $scope.OFMS = pl.data;
+
+            $scope.$watch('currentPageOM + numPerPageOM', function () {
+                var begin = (($scope.currentPageOM - 1) * $scope.numPerPageOM)
+                , end = begin + $scope.numPerPageOM;
+
+                $scope.filteredOMercantil = $scope.OFMS.slice(begin, end);
+            });
         },
            function (errorPl) {
                console.log('Error al cargar los datos almacenados', errorPl);

@@ -1,35 +1,4 @@
-﻿<style type="text/css">
-    .contenedorb {
-        width: 90px;
-        height: 90px;
-        position: absolute;
-        right: 0px;
-        bottom: 0px;
-    }
-
-    .botonF1 {
-        width: 60px;
-        height: 60px;
-        border-radius: 100%;
-        background: #7cb342;
-        right: 0;
-        bottom: 0;
-        position: fixed;
-        margin-right: 16px;
-        margin-bottom: 16px;
-        border: none;
-        outline: none;
-        color: #FFF;
-        font-size: 36px;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-        transition: .1s;
-    }
-
-        .botonF1:active {
-            transform: scale(1.1);
-        }
-</style>
-<div class="row wrapper border-bottom white-bg page-heading">
+﻿<div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
         <ol class="breadcrumb">
             <li>
@@ -305,7 +274,7 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="gradeX" data-ng-repeat="OFM in OFMS track by $index">
+                                    <tr class="gradeX" data-ng-repeat="OFM in filteredOMercantil track by $index">
                                         <th></th>
                                         <td>{{OFM.TITULO_OFM}}</td>
                                         <td>{{OFM.OBJETO_OFM}}</td>
@@ -325,6 +294,11 @@
                                 </tbody>
 
                             </table>
+                            <div style="text-align:center">
+                                <div data-pagination="" data-num-pages="numPagesOM()"
+                                     data-current-page="currentPageOM" data-max-size="maxSize"
+                                     data-boundary-links="true"></div>
+                            </div>
                         </div>
                     </div>
                 </div>

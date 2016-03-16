@@ -16,7 +16,7 @@
 
     $scope.filteredAspirantes = []
   , $scope.currentPageA = 1
-  , $scope.numPerPageA = 10
+  , $scope.numPerPageA = 7
   , $scope.maxSize = 6;
 
 
@@ -53,6 +53,13 @@
     inicialize();
 
     $scope.CurrentDate = new Date();//Fecha actual
+
+    $scope.Limpiar = function () {
+        $scope.Proceso = {};
+        $scope.filtrarAspirantes = "";
+        $scope.filtrarProyectos = "";
+    }
+    
 
     function inicialize() {
         acumulador = 0;
@@ -284,9 +291,10 @@
                     function (errorpl) {
                         console.log(errorpl)
                     });
-
+                    $scope.Limpiar();
                     swal("Mensaje de Notificacion", "El Proceso fue realizado de manera exitosa.", "success");
                 } else {
+                    $scope.Limpiar();
                     swal("Mensaje de Notificacion", "El Proceso no ha sido confirmado", "error");
                 }
             });

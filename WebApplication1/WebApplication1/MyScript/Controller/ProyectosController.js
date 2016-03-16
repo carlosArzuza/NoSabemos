@@ -269,11 +269,19 @@
 
     //Functin Para Actualizar
     $scope.update = function () {
-        var configuracion = {};
-        configuracion.CONFIG_ID = $scope.Config.CONFIG_ID;
-        configuracion.NOMBRE_CONFIG = $scope.Config.NOMBRE_CONFIG;
-        configuracion.TIPO_CONFIG = $scope.Config.TIPO_CONFIG;
-        var promisePost = ProyectoServices.put(configuracion.CONFIG_ID, configuracion);
+        var proyecto = {}
+        var DOCUMENTO_M = localStorage.getItem("DOCUMENTO");
+
+        proyecto.B_U = $scope.Proyec.B_U;
+        proyecto.GL_UNIT = $scope.Proyec.GL_UNIT;
+        proyecto.AFE = $scope.Proyec.AFE;
+        proyecto.CONTRATO = $scope.Proyec.CONTRATO;
+        proyecto.PROGRAMA = $scope.Proyec.PROGRAMA;
+        proyecto.PROYECTO = $scope.Proyec.PROYECTO;
+        proyecto.AREA = $scope.Proyec.AREA;
+        proyecto.PROYEC_MANAGER = DOCUMENTO_M;
+
+        var promisePost = ProyectoServices.put($scope.Proyec.PROYEC_ID, proyecto);
         promisePost.then(function (d) {
             setTimeout(function () {
                 toastr.options = {
@@ -293,14 +301,15 @@
                     "hideMethod": "fadeOut"
                 };
                 toastr.success("Datos actualizados de manera exitosa.", "Sistema de Notificaciones");
-
+                $scope.editOn();
             }, 1200);
-            $('#ModalEditar').modal('hide');
             loadRecords();
         }, function (err) {
             alert("Some Error Occured " + JSON.stringify(err));
         });
     };
+
+
 
     $scope.detalle = function () {
         $scope.manager = this.manager;

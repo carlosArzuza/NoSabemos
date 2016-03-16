@@ -28,7 +28,7 @@
                             </div>
                             <div class="col-lg-3">
                                 <div class="input-group">
-                                    <input type="text" placeholder="Buscador" class="input-sm form-control" ng-model="filtro"> <span class="input-group-btn">
+                                    <input type="text" placeholder="Buscador" class="input-sm form-control" ng-model="filtrarProyecto"> <span class="input-group-btn">
                                         <button type="button" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
                                     </span>
                                 </div>
@@ -55,7 +55,7 @@
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="gradeX" data-ng-repeat="Proyec in filteredProyecs track by $index">
+                                <tr class="gradeX" data-ng-repeat="Proyec in filteredProyecs |filter:filtrarProyecto track by $index">
                                     <td style="width:120px">{{Proyec.CONTRATO}}</td>
                                     <td>{{Proyec.PROGRAMA}}</td>
                                     <td class="center">{{Proyec.PROYECTO}}</td>
@@ -238,7 +238,7 @@
                         </div>
                     </div>
                     <div class="panel-footer" style="background-color:white">
-                        <center><button type="button" class="btn btn-primary" ng-click="Add()">Registrar</button></center>
+                        <center><button type="button" class="btn btn-primary" ng-click="update()">Actualizar</button></center>
                     </div>
                 </div>
             </div>

@@ -33,8 +33,9 @@ namespace WebDrummond.Controllers
         }
 
         // PUT: api/Proyec/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, Proyecto p)
         {
+            proyec.UpdateProyecto(id, p);
         }
 
         // DELETE: api/Proyec/5

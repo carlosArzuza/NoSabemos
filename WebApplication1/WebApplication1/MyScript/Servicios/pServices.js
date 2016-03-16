@@ -33,6 +33,8 @@ app.service("ConfigService", function ($http) {
         return request;
     };
 
+
+
     this.delete = function (id) {
         var request = $http({
             method: "delete",
@@ -130,6 +132,14 @@ app.service("ProyectoServices", function ($http) {
         return req;
     };
 
+    this.put = function (id, proyecto) {
+        var request = $http({
+            method: "put",
+            url: uri + '/api/Proyec/' + id,
+            data: proyecto
+        });
+        return request;
+    };
 
     this.get = function (id) {
         var req = $http.get(uri + '/api/Proyec/' + id);

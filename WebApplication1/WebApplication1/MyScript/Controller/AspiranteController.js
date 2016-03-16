@@ -8,7 +8,7 @@
     $scope.ON = true
     $scope.OFF = false
 
-    $scope.filteredTodos = []
+    $scope.filteredVendors = []
   , $scope.currentPage = 1
   , $scope.numPerPage = 8
   , $scope.maxSize = 6;
@@ -31,6 +31,14 @@
 
     loadRecords();
 
+    $scope.Limpiar = function () {
+        $scope.Asp = {};
+    }
+
+    $scope.numPages = function () {
+        return Math.ceil($scope.Aspirantes.length / $scope.numPerPage);
+    };
+
     function loadRecords() {
         var promiseGet = AspiranteServices.getAll(); //The Method Call from service
         promiseGet.then(function (pl) {
@@ -39,7 +47,7 @@
                 var begin = (($scope.currentPage - 1) * $scope.numPerPage)
                 , end = begin + $scope.numPerPage;
 
-                $scope.filteredTodos = $scope.Aspirantes.slice(begin, end);
+                $scope.filteredVendors = $scope.Aspirantes.slice(begin, end);
             });
 
         },
@@ -283,8 +291,6 @@
     };
 
     
-    $scope.numPages = function () {
-        return Math.ceil($scope.Aspirantes.length / $scope.numPerPage);
-    };
+    
 
 });

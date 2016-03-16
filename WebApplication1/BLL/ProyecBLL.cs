@@ -32,11 +32,11 @@ namespace BLL
         /// Metodo para actualizar un proyecto
         /// </summary>
         /// <param name="p"></param>
-        public void UpdateProyecto(Proyecto p)
+        public void UpdateProyecto(int id,Proyecto p)
         {
             using (var contex = new ModelContex())
             {
-                var dto = contex.Proyecto.Where(t => t.PROYEC_ID == p.PROYEC_ID).First();
+                var dto = contex.Proyecto.Where(t => t.PROYEC_ID == id).First();
                 if (dto != null)
                 {
 

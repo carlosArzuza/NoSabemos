@@ -42,7 +42,7 @@ namespace WebApplication1
                     Response.Cookies.Add(authCookie);
 
                     //You can redirect now.
-                    Response.Redirect(FormsAuthentication.GetRedirectUrl(TextUser.Text, false));
+                    Response.Redirect("index.html");
 
                 }
                 else

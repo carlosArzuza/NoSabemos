@@ -40,6 +40,7 @@
         $('#ModalEditar').modal('hide');
         $scope.editMode = false;
         initialize();
+        loadRecords();
     };
 
     //Function to Submit the form

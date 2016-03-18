@@ -79,6 +79,7 @@
         loadManager();
     }
 
+    
 
     $scope.loadRecordsAspirantes = function (id) {
         var promiseGet = ProcompetitivoServices.get(id); //The Method Call from service
@@ -98,18 +99,19 @@
         var promiseGet = ProyectoServices.getAll(); //The Method Call from service
         promiseGet.then(function (pl) {
             $scope.Proyecs = pl.data;
-
             $scope.$watch('currentPageP + numPerPageP', function () {
                 var begin = (($scope.currentPageP - 1) * $scope.numPerPageP)
                 , end = begin + $scope.numPerPageP;
 
                 $scope.filteredProyecs = $scope.Proyecs.slice(begin, end);
+                
             });
         },
               function (errorPl) {
                   $log.error('Error al cargar los datos almacenados', errorPl);
               });
     }
+
 
     function loadRecordsProcesos(id) {
         var promiseGet = ProyectoServices.get(id); //The Method Call from service
@@ -316,5 +318,8 @@
         $rootScope.Proyecto = this.Proyec;
         loadRecordsProcesos($rootScope.Proyecto.PROYEC_ID);
     }
+
+    
+
 
 });

@@ -28,6 +28,7 @@
 
     $scope.Limpiar = function () {
         $scope.Amparo = {};
+        getAmparos();
     }
 
 

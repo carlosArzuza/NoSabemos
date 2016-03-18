@@ -77,6 +77,7 @@
         $('#ModalEditar').modal('hide');
         $scope.editMode = false;
         initialize();
+        loadRecords();
     };
 
     $scope.edit = function () {

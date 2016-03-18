@@ -87,17 +87,16 @@
                         <h4 class="modal-title"></h4>
                     </div>
                     <div class="modal-body">
-                        <form role="form">
-                            <div class="form-group">
+                        <form role="form" name="userFormE" novalidate>
+                            <div class="form-group" ng-class="{'has-error':userFormE.NOMBRE_AMP.$invalid && !userFormE.NOMBRE_AMP.$pristine }">
                                 <label>Nombre</label>
-                                <input type="text" name="" class="form-control" ng-model="Amparo.NOMBRE_AMP" />
+                                <input type="text" name="NOMBRE_AMP" class="form-control" ng-model="Amparo.NOMBRE_AMP" required/>
                             </div>
-
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-white" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary" ng-click="update(Amparo.ID_AMP)">Actualizar</button>
+                        <button type="button" class="btn btn-white" data-dismiss="modal" ng-click="Limpiar()">Cerrar</button>
+                        <button type="button" class="btn btn-primary" ng-click="update(Amparo.ID_AMP)" ng-disabled="userFormE.$invalid">Actualizar</button>
                     </div>
                 </div>
             </div>

@@ -27,7 +27,7 @@
                         </div>
                         <div class="col-lg-3">
                             <div class="input-group">
-                                <input type="text" placeholder="Buscador" class="input-sm form-control" ng-model="filtro"> <span class="input-group-btn">
+                                <input type="text" placeholder="Buscador" class="input-sm form-control" ng-model="filtrarManager"> <span class="input-group-btn">
                                     <button type="button" class="btn btn-sm btn-primary"><i class="fa fa-search"></i></button>
                                 </span>
                             </div>
@@ -45,7 +45,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="gradeX" ng-repeat="Promager in Promanagers|orderBy:'NOMBRE' track by $index">
+                            <tr class="gradeX" ng-repeat="Promager in Promanagers|orderBy:'NOMBRE' |filter:filtrarManager track by $index">
                                 <td>
                                     {{Promager.NOMBRE}}
                                     {{Promager.P_APELLIDO}}
@@ -116,18 +116,18 @@
                     <h4 class="modal-title" style="font-weight:normal;font-size:18px">Actualizar Project Manager</h4>
                 </div>
                 <div class="modal-body">
-                    <form role="form">
-                        <div class="form-group">
-                            <label>Identificación</label>
-                            <input type="text" name="DOCUMENTO" class="form-control" ng-model="Promager.DOCUMENTO" id="DOCUMENTO" readonly>
+                    <form role="form" name="userFormE" novalidate>
+                        <div class="form-group" ng-class="{'has-error':userFormE.DOCUMENTO.$invalid && !userFormE.DOCUMENTO.$pristine }">
+                            <label>Identificación*</label>
+                            <input type="text" name="DOCUMENTO" class="form-control" ng-model="Promager.DOCUMENTO" id="DOCUMENTO" readonly required>
                         </div>
-                        <div class="form-group">
-                            <label>Nombres</label>
-                            <input type="text" name="NOMBRE" class="form-control" maxlength="20" ng-model="Promager.NOMBRE" id="NOMBRE">
+                        <div class="form-group" ng-class="{'has-error':userFormE.NOMBRE.$invalid && !userFormE.NOMBRE.$pristine }">
+                            <label>Nombres*</label>
+                            <input type="text" name="NOMBRE" class="form-control" maxlength="20" ng-model="Promager.NOMBRE" id="NOMBRE" required>
                         </div>
-                        <div class="form-group">
-                            <label>Primer Apellido</label>
-                            <input type="text" name="P_APELLIDO" class="form-control" maxlength="30" ng-model="Promager.P_APELLIDO" id="P_APELLIDO">
+                        <div class="form-group" ng-class="{'has-error':userFormE.P_APELLIDO.$invalid && !userFormE.P_APELLIDO.$pristine }">
+                            <label>Primer Apellido*</label>
+                            <input type="text" name="P_APELLIDO" class="form-control" maxlength="30" ng-model="Promager.P_APELLIDO" id="P_APELLIDO" required>
                         </div>
                         <div class="form-group">
                             <label>Segundo Apellido</label>
@@ -141,7 +141,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-white" data-dismiss="modal" ng-click="cancel()">Cerrar</button>
-                    <button type="button" class="btn btn-primary" ng-click="update()">Actualizar</button>
+                    <button type="button" class="btn btn-primary" ng-click="update()" ng-disabled="userFormE.$invalid">Actualizar</button>
                 </div>
             </div>
         </div>

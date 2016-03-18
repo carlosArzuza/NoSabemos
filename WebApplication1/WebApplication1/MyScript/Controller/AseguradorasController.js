@@ -16,6 +16,7 @@
 
     $scope.Limpiar = function () {
         $scope.Aseguradora = {};
+        getAseguradoras();
     }
 
     function getAseguradoras() {

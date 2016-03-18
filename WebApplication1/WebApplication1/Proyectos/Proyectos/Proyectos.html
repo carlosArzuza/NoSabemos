@@ -24,7 +24,7 @@
                     <div class="ibox-title">
                         <div class="row">
                             <div class="col-lg-9">
-                                <h2>Gestión de proyectos</h2>
+                                <h2>Gestión de Proyectos</h2>
                             </div>
                             <div class="col-lg-3">
                                 <div class="input-group">
@@ -92,72 +92,74 @@
                     <div class="ibox-title">
                         <div class="row">
                             <div class="col-lg-9">
-                                <h2>Gestión de proyectos</h2>
+                                <h2>Gestión de Proyectos</h2>
                             </div>
                         </div>
                         <div class="hr-line-dashed"></div>
                     </div>
                     <div class="ibox-content" style="padding-top:-10px">
+
                         <div class="panel-body">
-                            <div class="form-group col-lg-3">
-                                <label>B/U</label>
-                                <input type="text" placeholder="" class="form-control" ng-model="Proyec.B_U">
-                            </div>
+                            <form role="form" name="userForm" novalidate>
+                                <div class="form-group col-lg-3" ng-class="{'has-error':userForm.B_U.$invalid && !userForm.B_U.$pristine }">
+                                    <label>B/U*</label>
+                                    <input type="text" placeholder="" class="form-control" ng-model="Proyec.B_U" name="B_U" required >                                    
+                                </div>
 
-                            <div class="form-group col-lg-3">
-                                <label>GL unit</label>
-                                <input type="text" placeholder="" class="form-control" ng-model="Proyec.GL_UNIT">
-                            </div>
+                                <div class="form-group col-lg-3" ng-class="{'has-error':userForm.GL_UNIT.$invalid && !userForm.GL_UNIT.$pristine }">
+                                    <label>GL Unit*</label>
+                                    <input type="text" placeholder="" class="form-control" ng-model="Proyec.GL_UNIT" name="GL_UNIT" required>
+                                </div>
 
-                            <div class="form-group col-lg-3">
-                                <label>AFE</label>
-                                <input type="text" placeholder="" class="form-control" ng-model="Proyec.AFE">
-                            </div>
+                                <div class="form-group col-lg-3" ng-class="{'has-error':userForm.AFE.$invalid && !userForm.AFE.$pristine }">
+                                    <label>AFE*</label>
+                                    <input type="text" placeholder="" class="form-control" ng-model="Proyec.AFE" name="AFE" required>
+                                </div>
 
-                            <div class="form-group col-lg-3">
-                                <label>Seleccione un Project Manager:</label>
-                                <input type="text" class="form-control" ng-click="LoaPromanager()" ng-model="manager.NOMBRE" title="Hacer clic para cargar listado de Pojer manager">
-                            </div>
+                                <div class="form-group col-lg-3" ng-class="{'has-error':userForm.NOMBRE.$invalid && !userForm.NOMBRE.$pristine }">
+                                    <label>Seleccione un Project Manager:*</label>
+                                    <input type="text" class="form-control" ng-click="LoaPromanager()" name="NOMBRE" ng-model="manager.NOMBRE" title="Hacer clic para cargar listado de Pojer manager" required>
+                                </div>
 
-                            <div class="form-group col-lg-3">
-                                <label>Contrato</label>
-                                <select class="form-control" ng-model="Proyec.CONTRATO">
-                                    <option></option>
-                                    <option ng-repeat="Confi in Conficto">{{Confi.NOMBRE_CONFIG}}</option>
-                                </select>
-                            </div>
+                                <div class="form-group col-lg-3">
+                                    <label>Contrato</label>
+                                    <select class="form-control" ng-model="Proyec.CONTRATO">
+                                        <option></option>
+                                        <option ng-repeat="Confi in Conficto">{{Confi.NOMBRE_CONFIG}}</option>
+                                    </select>
+                                </div>
 
-                            <div class="form-group col-lg-3">
-                                <label>Programa</label>
-                                <input type="text" placeholder="" class="form-control" ng-model="Proyec.PROGRAMA ">
-                            </div>
+                                <div class="form-group col-lg-3">
+                                    <label>Programa</label>
+                                    <input type="text" placeholder="" class="form-control" ng-model="Proyec.PROGRAMA ">
+                                </div>
 
-                            <div class="form-group col-lg-3">
-                                <label>Proyecto</label>
-                                <input type="text" class="form-control" ng-model="Proyec.PROYECTO">
-                            </div>
+                                <div class="form-group col-lg-3">
+                                    <label>Proyecto</label>
+                                    <input type="text" class="form-control" ng-model="Proyec.PROYECTO">
+                                </div>
 
-                            <div class="form-group col-lg-3">
-                                <label>Área</label>
-                                <select class="form-control" ng-model="Proyec.AREA">
-                                    <option></option>
-                                    <option>Geología</option>
-                                    <option>Reservoir Eng.</option>
-                                    <option>Drilling</option>
-                                    <option>Const. Facilities </option>
-                                    <option>O&M</option>
-                                    <option>Administrative</option>
-                                    <option>Financial</option>
-                                    <option>HSE</option>
-                                    <option>Regulatory</option>
-                                    <option>PMO</option>
-                                </select>
-                            </div>
-
+                                <div class="form-group col-lg-3">
+                                    <label>Área</label>
+                                    <select class="form-control" ng-model="Proyec.AREA">
+                                        <option></option>
+                                        <option>Geología</option>
+                                        <option>Reservoir Eng.</option>
+                                        <option>Drilling</option>
+                                        <option>Const. Facilities </option>
+                                        <option>O&M</option>
+                                        <option>Administrative</option>
+                                        <option>Financial</option>
+                                        <option>HSE</option>
+                                        <option>Regulatory</option>
+                                        <option>PMO</option>
+                                    </select>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div class="panel-footer" style="background-color:white">
-                      <center><button type="button" class="btn btn-primary" ng-click="Add()">Registrar</button></center>
+                      <center><button type="button" class="btn btn-primary" ng-click="Add()" ng-disabled="userForm.$invalid">Registrar</button></center>
                     </div>
                 </div>
             </div>
@@ -179,66 +181,67 @@
                     </div>
                     <div class="ibox-content">
                         <div class="panel-body">
+                            
+                            <form role="form" name="userFormE" novalidate>
+                                <div class="form-group col-lg-3" ng-class="{'has-error':userFormE.B_U.$invalid && !userFormE.B_U.$pristine }">
+                                    <label>B/U*</label>
+                                    <input type="text" placeholder="" class="form-control" ng-model="Proyec.B_U" name="B_U" required>
+                                </div>
 
-                            <div class="form-group col-lg-3">
-                                <label>B/U</label>
-                                <input type="text" placeholder="" class="form-control" ng-model="Proyec.B_U">
-                            </div>
+                                <div class="form-group col-lg-3" ng-class="{'has-error':userFormE.GL_UNIT.$invalid && !userFormE.GL_UNIT.$pristine }">
+                                    <label>GL Unit*</label>
+                                    <input type="text" placeholder="" class="form-control" ng-model="Proyec.GL_UNIT" name="GL_UNIT" required>
+                                </div>
 
-                            <div class="form-group col-lg-3">
-                                <label>GL Unit</label>
-                                <input type="text" placeholder="" class="form-control" ng-model="Proyec.GL_UNIT">
-                            </div>
+                                <div class="form-group col-lg-3" ng-class="{'has-error':userFormE.AFE.$invalid && !userFormE.AFE.$pristine }">
+                                    <label>AFE*</label>
+                                    <input type="text" placeholder="" class="form-control" ng-model="Proyec.AFE" name="AFE" required>
+                                </div>
 
-                            <div class="form-group col-lg-3">
-                                <label>AFE</label>
-                                <input type="text" placeholder="" class="form-control" ng-model="Proyec.AFE">
-                            </div>
+                                <div class="form-group col-lg-3" ng-class="{'has-error':userFormE.MANAGER.$invalid && !userFormE.MANAGER.$pristine }">
+                                    <label>Seleccione un Project Manager:*</label>
+                                    <input type="text" class="form-control" ng-click="LoaPromanager()" name="MANAGER" ng-model="Proyec.MANAGER" title="Hacer clic para cargar listado de Poject Manager" required>
+                                </div>
 
-                            <div class="form-group col-lg-3">
-                                <label>Seleccione un Project Manager:</label>
-                                <input type="text" class="form-control" ng-click="LoaPromanager()" ng-model="Proyec.MANAGER">
-                            </div>
+                                <div class="form-group col-lg-3">
+                                    <label>Contrato</label>
+                                    <select class="form-control" ng-model="Proyec.CONTRATO">
+                                        <option></option>
+                                        <option ng-repeat="Confi in Conficto">{{Confi.NOMBRE_CONFIG}}</option>
+                                    </select>
+                                </div>
 
-                            <div class="form-group col-lg-3">
-                                <label>Contrato</label>
-                                <select class="form-control" ng-model="Proyec.CONTRATO">
-                                    <option></option>
-                                    <option ng-repeat="Confi in Conficto">{{Confi.NOMBRE_CONFIG}}</option>
-                                </select>
-                            </div>
+                                <div class="form-group col-lg-3">
+                                    <label>Programa</label>
+                                    <input type="text" placeholder="" class="form-control" ng-model="Proyec.PROGRAMA ">
+                                </div>
 
-                            <div class="form-group col-lg-3">
-                                <label>Programa</label>
-                                <input type="text" placeholder="" class="form-control" ng-model="Proyec.PROGRAMA ">
-                            </div>
+                                <div class="form-group col-lg-3">
+                                    <label>Proyecto</label>
+                                    <input type="text" class="form-control" ng-model="Proyec.PROYECTO">
+                                </div>
 
-                            <div class="form-group col-lg-3">
-                                <label>Proyecto</label>
-                                <input type="text" class="form-control" ng-model="Proyec.PROYECTO">
-                            </div>
-
-                            <div class="form-group col-lg-3">
-                                <label>Area</label>
-                                <select class="form-control" ng-model="Proyec.AREA">
-                                    <option></option>
-                                    <option>Geología</option>
-                                    <option>Reservoir Eng.</option>
-                                    <option>Drilling</option>
-                                    <option>Const. Facilities </option>
-                                    <option>O&M</option>
-                                    <option>Administrative</option>
-                                    <option>Financial</option>
-                                    <option>HSE</option>
-                                    <option>Regulatory</option>
-                                    <option>PMO</option>
-                                </select>
-                            </div>
-
+                                <div class="form-group col-lg-3">
+                                    <label>Área</label>
+                                    <select class="form-control" ng-model="Proyec.AREA">
+                                        <option></option>
+                                        <option>Geología</option>
+                                        <option>Reservoir Eng.</option>
+                                        <option>Drilling</option>
+                                        <option>Const. Facilities </option>
+                                        <option>O&M</option>
+                                        <option>Administrative</option>
+                                        <option>Financial</option>
+                                        <option>HSE</option>
+                                        <option>Regulatory</option>
+                                        <option>PMO</option>
+                                    </select>
+                                </div>
+                            </form>
                         </div>
                     </div>
                     <div class="panel-footer" style="background-color:white">
-                        <center><button type="button" class="btn btn-primary" ng-click="update()">Actualizar</button></center>
+                        <center><button type="button" class="btn btn-primary" ng-click="update()" ng-disabled="userFormE.$invalid">Actualizar</button></center>
                     </div>
                 </div>
             </div>

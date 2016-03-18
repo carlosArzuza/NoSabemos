@@ -34,13 +34,13 @@
     $scope.Mostrar = function () {
         $scope.visibilidadOff = true
         $scope.visibilidadOn = false
-
+        $scope.Proyec = {};
+        $scope.manager = {};
     }
 
     $scope.Ocultar = function () {
         $scope.visibilidadOff = false
         $scope.visibilidadOn = true
-
     }
 
     loadRecords();

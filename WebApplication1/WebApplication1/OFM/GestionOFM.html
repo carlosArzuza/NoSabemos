@@ -137,74 +137,91 @@
                             <div id="tab-2" class="tab-pane">
                                 <div class="panel-body">
                                     <div class="table-responsive">
-                                        <table class="table table-striped">
-                                            <thead>
-                                                <tr>
-                                                    <th></th>
-                                                    <th style="width:120px">Numero poliza</th>
-                                                    <th>Fecha inicio</th>
-                                                    <th>Fecha de finalización</th>
-                                                    <th>Aseguradora</th>
-                                                    <th>Valor</th>
-                                                    <th>Tipo de poliza</th>
-                                                    <th>Valor asegurador</th>
-                                                    <th></th>
-                                                    <th colspan="3" style="text-align: center">Acciones</th>
-                                                    <th></th>
-                                                </tr>
-                                            </thead>
-                                            <tbody>
-                                                <tr style="background-color: transparent">
-                                                    <td></td>
-                                                    <td><input type="text" placeholder="" class="form-control" ng-model="Poliza.COD_POLIZA"></td>
+                                        <form role="form" name="userFormP" novalidate>
+                                            <table class="table table-striped">
+                                                <thead>
+                                                    <tr>
+                                                        <th></th>
+                                                        <th style="width:120px">Numero poliza</th>
+                                                        <th>Fecha inicio</th>
+                                                        <th>Fecha de finalización</th>
+                                                        <th>Aseguradora</th>
+                                                        <th>Valor</th>
+                                                        <th>Tipo de poliza</th>
+                                                        <th>Valor asegurador</th>
+                                                        <th></th>
+                                                        <th colspan="3" style="text-align: center">Acciones</th>
+                                                        <th></th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    <tr style="background-color: transparent">
+                                                        <td></td>
 
-                                                    <td style="width:160px;">
-                                                        <div class="form-group" id="data_2">
-                                                            <div class="input-group date">
-                                                                <span class="input-group-addon">
-                                                                    <i class="fa fa-calendar"></i>
-                                                                </span><input type="text" class="form-control" ng-model="Poliza.FECHA_INI_POL">
+                                                        <td>
+                                                            <div class="form-group" ng-class="{'has-error':userFormP.COD_POLIZA.$invalid && !userFormP.COD_POLIZA.$pristine }">
+                                                                <input type="text" placeholder="" name="COD_POLIZA" class="form-control" ng-model="Poliza.COD_POLIZA" required>
                                                             </div>
-                                                        </div>
-                                                    </td>
+                                                        </td>
 
-                                                    <td style="width:160px;">
-                                                        <div class="form-group" id="data_3">
-                                                            <div class="input-group date">
-                                                                <span class="input-group-addon">
-                                                                    <i class="fa fa-calendar"></i>
-                                                                </span><input type="text" class="form-control" ng-model="Poliza.FECHA_FINAL_POL">
+                                                        <td style="width:160px;">
+                                                            <div class="form-group" id="data_2" ng-class="{'has-error':userFormP.FECHA_INI_POL.$invalid && !userFormP.FECHA_INI_POL.$pristine }">
+                                                                <div class="input-group date">
+                                                                    <span class="input-group-addon">
+                                                                        <i class="fa fa-calendar"></i>
+                                                                    </span><input type="text" class="form-control" name="FECHA_INI_POL" ng-model="Poliza.FECHA_INI_POL" required>
+                                                                </div>
                                                             </div>
-                                                        </div>
-                                                    </td>
-                                                    <td style="width:210px;">
-                                                        <select class="select2_demo_1 form-control" ng-model="Poliza.NOMBRE_ASG" style="width:210px;" ng-change="ChangeAseguradora()">
-                                                            <option data-ng-repeat="Aseguradora in Aseguradoras">{{Aseguradora.NOMBRE_ASG}}</option>
-                                                        </select>
-                                                    </td>
+                                                        </td>
 
-                                                    <td><input type="text" placeholder="" class="form-control" ng-model="Poliza.VALOR_POLIZA"></td>
+                                                        <td style="width:160px;">
+                                                            <div class="form-group" id="data_3" ng-class="{'has-error':userFormP.FECHA_FINAL_POL.$invalid && !userFormP.FECHA_FINAL_POL.$pristine }">
+                                                                <div class="input-group date">
+                                                                    <span class="input-group-addon">
+                                                                        <i class="fa fa-calendar"></i>
+                                                                    </span><input type="text" class="form-control" name="FECHA_FINAL_POL" ng-model="Poliza.FECHA_FINAL_POL" required>
+                                                                </div>
+                                                            </div>
+                                                        </td>
+                                                        <td style="width:210px;">
+                                                            <div class="form-group" ng-class="{'has-error':userFormP.NOMBRE_ASG.$invalid && !userFormP.NOMBRE_ASG.$pristine }">
+                                                                <select class="select2_demo_1 form-control" name="NOMBRE_ASG" ng-model="Poliza.NOMBRE_ASG" style="width:210px;" ng-change="ChangeAseguradora()" required>
+                                                                    <option data-ng-repeat="Aseguradora in Aseguradoras">{{Aseguradora.NOMBRE_ASG}}</option>
+                                                                </select>
+                                                            </div>
+                                                            
+                                                        </td>
 
-                                                    <td style="width:210px;">
-                                                        <select class="form-control" ng-model="Poliza.NOMBRE_AMP" id="select2_demo_2" style="width:210px;" ng-change="ChangeAmparo()">
-                                                            <option data-ng-repeat="Amparo in Amparos">{{Amparo.NOMBRE_AMP}}</option>
-                                                        </select>
-                                                    </td>
+                                                        <td>
+                                                            <div class="form-group" ng-class="{'has-error':userFormP.VALOR_POLIZA.$invalid && !userFormP.VALOR_POLIZA.$pristine }">
+                                                                <input type="text" placeholder="" class="form-control" name="VALOR_POLIZA" ng-model="Poliza.VALOR_POLIZA" required>
+                                                            </div>
+                                                        
+                                                        </td>
 
-                                                    <td><input type="number" placeholder="" class="form-control" ng-model="Poliza.VALOR_ASEGURADO"></td>
+                                                        <td style="width:210px;">
+                                                            <div class="form-group" ng-class="{'has-error':userFormP.NOMBRE_AMP.$invalid && !userFormP.NOMBRE_AMP.$pristine }">
+                                                                <select class="form-control" name="NOMBRE_AMP" ng-model="Poliza.NOMBRE_AMP" id="select2_demo_2" style="width:210px;" ng-change="ChangeAmparo()" required>
+                                                                    <option data-ng-repeat="Amparo in Amparos">{{Amparo.NOMBRE_AMP}}</option>
+                                                                </select>
+                                                            </div>
+                                                            
+                                                        </td>
 
-                                                    <td></td>
-                                                    <td style="padding-top:10px">
-                                                        <a href="javasrcritp:;" title="guardar" id="guardar" ng-click="CargarPoliza();"><i class="fa fa-save" style="font-size:20px;color:#1A7BB9;padding-right:5px"></i></a>
-                                                    </td>
-                                                    <!--
-                                                    <td style="padding-top:10px">
-                                                    </td>
-                                                    -->
+                                                        <td>
+                                                            <div class="form-group" ng-class="{'has-error':userFormP.VALOR_ASEGURADO.$invalid && !userFormP.VALOR_ASEGURADO.$pristine }">
+                                                                <input type="number" placeholder="" class="form-control" name="VALOR_ASEGURADO" ng-model="Poliza.VALOR_ASEGURADO" required>
+                                                            </div>
+                                                        </td>
 
-                                                </tr>
-                                            </tbody>
-                                        </table>
+                                                        <td></td>
+                                                        <td>
+                                                            <center><button type="button" title="guardar" id="guardar" ng-disabled="userFormP.$invalid" class="btn btn-success" ng-click="CargarPoliza();"><i class="fa fa-save" ng-disabled="userFormP.$invalid" style="font-size:20px;"></i></button></center>
+                                                        </td>
+                                                    </tr>
+                                                </tbody>
+                                            </table>
+                                        </form>
                                         <div id="lispoliza">
 
                                         </div>

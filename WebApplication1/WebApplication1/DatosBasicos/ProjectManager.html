@@ -1,47 +1,11 @@
-﻿
-
-<style type="text/css">
-    .contenedorb {
-        width: 90px;
-        height: 240px;
-        position: absolute;
-        right: 0px;
-        bottom: 0px;
-    }
-
-    .botonF1 {
-        width: 60px;
-        height: 60px;
-        border-radius: 100%;
-        background: #7cb342;
-        right: 0;
-        bottom: 0;
-        position: fixed;
-        margin-right: 16px;
-        margin-bottom: 16px;
-        border: none;
-        outline: none;
-        color: #FFF;
-        font-size: 36px;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-        transition: .1s;
-    }
-
-        .botonF1:active {
-            transform: scale(1.1);
-        }
-</style>
-<div class="row wrapper border-bottom white-bg page-heading">
+﻿<div class="row wrapper border-bottom white-bg page-heading">
     <div class="col-lg-10">
         <ol class="breadcrumb">
             <li>
-                <a href="index.html">Inicio</a>
-            </li>
-            <li>
-                <a>Datos basicos</a>
+                <a href="#/home">Inicio</a>
             </li>
             <li class="active">
-                <strong>Project manager</strong>
+                <strong>Project Manager</strong>
             </li>
         </ol>
     </div>
@@ -81,14 +45,14 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="gradeX" ng-repeat="Promager in Promanagers track by $index">
+                            <tr class="gradeX" ng-repeat="Promager in Promanagers|orderBy:'NOMBRE' track by $index">
                                 <td>
-                                {{Promager.NOMBRE}} 
-                                {{Promager.P_APELLIDO}} 
-                                {{Promager.S_APELLIDO}}
+                                    {{Promager.NOMBRE}}
+                                    {{Promager.P_APELLIDO}}
+                                    {{Promager.S_APELLIDO}}
                                 </td>
                                 <td>
-                                {{Promager.CARGO}}
+                                    {{Promager.CARGO}}
                                 </td>
 
                                 <td style="width:120px;text-align:center" class="center">
@@ -114,32 +78,32 @@
                     <h4 class="modal-title" style="font-weight:normal;font-size:18px">Registro de Project Manager</h4>
                 </div>
                 <div class="modal-body">
-                    <form role="form">
-                        <div class="form-group">
-                            <label>Identificacion</label>
-                            <input type="text" name="DOCUMENTO" class="form-control" ng-model="Promager.DOCUMENTO" id="DOCUMENTO">
+                    <form role="form" name="userForm" novalidate>
+                        <div class="form-group" ng-class="{'has-error':userForm.DOCUMENTO.$invalid && !userForm.DOCUMENTO.$pristine }">
+                            <label>Identificación*</label>
+                            <input type="text" name="DOCUMENTO" class="form-control" ng-model="Promager.DOCUMENTO" id="DOCUMENTO" required>
                         </div>
-                        <div class="form-group">
-                            <label>Nombres</label>
-                            <input type="text" name="NOMBRE" class="form-control" maxlength="20" ng-model="Promager.NOMBRE" id="NOMBRE">
+                        <div class="form-group" ng-class="{'has-error':userForm.NOMBRE.$invalid && !userForm.NOMBRE.$pristine }">
+                            <label>Nombres*</label>
+                            <input type="text" name="NOMBRE" class="form-control" maxlength="20" ng-model="Promager.NOMBRE" id="NOMBRE" required>
                         </div>
-                        <div class="form-group">
-                            <label>Primer Apellido</label>
-                            <input type="text" name="P_APELLIDO" class="form-control" maxlength="30" ng-model="Promager.P_APELLIDO" id="P_APELLIDO">
+                        <div class="form-group" ng-class="{'has-error':userForm.P_APELLIDO.$invalid && !userForm.P_APELLIDO.$pristine }">
+                            <label>Primer Apellido*</label>
+                            <input type="text" name="P_APELLIDO" class="form-control" maxlength="30" ng-model="Promager.P_APELLIDO" id="P_APELLIDO" required>
                         </div>
                         <div class="form-group">
                             <label>Segundo Apellido</label>
                             <input type="text" name="S_APELLIDO" class="form-control" maxlength="30" ng-model="Promager.S_APELLIDO" id="S_APELLIDO">
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" >
                             <label>Cargo</label>
-                            <input type="text" name="" class="form-control" maxlength="30" ng-model="Promager.CARGO">
+                            <input type="text" name="Cargo" class="form-control" maxlength="30" ng-model="Promager.CARGO" >
                         </div>
                     </form>
                 </div>
                 <div class="modal-footer">
                     <button type="submit" class="btn btn-white" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary" ng-click="Add()">Guardar</button>
+                    <button type="button" class="btn btn-primary" ng-click="Add()" ng-disabled="userForm.$invalid">Guardar</button>
                 </div>
             </div>
         </div>
@@ -154,7 +118,7 @@
                 <div class="modal-body">
                     <form role="form">
                         <div class="form-group">
-                            <label>Identificacion</label>
+                            <label>Identificación</label>
                             <input type="text" name="DOCUMENTO" class="form-control" ng-model="Promager.DOCUMENTO" id="DOCUMENTO" readonly>
                         </div>
                         <div class="form-group">

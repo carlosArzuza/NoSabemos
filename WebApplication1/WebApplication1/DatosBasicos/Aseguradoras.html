@@ -1,43 +1,13 @@
 ﻿
-<style type="text/css">
-    .contenedorb {
-        width: 90px;
-        height: 240px;
-        position: absolute;
-        right: 0px;
-        bottom: 0px;
-    }
 
-    .botonF1 {
-        width: 60px;
-        height: 60px;
-        border-radius: 100%;
-        background: #7cb342;
-        right: 0;
-        bottom: 0;
-        position: fixed;
-        margin-right: 16px;
-        margin-bottom: 16px;
-        border: none;
-        outline: none;
-        color: #FFF;
-        font-size: 36px;
-        box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-        transition: .1s;
-    }
-
-        .botonF1:active {
-            transform: scale(1.1);
-        }
-</style>
 <div class="row wrapper border-bottom white-bg page-heading">
 <div class="col-lg-10">
     <ol class="breadcrumb">
         <li>
-            <a href="index.html">Inicio</a>
+            <a href="#/home">Inicio</a>
         </li>
         <li>
-            <a>Datos basicos</a>
+            Configuración
         </li>
         <li class="active">
             <strong>Aseguradoras</strong>
@@ -53,7 +23,7 @@
                 <div class="ibox-title">
                     <div class="row">
                         <div class="col-lg-9">
-                            <h2>Datos basicos aseguradoras</h2>
+                            <h2>Datos básicos de Aseguradoras</h2>
                         </div>
                         <div class="col-lg-3">
                         </div>
@@ -69,7 +39,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr data-ng-repeat="Aseguradora in Aseguradoras">
+                            <tr data-ng-repeat="Aseguradora in Aseguradoras |orderBy:'NOMBRE_ASG'">
                                 <td>
                                     {{Aseguradora.NOMBRE_ASG}}
                                 </td>
@@ -95,21 +65,21 @@
                         <h4 class="modal-title">Nuevo Registro</h4>
                     </div>
                     <div class="modal-body">
-                        <form role="form">
-                            <div class="form-group">
+                        <form role="form" name="userForm" novalidate>
+                            <div class="form-group" ng-class="{'has-error':userForm.NIT_ASG.$invalid && !userForm.NIT_ASG.$pristine }">
                                 <label>Nit</label>
-                                <input type="text" name="" class="form-control" ng-model="Aseguradora.NIT_ASG" />
+                                <input type="text" name="NIT_ASG" class="form-control" ng-model="Aseguradora.NIT_ASG" required/>
                             </div>
-                            <div class="form-group">
+                            <div class="form-group" ng-class="{'has-error':userForm.NOMBRE_ASG.$invalid && !userForm.NOMBRE_ASG.$pristine }">
                                 <label>Nombre</label>
-                                <input type="text" name="" class="form-control" ng-model="Aseguradora.NOMBRE_ASG" />
+                                <input type="text" name="NOMBRE_ASG" class="form-control" ng-model="Aseguradora.NOMBRE_ASG" required/>
                             </div>
 
                         </form>
                     </div>
                     <div class="modal-footer">
                         <button type="submit" class="btn btn-white" data-dismiss="modal">Cerrar</button>
-                        <button type="button" class="btn btn-primary" ng-click="Add()" id="guaradar">Guardar</button>
+                        <button type="button" class="btn btn-primary" ng-click="Add()" id="guaradar" ng-disabled="userForm.$invalid">Guardar</button>
                     </div>
                 </div>
             </div>
@@ -135,8 +105,8 @@
                         </form>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-white" data-dismiss="modal" ng-click="cancel()">Cerrar</button>
-                        <button type="button" class="btn btn-primary" ng-click="update()">Guardar</button>
+                        <button type="button" class="btn btn-white" data-dismiss="modal" >Cerrar</button>
+                        <button type="button" class="btn btn-primary" ng-click="update(Aseguradora.ID_ASG)">Actualizar</button>
                     </div>
                 </div>
             </div>
@@ -144,7 +114,7 @@
 
        
     </div>
-    <div class="contenedorb" data-toggle="modal" data-target="#myModal4" ng-click="Nuevo()">
+    <div class="contenedorb" data-toggle="modal" data-target="#myModal4" ng-click="Limpiar()">
         <button class="botonF1">
             <i class="fa fa-plus" style="font-size:36px;"></i>
         </button>

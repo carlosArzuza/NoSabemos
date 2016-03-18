@@ -230,9 +230,11 @@
     $scope.showJSONPreview = true;
     $scope.json_string = "";
 
-    $scope.mensajeError = "Debe seleccionar una hoja valida."
+    $scope.mensajeError = "Debe seleccionar una hoja valida.";
 
-    $scope.mensajeSuccess = "Se realizado el registro de manera exitosa."
+    $scope.mensajeErrorHoja = 'No existe una hoja llamada \"Vendors\" en el libro seleccionado';
+
+    $scope.mensajeSuccess = "Se ha realizado el registro de manera exitosa.";
 
     function Notificacion(mensaje, Accion) {
         setTimeout(function () {
@@ -261,6 +263,8 @@
         }, 1100);
     }
 
+    $scope.btnG = false;
+
 
     $scope.fileChanged = function (files) {
         $("#loading").show();
@@ -269,7 +273,14 @@
         $scope.excelFile = files[0];
 
         XLSXReaderService.readFile($scope.excelFile, $scope.showPreview, $scope.showJSONPreview).then(function (xlsxData) {
+
             $scope.sheets = xlsxData.sheets;
+            if ($scope.sheets["Vendors"] === undefined) {
+                Notificacion($scope.mensajeErrorHoja, "error");
+                $scope.btnG = false;
+            }else {
+                $scope.btnG = true;
+            }
             $scope.isProcessing = false;
             // mi ediciones
             var file_name = document.getElementById("uploadBtn").value;
@@ -279,7 +290,7 @@
     };
 
     $scope.EnviarLista = function () {
-        alert(vendor.length)
+        
         $("#guardar").attr('disabled', true)
         $("#loading").show();
         AspiranteServices.post(vendor).then(function () {

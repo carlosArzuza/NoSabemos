@@ -135,8 +135,8 @@
         console.log($scope.Promager)
         swal({
             title: "Mensaje de confirmación",
-            text: "¿Esta seguro que desea reomover el projer manager?" +
-            "\n" + $scope.Promager.NOMBRE + $scope.Promager.P_APELLIDO,
+            text: "¿Esta seguro que desea remover el Project manager?" +
+            "\n" + $scope.Promager.NOMBRE +" "+ $scope.Promager.P_APELLIDO,
             type: "warning",
             showCancelButton: true,
             confirmButtonColor: "#DD6B55",
@@ -156,9 +156,9 @@
                     function (errorpl) {
                         console.log(errorpl)
                     })
-                    swal("Mensaje de Notificacion", "Se ha removido el resgitro de manera exitosa.", "success");
+                    swal("Mensaje de Notificación", "Se ha removido el registro de manera exitosa.", "success");
                 } else {
-                    swal("Mensaje de Notificacion", "El proceso de eliminacion no ha sido confirmado", "error");
+                    swal("Mensaje de Notificación", "El proceso de eliminación no ha sido confirmado", "error");
                 }
             });
     }

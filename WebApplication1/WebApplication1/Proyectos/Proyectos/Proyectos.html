@@ -2,13 +2,13 @@
     <div class="col-lg-10">
         <ol class="breadcrumb">
             <li>
-                <a href="index.html">Inicio</a>
+                <a href="#/home">Inicio</a>
             </li>
             <li>
                 <a>Proyectos</a>
             </li>
             <li class="active">
-                <strong>Registro proyectos</strong>
+                <strong>Gestión de Proyectos</strong>
             </li>
         </ol>
     </div>
@@ -115,7 +115,7 @@
                             </div>
 
                             <div class="form-group col-lg-3">
-                                <label>Project manager</label>
+                                <label>Seleccione un Project Manager:</label>
                                 <input type="text" class="form-control" ng-click="LoaPromanager()" ng-model="manager.NOMBRE" title="Hacer clic para cargar listado de Pojer manager">
                             </div>
 
@@ -172,7 +172,7 @@
                     <div class="ibox-title">
                         <div class="row">
                             <div class="col-lg-9">
-                                <h2>Edicion de proyectos</h2>
+                                <h2>Edición de Proyectos</h2>
                             </div>
                         </div>
                         <div class="hr-line-dashed"></div>
@@ -196,7 +196,7 @@
                             </div>
 
                             <div class="form-group col-lg-3">
-                                <label>Project Manager</label>
+                                <label>Seleccione un Project Manager:</label>
                                 <input type="text" class="form-control" ng-click="LoaPromanager()" ng-model="Proyec.MANAGER">
                             </div>
 
@@ -243,9 +243,6 @@
                 </div>
             </div>
         </div>
-
-        
-
     </div>
 
     <div class="modal inmodal" id="Modalmanager" tabindex="-1" role="dialog" aria-hidden="true">
@@ -257,7 +254,7 @@
                 </div>
                 <div class="modal-body">
                     <div>
-                        <ul class="nav metismenu" id="side-menu" ng-repeat="manager in filteredProManager track by $index" ng-click="CargarAsp()">
+                        <ul class="nav metismenu" id="side-menu" ng-repeat="manager in filteredProManager|orderBy:'NOMBRE' track by $index" ng-click="CargarAsp()">
                             <li ng-click="Cargar()">
                                 <a>
                                     <i class="fa fa-user"></i> <span class="nav-label">

@@ -3,13 +3,10 @@
     <div class="col-lg-10">
         <ol class="breadcrumb">
             <li>
-                <a href="index.html">Inicio</a>
-            </li>
-            <li>
-                <a>Configuración</a>
+                <a href="#/home">Inicio</a>
             </li>
             <li class="active">
-                <strong>Registro de vendor </strong>
+                <strong>Vendors</strong>
             </li>
         </ol>
 
@@ -58,7 +55,7 @@
                         <div class="col-lg-2">
                             <img src="../../img/loading.gif" style="width:40px;height:40px" id="loading"/>
                         </div>
-                        <div class="col-lg-3 col-md-3 col-sm-12 " ng-show="sheets">
+                        <div class="col-lg-3 col-md-3 col-sm-12 " ng-show="btnG">
                             <button type="button" class="btn btn-success" ng-click="EnviarLista()" id="guardar">Guardar</button>
                         </div>
                     </div>
@@ -76,7 +73,7 @@
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="gradeX" ng-repeat="Asp in filteredVendors |filter:filtrarVendors track by $index">
+                            <tr class="gradeX" ng-repeat="Asp in filteredVendors|orderBy:'NOM_RAZONSOCIAL' |filter:filtrarVendors track by $index">
                                 <td>
                                     {{Asp.NIT_CEDULA}}
                                 </td>

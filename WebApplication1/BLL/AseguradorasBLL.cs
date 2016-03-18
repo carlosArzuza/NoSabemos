@@ -39,5 +39,20 @@ namespace BLL
            }
 
        }
+
+       public void UpdateAseguradora(int id, Aseguradoras aseguradora)
+       {
+           using (var contex = new ModelContex())
+           {
+               var dto = contex.Aseguradoras.Where(t => t.ID_ASG == id).First();
+               if (dto != null)
+               {
+                   dto.NOMBRE_ASG = aseguradora.NOMBRE_ASG;
+                   dto.ESTADO_ASG = aseguradora.ESTADO_ASG;
+                   dto.NIT_ASG = aseguradora.NIT_ASG;
+                   contex.SaveChanges();
+               }
+           }
+       }
     }
 }

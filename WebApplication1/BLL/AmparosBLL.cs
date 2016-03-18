@@ -38,5 +38,19 @@ namespace BLL
 
         }
 
+        public void UpdateAmparos(int id, Amparos_Polizas amparos)
+        {
+            using (var contex = new ModelContex())
+            {
+                var dto = contex.Amparos_Polizas.Where(t => t.ID_AMP == id).First();
+                if (dto != null)
+                {
+                    dto.NOMBRE_AMP = amparos.NOMBRE_AMP;
+                    dto.ESTADO_AMP = amparos.ESTADO_AMP;
+                    contex.SaveChanges();
+                }
+            }
+        }
+
     }
 }

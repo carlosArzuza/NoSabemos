@@ -3,13 +3,13 @@
     <div class="col-lg-10">
         <ol class="breadcrumb">
             <li>
-                <a href="index.html">Inicio</a>
+                <a href="#/home">Inicio</a>
             </li>
             <li>
                 <a>Proyectos</a>
             </li>
             <li class="active">
-                <strong>Proceso competitivo</strong>
+                <strong>Proceso Competitivo</strong>
             </li>
         </ol>
 
@@ -337,7 +337,7 @@
                 <br />
                 <div class="row">
                     <div>
-                        <ul class="nav metismenu" id="side-menu" data-ng-repeat="Aspirante in filteredAspirantes | filter:filtrarAspirantes track by $index " ng-click="CargarAsp()">
+                        <ul class="nav metismenu" id="side-menu" data-ng-repeat="Aspirante in filteredAspirantes|orderBy:'NOM_RAZONSOCIAL' | filter:filtrarAspirantes track by $index " ng-click="CargarAsp()">
                             <li>
                                 <a><i class="fa fa-user"></i> <span class="nav-label">{{Aspirante.NOM_RAZONSOCIAL}}</span></a>
                             </li>

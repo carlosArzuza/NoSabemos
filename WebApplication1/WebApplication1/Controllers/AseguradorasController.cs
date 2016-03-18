@@ -33,8 +33,9 @@ namespace WebApplication1.Controllers
         }
 
         // PUT: api/Aseguradoras/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, Aseguradoras a)
         {
+            asg.UpdateAseguradora(id, a);
         }
 
         // DELETE: api/Aseguradoras/5

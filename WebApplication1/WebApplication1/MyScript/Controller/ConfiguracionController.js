@@ -85,7 +85,7 @@
         $('#ModalEditar').modal('show');
     };
 
-    //Functin Para Actualizar
+    //Function Para Actualizar
     $scope.update = function () {
         var configuracion = {};
         configuracion.CONFIG_ID = $scope.Config.CONFIG_ID;

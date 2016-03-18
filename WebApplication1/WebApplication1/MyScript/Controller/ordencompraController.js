@@ -101,8 +101,9 @@
     $scope.showJSONPreview = true;
     $scope.json_string = "";
 
-    $scope.mensajeError = "Debe seleccionar una hoja valida."
-    $scope.mensajeSuccess = "Se han cargado los datos de manera exitosa."
+    $scope.mensajeError = "Debe seleccionar una hoja valida.";
+    $scope.mensajeErrorHoja = 'No existe una hoja llamada \"Orden\" en el libro seleccionado';
+    $scope.mensajeSuccess = "Se han cargado los datos de manera exitosa.";
 
     function Notificacion(mensaje, Accion) {
         setTimeout(function () {
@@ -138,10 +139,17 @@
         $scope.excelFile = files[0];
         XLSXReaderService.readFile($scope.excelFile, $scope.showPreview, $scope.showJSONPreview).then(function (xlsxData) {
             $scope.sheets = xlsxData.sheets;
-            $scope.isProcessing = false;
-            // mi ediciones
-            var file_name = document.getElementById("uploadBtn").value;
-            console.log("Excel " + $scope.sheets["Orden"]);
+            if ($scope.sheets["Orden"] === undefined) {
+                Notificacion($scope.mensajeErrorHoja, "error");
+                $scope.btnG = false;
+            } else {
+                $scope.btnG = true;
+                $scope.isProcessing = false;
+                // mi ediciones
+                var file_name = document.getElementById("uploadBtn").value;
+                console.log("Excel " + $scope.sheets["Orden"]);
+            }
+            
         });
     };
 

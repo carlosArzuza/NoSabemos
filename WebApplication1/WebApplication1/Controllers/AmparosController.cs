@@ -33,8 +33,9 @@ namespace WebApplication1.Controllers
         }
 
         // PUT: api/Amparos/5
-        public void Put(int id, [FromBody]string value)
+        public void Put(int id, Amparos_Polizas a)
         {
+            ap.UpdateAmparos(id, a);
         }
 
         // DELETE: api/Amparos/5

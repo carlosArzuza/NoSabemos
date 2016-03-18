@@ -14,6 +14,9 @@
         $scope.Aseguradora.NOMBRE_ASG = "";
     }
 
+    $scope.Limpiar = function () {
+        $scope.Aseguradora = {};
+    }
 
     function getAseguradoras() {
         var result = AseguradoraService.getALL();
@@ -67,6 +70,41 @@
         });
 
 
+    };
+
+    //Function Para Actualizar
+    $scope.update = function (id) {
+        var aseguradora = {};
+        aseguradora.NOMBRE_ASG = $scope.Aseguradora.NOMBRE_ASG;
+        aseguradora.NIT_ASG = $scope.Aseguradora.NIT_ASG;
+        aseguradora.ESTADO_ASG = 0;
+        var promisePost = AseguradoraService.put(id, aseguradora);
+        promisePost.then(function (d) {
+            setTimeout(function () {
+                toastr.options = {
+                    "closeButton": true,
+                    "debug": false,
+                    "progressBar": false,
+                    "preventDuplicates": false,
+                    "positionClass": "toast-bottom-full-width",
+                    "onclick": null,
+                    "showDuration": "400",
+                    "hideDuration": "1000",
+                    "timeOut": "7000",
+                    "extendedTimeOut": "1000",
+                    "showEasing": "swing",
+                    "hideEasing": "linear",
+                    "showMethod": "fadeIn",
+                    "hideMethod": "fadeOut"
+                };
+                toastr.success("Datos actualizados de manera exitosa.", "Sistema de Notificaciones");
+
+            }, 1200);
+            $('#ModalEditar').modal('hide');
+            getAseguradoras();
+        }, function (err) {
+            alert("Some Error Occured " + JSON.stringify(err));
+        });
     };
 
     $scope.Detalle = function () {

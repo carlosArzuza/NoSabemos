@@ -99,6 +99,15 @@ app.service("AmparosService", function ($http) {
         var req = $http.post(uri + '/api/Amparos', amparos);
         return req;
     };
+
+    this.put = function (id, amparos) {
+        var request = $http({
+            method: "put",
+            url: uri + '/api/Amparos/' + id,
+            data: amparos
+        });
+        return request;
+    };
 });
 
 
@@ -114,6 +123,15 @@ app.service("AseguradoraService", function ($http) {
     this.post = function (aseguradora) {
         var req = $http.post(uri + '/api/Aseguradoras', aseguradora);
         return req;
+    };
+
+    this.put = function (id, aseguradora) {
+        var request = $http({
+            method: "put",
+            url: uri + '/api/Aseguradoras/' + id,
+            data: aseguradora
+        });
+        return request;
     };
 });
 

@@ -190,7 +190,7 @@
             item += "<td >" + Polizas[i].NOMBRE_AMP + "</td>";
             item += "<td style='text-align: center;'>" + Polizas[i].VALOR_ASEGURADO + "</td>";
             item += "<td></td>";
-            item += "<td style='text-align: center'><a href='javasrcritp:;' title='Eliminar Poliza' onclick='angular.element(this).scope().RemoverPoliza(" + i + ");'><i class='fa fa-trash' style='font-size:20px;color:#ED5565;'></i></a></td>";
+            item += "<td style='text-align: center'><a href='javasrcritp:;' title='Eliminar Poliza' onclick='angular.element(this).scope().RemoverPoliza(" + i + ");'><i class='fa fa-trash' style='font-size:20px;color:#ED5565;padding:7px;'></i></a></td>";
             item += "</tr>";
         }
         item += "</table>";

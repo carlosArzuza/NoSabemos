@@ -36,20 +36,27 @@
                                 <th>Oferta Mercantil</th>
                                 <th>Fecha de inicio</th>
                                 <th>Fecha finalizacion</th>
-                                <th>Fecha Notificacion</th>
                                 <th>Aseguradora</th>
                                 <th class="text-center">Valor del amparo</th>
                                 <th class="text-center">Estado</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="gradeX" ng-repeat="Poliza in Polizas">
+                            <tr class="gradeX" ng-repeat="Poliza in Polizas" >
                                 <td>{{Poliza.NO_POLIZAS}}</td>
                                 <td>{{Poliza.OFERTAMERCANTIL}}</td>
                                 <td>{{Poliza.FECHA_INI_POL}}</td>
                                 <td>{{Poliza.FECHA_FINAL_POL}}</td>
-                                <td>{{Poliza.Notificacion}}</td>
-                                <td>{{Poliza.ASEGURADORA}}</td>
+                                <td>
+                                    <span>
+                                        <span ng-show="Notificacion == 'OK'" style="color:#ff6a00" >
+                                            {{Poliza.ASEGURADORA}} <i class="fa fa-warning" style="color:#ff6a00"></i>
+                                        </span>
+                                        <span ng-show="Notificacion == 'NO'">
+                                            {{Poliza.ASEGURADORA}}
+                                        </span>
+                                    </span>
+                                </td>
                                 <td class="text-center">$ 10.000.000</td>
                                 <td class="text-center"><i class="fa fa-warning" style="color:#ff6a00"></i></td>
                             </tr>

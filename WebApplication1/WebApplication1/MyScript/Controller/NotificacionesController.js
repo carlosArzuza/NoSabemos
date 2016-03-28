@@ -2,6 +2,8 @@
     $scope.Poliza = {}; //Objeto Actual
     $scope.Polizas = []; //Listado de Objetos
 
+ 
+
     inicialice();
 
     loadRecordPolizas();
@@ -17,7 +19,6 @@
         $scope.Poliza.TIPO_POLIZA = "";
         $scope.Poliza.VALOR_ASEGURADO = "";
         $scope.Poliza.OFERTAMERCANTIL = "";
-        $scope.Poliza.Notificacion = "";
     }
 
     function loadRecordPolizas() {
@@ -26,32 +27,27 @@
             $scope.Polizas = pl.data;
 
             angular.forEach($scope.Polizas, function (item, dato) {
-
-                function restaFechas(f1, f2) {
-                    var aFecha1 = f1.split('/');
-                    var aFecha2 = f2.split('/');
-                    var fFecha1 = Date.UTC(aFecha1[2], aFecha1[1] - 1, aFecha1[0]);
-                    var fFecha2 = Date.UTC(aFecha2[2], aFecha2[1] - 1, aFecha2[0]);
-                    console.log("fFecha1 " + fFecha1)
-                    console.log("fFecha2 " + fFecha2)
-                    var dif = fFecha2 - fFecha1;
-                    var dias = Math.floor(dif / (1000 * 60 * 60 * 24));
-                    return dias;
-                }
-
                 fecha = new Date();
                 day = fecha.getDate();
                 month = fecha.getMonth() + 1;
                 year = fecha.getFullYear();
 
-                console.log("Fecha actual: " + day + "/" + month + "/" + year);
+                var d = new Date(month + " " + day + " " + year);
 
-                var f1 = day + "/" + month + "/" + year;
-                var f2 = item.FECHA_FINAL_POL;
-                //var f2 = '28/3/2016';
+                console.log(d.getDate() + "/" + d.getMonth() + "/" + d.getFullYear());
+                fecha = new Date(item.FECHA_FINAL_POL);
+                console.log(fecha.getDate() + "/" + fecha.getMonth() + "/" + fecha.getFullYear())
+                dif = fecha.getTime() - d.getTime();
+                var dias = Math.floor(dif / (1000 * 60 * 60 * 24));
+                console.log(dias);
 
-                console.log("fecha " + f2);
-                console.log("resta " + restaFechas(f1, f2));
+                if (dias <= 30) {
+                    $scope.Notificacion = "OK";
+                    console.log($scope.Notificacion)
+                }else{
+                    $scope.Notificacion = "NO";
+                    console.log($scope.Notificacion)
+                }
                 
             });
             //console.log($scope.Polizas);
@@ -61,17 +57,39 @@
            });
     }
 
+    
+
+
+
+
+
+    /*
+    function restaFechas(f1, f2) {
+        var aFecha1 = f1.split('/');
+        var aFecha2 = f2.split('/');
+        var fFecha1 = Date.UTC(aFecha1[2], aFecha1[1] - 1, aFecha1[0]);
+        var fFecha2 = Date.UTC(aFecha2[2], aFecha2[1] - 1, aFecha2[0]);
+        console.log("fFecha1 " + fFecha1)
+        console.log("fFecha2 " + fFecha2)
+        var dif = fFecha2 - fFecha1;
+        var dias = Math.floor(dif / (1000 * 60 * 60 * 24));
+        return dias;
+    }
+
     fecha = new Date();
     day = fecha.getDate();
     month = fecha.getMonth() + 1;
     year = fecha.getFullYear();
 
-    var d = new Date(month + " " + day + " " + year);
+    console.log("Fecha actual: " + day + "/" + month + "/" + year);
 
+    var f1 = day + "/" + month + "/" + year;
+    var f2 = item.FECHA_FINAL_POL;
+    //var f2 = '28/3/2016';
 
-    console.log(d)
-
-    
+    console.log("fecha " + f2);
+    console.log("resta " + restaFechas(f1, f2));
+    */
     /*
     function restar(days) {
         
@@ -93,6 +111,15 @@
         console.log("Fecha modificada: " + day + "/" + month + "/" + year);
 
     }
-    restar(-45);*/
+    restar(-45);
+    
+    console.log(d.getTime())
+    fecha = new Date("03/31/2016");
+    console.log(fecha.getTime())
+    dif = fecha.getTime() - d.getTime();
+    var dias = Math.floor(dif / (1000 * 60 * 60 * 24));
+    console.log(dias)
+    
+    */
 
 });

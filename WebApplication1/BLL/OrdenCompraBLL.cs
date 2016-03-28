@@ -41,5 +41,21 @@ namespace BLL
                 return result;
             }
         }
+
+        public List<OrdcompraEntitty> GetEjecutado(string ofm)
+        {
+            using (var contex = new ModelContex())
+            {
+                var dto = contex.Orden_Compra.Where(o => o.NO_OFM==ofm).ToList();
+                List<OrdcompraEntitty> result = new List<OrdcompraEntitty>();
+                foreach (var item in dto)
+                {
+                    OrdcompraEntitty order = new OrdcompraEntitty();
+                    order.TOTAL_PO = item.TOTAL_PO;
+                    result.Add(order);
+                }
+                return result;
+            }
+        }
     }
 }

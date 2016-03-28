@@ -53,6 +53,7 @@
     <Compile Include="AspiranteProcesoBLL.cs" />
     <Compile Include="AspirantesBLL.cs" />
     <Compile Include="ConfiguracionBLL.cs" />
+    <Compile Include="ContactosBLL.cs" />
     <Compile Include="OfertaMercantilBLL.cs" />
     <Compile Include="OrdenCompraBLL.cs" />
     <Compile Include="PolizasBLL.cs" />

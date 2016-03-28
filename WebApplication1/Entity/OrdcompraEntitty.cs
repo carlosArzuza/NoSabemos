@@ -14,6 +14,7 @@ namespace Entity
         public int PROVEEDOR { get; set; }
         public string JURISDICCION_PO { get; set; }
         public string AFE_PO { get; set; }
+        public decimal TOTAL_PO { get; set; }
         public string NO_OFM { get; set; }
         public string ESTADO_PO { get; set; }
     }

@@ -45,18 +45,18 @@ namespace BLL
                                  PROCESO = proce.PROCESO,
                                  TIEMPO_EJECUCION = proce.TIEMPO_EJECUCION,
                                  TIEMPO_PROCESO = proce.TIEMPO_PROCESO,
-                                 FECHA_INICIO = proce.FECHA_INICO,
+                                 FECHA_INICIO = proce.FECHA_INICIO,
                                  FECHA_INIC_SERVICE = proce.FECHA_INIC_SERVICE,
                                  DETALLE_PS = proce.DETALLE_PS,
                                  CANTIDAD = proce.CANTIDAD,
                                  LUGAR_EJECUCION = proce.LUGAR_EJECUCION,
-                                 COMP_ADQUISICION=proce.COMP_ADQUISICION,
+                                 COMP_ADQUISICION = proce.COMP_ADQUISICION,
                                  ESTADO_PROC = proce.ESTADO_PROC,
                                  PROYECTO = proye.PROYECTO,
-                                 CATEGORIA=proce.CATEGORIA,
-                                 ORIGEN=proce.ORIGEN,
+                                 CATEGORIA = proce.CATEGORIA,
+                                 ORIGEN = proce.ORIGEN,
                                  PRESUPUESTO = proce.PRESUPUESTO,
-                                 FAMILIA=proce.FAMILIA,
+                                 FAMILIA = proce.FAMILIA,
                                  TIPO = proce.TIPO,
                                  DESC_GENERAL = proce.DESC_GENERAL,
                                  PROCESO_INICIO = proce.PROCESO_INICIO,
@@ -72,7 +72,7 @@ namespace BLL
                         proceso.ID_COMPETITIVO = item.ID_COMPETITIVO;
                         proceso.PROCESO = item.PROCESO;
                         proceso.TIEMPO_PROCESO = item.TIEMPO_PROCESO;
-                        proceso.FECHA_INICO = item.FECHA_INICIO;
+                        proceso.FECHA_INICIO = item.FECHA_INICIO;
                         proceso.FECHA_INIC_SERVICE = item.FECHA_INIC_SERVICE;
                         proceso.TIEMPO_EJECUCION = item.TIEMPO_EJECUCION;
                         proceso.DETALLE_PS = item.DETALLE_PS;
@@ -90,7 +90,8 @@ namespace BLL
                         proceso.PROCESO_INICIO = item.PROCESO_INICIO;
                         proceso.UNIDAD = item.UNIDAD;
                         proceso.VALOR_TOTAL = item.VALOR_TOTAL;
-                        proceso.TIPO_MONEDA = item.TIPO_MONEDA;
+                        proceso.CUMPLIDO = "";
+                        proceso.TRANSCURIDOS = 0;
                         proc.Add(proceso);
 
                     }
@@ -121,7 +122,7 @@ namespace BLL
                         proceso.PROCESO = item.PROCESO;
                         proceso.PROCESO_INICIO = item.PROCESO_INICIO;
                         proceso.TIEMPO_PROCESO = item.TIEMPO_PROCESO;
-                        proceso.FECHA_INICO = item.FECHA_INICO;
+                        proceso.FECHA_INICIO = item.FECHA_INICIO;
                         proceso.FECHA_INIC_SERVICE = item.FECHA_INIC_SERVICE;
                         proceso.TIEMPO_EJECUCION = item.TIEMPO_EJECUCION;
                         proceso.DETALLE_PS = item.DETALLE_PS;
@@ -131,7 +132,6 @@ namespace BLL
                         proceso.VALOR_TOTAL = item.VALOR_TOTAL;
                         proceso.ESTADO_PROC = item.ESTADO_PROC;
                         proceso.COMP_ADQUISICION = item.COMP_ADQUISICION;
-                        proceso.ESTADO_PROC = item.ESTADO_PROC;
                         proc.Add(proceso);
 
                     }
@@ -153,20 +153,22 @@ namespace BLL
             {
                 List<Vproyec_competitivo> proc = new List<Vproyec_competitivo>();
 
-                var result = from proce in contex.Proceso_Competitivo where proce.ESTADO_PROC !="L"
-                             join  proye in contex.Proyecto on proce.PROYECTO_COMPETITIVO equals proye.PROYEC_ID
+                var result = from proce in contex.Proceso_Competitivo
+                             where proce.ESTADO_PROC != "L"
+                             join proye in contex.Proyecto on proce.PROYECTO_COMPETITIVO equals proye.PROYEC_ID
                              select new
                              {
                                  ID_COMPETITIVO = proce.ID_COMPETITIVO,
                                  PROCESO = proce.PROCESO,
                                  TIEMPO_EJECUCION = proce.TIEMPO_EJECUCION,
                                  TIEMPO_PROCESO = proce.TIEMPO_PROCESO,
-                                 FECHA_INICIO = proce.FECHA_INICO,
+                                 FECHA_INICIO = proce.FECHA_INICIO,
                                  FECHA_INIC_SERVICE = proce.FECHA_INIC_SERVICE,
                                  DETALLE_PS = proce.DETALLE_PS,
                                  CANTIDAD = proce.CANTIDAD,
                                  PROYECTO = proye.PROYECTO,
                                  LUGAR_EJECUCION = proce.LUGAR_EJECUCION,
+                                 PRESUPESTO=proce.PRESUPUESTO,
                                  ESTADO_PROC = proce.ESTADO_PROC,
                              };
                 if (result != null)
@@ -177,7 +179,7 @@ namespace BLL
                         proceso.ID_COMPETITIVO = item.ID_COMPETITIVO;
                         proceso.PROCESO = item.PROCESO;
                         proceso.TIEMPO_PROCESO = item.TIEMPO_PROCESO;
-                        proceso.FECHA_INICO = item.FECHA_INICIO;
+                        proceso.FECHA_INICIO = item.FECHA_INICIO;
                         proceso.FECHA_INIC_SERVICE = item.FECHA_INIC_SERVICE;
                         proceso.TIEMPO_EJECUCION = item.TIEMPO_EJECUCION;
                         proceso.DETALLE_PS = item.DETALLE_PS;
@@ -185,6 +187,7 @@ namespace BLL
                         proceso.LUGAR_EJECUCION = item.LUGAR_EJECUCION;
                         proceso.PROYECTO = item.PROYECTO;
                         proceso.ESTADO_PROC = item.ESTADO_PROC;
+                        proceso.PRESUPUESTO = item.PRESUPESTO;
                         proc.Add(proceso);
 
                     }
@@ -202,7 +205,8 @@ namespace BLL
         /// </summary>
         /// <param name="id"></param>
         /// <returns></returns>
-        public List<ArchivosProcEntity> Getarchivos(int id) {
+        public List<ArchivosProcEntity> Getarchivos(int id)
+        {
             using (var contex = new ModelContex())
             {
                 var dto = contex.Archivo_Ruta.Where(p => p.PROCESO_ARCHIVO == id).ToList();
@@ -235,7 +239,7 @@ namespace BLL
                         aspirante.NOM_RAZONSOCIAL = item.NOM_RAZONSOCIAL;
                         aspirante.CORREO = item.CORREO;
                         aspirante.DIRECCION = item.DIRECCION;
-                        aspirante.CIUDAD = item.CIUDAD;
+                        aspirante.CUIDAD = item.CUIDAD;
                         aspirante.DEPARTAMENTO = item.DEPARTAMENTO;
                         aspirante.TELEFONO = item.TELEFONO;
                         resul.Add(aspirante);
@@ -252,11 +256,12 @@ namespace BLL
         /// Analuacion de proceso competitivo
         /// </summary>
         /// <param name="id"></param>
-        public void Anularproceso(int id) {
+        public void Anularproceso(int id)
+        {
             using (var contex = new ModelContex())
             {
                 var cto = contex.Proceso_Competitivo.Where(p => p.ID_COMPETITIVO == id).FirstOrDefault();
-                if (cto!=null)
+                if (cto != null)
                 {
                     cto.ESTADO_PROC = "A";
                     contex.SaveChanges();

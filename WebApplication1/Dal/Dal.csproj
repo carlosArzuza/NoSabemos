@@ -124,9 +124,22 @@
     <Compile Include="Migrations\201603131344125_c.Designer.cs">
       <DependentUpon>201603131344125_c.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603201702538_corecciones.cs" />
+    <Compile Include="Migrations\201603201702538_corecciones.Designer.cs">
+      <DependentUpon>201603201702538_corecciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603201914457_Po_detalle.cs" />
+    <Compile Include="Migrations\201603201914457_Po_detalle.Designer.cs">
+      <DependentUpon>201603201914457_Po_detalle.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603271347156_contactos.cs" />
+    <Compile Include="Migrations\201603271347156_contactos.Designer.cs">
+      <DependentUpon>201603271347156_contactos.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Oferta_Mercantil.cs" />
     <Compile Include="Orden_Compra.cs" />
+    <Compile Include="Orden_Compra_detalle.cs" />
     <Compile Include="Polizas.cs" />
     <Compile Include="Proceso_Competitivo.cs" />
     <Compile Include="Proyectos.cs" />
@@ -193,6 +206,15 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603131344125_c.resx">
       <DependentUpon>201603131344125_c.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603201702538_corecciones.resx">
+      <DependentUpon>201603201702538_corecciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603201914457_Po_detalle.resx">
+      <DependentUpon>201603201914457_Po_detalle.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603271347156_contactos.resx">
+      <DependentUpon>201603271347156_contactos.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

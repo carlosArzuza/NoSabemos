@@ -21,7 +21,7 @@ namespace Dal
         public DbSet<Aspirantes> Aspirantes { get; set; }
         public DbSet<Aspirante_Proceso> Aspirantes_proceso { get; set; }
         public DbSet<Orden_Compra> Orden_Compra { get; set; }
-
+        public DbSet<Orden_Compra_detalle> Orden_Compra_detalle { get; set; }
 
     }
 }

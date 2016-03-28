@@ -1,18 +1,23 @@
-﻿app.controller('ordencompraController', function ($scope,OfertamercantilServices, XLSXReaderService) {
+﻿app.controller('ordencompraController', function ($scope, OfertamercantilServices, XLSXReaderService,AspiranteServices,ContactosServices,OrdencompraServices) {
 
     $scope.ON = true
     $scope.OFF = false
+
+    $scope.Contacto = {};
+    $scope.Contactos = [];
 
     $scope.OFM = {};//Objeto de OFM actual
     $scope.OFMS = []//Listado de Objeto OFM 
 
     $scope.Order = {};//Objeto de OFM actual
     $scope.Orders = []//Listado de Objeto OFM 
-
-
+    var EJECUTADO = 0;
     function inicialize() {
+    
         $scope.Order.NO_OFM = "";
-        $scope.Order.NUMERO_PO = ";"
+        $scope.Order.NUMERO_PO = "";
+        $scope.Order.EJECUTADO = "";
+        $scope.Order.DISPONIBLE = "";
     }
 
     $scope.total = $scope.Cantidad * $scope.Punidad;
@@ -33,6 +38,7 @@
             cost: 0
         });
     },
+
 
     $scope.removeItem = function(index) {
         $scope.invoice.splice(index, 1);
@@ -59,6 +65,18 @@
        });
     }
 
+    var Ejecutado = function (ofm) {
+        var promiseGet = OrdencompraServices.getEjecutado(ofm); //The Method Call from service
+        promiseGet.then(function (pl) {
+            angular.forEach(pl.data, function (item, i) {
+                EJECUTADO = (parseFloat(EJECUTADO) + parseFloat(item.TOTAL_PO));
+            });
+            $scope.Order.EJECUTADO = EJECUTADO;
+        },
+           function (errorPl) {
+               console.log('Error al cargar los datos almacenados', errorPl);
+           });
+    }
     $scope.getOrder = function (id) {
         var promiseGet = OfertamercantilServices.getAllorder(id); //The Method Call from service
         promiseGet.then(function (pl) {
@@ -93,9 +111,18 @@
         $scope.Order = this.Order;
         $scope.Order.NUMERO_PO = $scope.Order.NUMERO_PO;
         $scope.Order.NO_OFM = localStorage.getItem("NO_OFM");
+        $scope.Order.VALOR_ESTIMAO_OFM = $scope.OFM.VALOR_ESTIMAO_OFM;
+        $scope.Order.TIPO_MONEDA = $scope.OFM.TIPO_MONEDA;
+        localStorage.setItem("PADRE", $scope.OFM.CONTRATISTA);
+        localStorage.setItem("MONEDA", $scope.Order.TIPO_MONEDA);
+        Listcontactos($scope.OFM.CONTRATISTA);
+        Ejecutado($scope.Order.NO_OFM);
+        $scope.Order.DISPONIBLE =parseFloat($scope.Order.VALOR_ESTIMAO_OFM) - parseFloat(EJECUTADO);
+
         $("#modalprocesos").modal("hide");
     }
 
+    $scope.contacto = {};
 
     $scope.showPreview = false;
     $scope.showJSONPreview = true;
@@ -132,6 +159,46 @@
         }, 1100);
     }
 
+    var Listcontactos = function (aspirantes) {
+
+        var promiseGet = AspiranteServices.getAllContactos(aspirantes); //The Method Call from service
+        promiseGet.then(function (pl) {
+            $scope.Contactos = pl.data;
+            console.log($scope.Contactos);
+        },
+           function (errorPl) {
+               console.log('Error al cargar los datos almacenados', errorPl);
+        });
+        
+    }
+
+    $scope.Addcontac = function () {
+        var contac = {};
+        contac =
+        {
+            'contacto': $scope.contacto,
+            'padre': localStorage.getItem("PADRE"),
+        };
+        console.log(contac)
+        var promise = ContactosServices.post(contac); //The Method Call from service
+        promise.then(function (pl) {
+            var result = pl.data;
+            if (result === 0)
+            {
+                Notificacion("se ha eccedido el numero maximo de contactos permintidos", "error")
+            }
+            else
+            {
+                if (result === 1) {
+                    Notificacion("Contacto creado de manera exitosa", "success");
+                    Listcontactos(localStorage.getItem("PADRE"));
+                }
+            }
+        },
+           function (errorPl) {
+            console.log('Error al cargar los datos almacenados', errorPl);
+           });
+    }
 
     $scope.fileChanged = function (files) {
         $scope.isProcessing = true;

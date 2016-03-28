@@ -24,6 +24,13 @@ namespace WebApplication1.Controllers
             return ord.GetOrdercompra(id);
         }
 
+        [HttpGet]
+        [Route("~/api/Ordercompra/ejecutado/{ofm}")]
+        public List<OrdcompraEntitty> GetEjecutado(string ofm)
+        {
+            return ord.GetEjecutado(ofm);
+        }
+
         // POST: api/Ordercompra
         public void Post([FromBody]string value)
         {

@@ -22,7 +22,7 @@ namespace Entity.VISTAS
         public string PROCESO { get; set; }
         public string PROCESO_INICIO { get; set; }
         public int TIEMPO_PROCESO { get; set; }
-        public string FECHA_INICO { get; set; }
+        public string FECHA_INICIO { get; set; }
         public string FECHA_INIC_SERVICE { get; set; }
         public int TIEMPO_EJECUCION { get; set; }
         public string DETALLE_PS { get; set; }
@@ -33,5 +33,7 @@ namespace Entity.VISTAS
         public decimal VALOR_TOTAL { get; set; }
         public string ESTADO_PROC { get; set; }
         public string TIPO_MONEDA { get; set; }
+        public int TRANSCURIDOS { get; set; }
+        public string CUMPLIDO { get; set; }
     }
 }

@@ -13,8 +13,12 @@ namespace Entity
         public string NOM_RAZONSOCIAL { get; set; }
         public string CORREO { get; set; }
         public string DIRECCION { get; set; }
-        public string CIUDAD { get; set; }
+        public string CUIDAD { get; set; }
         public string DEPARTAMENTO { get; set; }
         public string TELEFONO { get; set; }
+        public string CONTACTO_1 { get; set; }
+        public string CONTACTO_2 { get; set; }
+        public string CONTACTO_3 { get; set; }
+        public string CONTACTO_4 { get; set; }
     }
 }

@@ -170,7 +170,7 @@ namespace BLL
                         ProcompetitivoEntity proceso = new ProcompetitivoEntity();
                         proceso.ID_COMPETITIVO = item.ID_COMPETITIVO;
                         proceso.LUGAR_EJECUCION = item.LUGAR_EJECUCION;
-                        proceso.FECHA_INICO = item.FECHA_INICO;
+                        proceso.FECHA_INICIO = item.FECHA_INICIO;
                         proceso.FECHA_INIC_SERVICE = item.FECHA_INIC_SERVICE;
                         proceso.DETALLE_PS = item.DETALLE_PS;
                         proceso.TIEMPO_EJECUCION = item.TIEMPO_EJECUCION;

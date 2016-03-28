@@ -204,6 +204,7 @@
     <Compile Include="Controllers\AspiranteProcesoController.cs" />
     <Compile Include="Controllers\AspirantesController.cs" />
     <Compile Include="Controllers\ConfigController.cs" />
+    <Compile Include="Controllers\ContactosController.cs" />
     <Compile Include="Controllers\FilesController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\OfertamercantilController.cs" />
@@ -543,7 +544,6 @@
     <Content Include="js\xlsx\xlsx-reader.js" />
     <Content Include="js\xlsx\xlsx.js" />
     <Content Include="login.aspx" />
-    <Content Include="login.html" />
     <Content Include="MyScript\Controller\AseguradorasController.js" />
     <Content Include="MyScript\Controller\AspiranteController.js" />
     <Content Include="MyScript\Controller\ConfiguracionController.js" />

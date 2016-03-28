@@ -79,11 +79,12 @@
                                 </div>
                                 <h3>Información del Contacto</h3>
                                 <hr>
-                                <div class="form-group col-lg-12">
+                                <div class="form-group col-lg-8">
 
                                     <table class="table table-striped">
                                         <thead>
                                             <tr>
+                                                <th>Nit</th>
                                                 <th>Nombre</th>
                                                 <th>Correo</th>
                                                 <th>Telefono</th>
@@ -93,11 +94,31 @@
                                         </thead>
                                         <tbody>
                                             <tr>
-                                                <td><input type="text" class="input_table form-control" placeholder="Carlos"></td>
-                                                <td><input type="text" class="input_table form-control" placeholder="@example.com"></td>
-                                                <td><input type="text" class="input_table  form-control" placeholder="0000000"></td>
-                                                <td> <input type="text" class="input_table  form-control" placeholder="0000000"></td>
-                                                <td><a href="javasrcritp:;" title="Adicionar contacto"><i class="fa fa-plus" style="font-size: 20px; padding: 7px"></i></a></td>
+                                                <td><input type="text" class="input_table form-control" ng-model="contacto.NIT_CEDULA"></td>
+                                                <td><input type="text" class="input_table form-control" ng-model="contacto.NOM_RAZONSOCIAL"></td>
+                                                <td><input type="text" class="input_table form-control" ng-model="contacto.CORREO"></td>
+                                                <td><input type="text" class="input_table  form-control" ng-model="contacto.TELEFONO"></td>
+                                                <td> <input type="text" class="input_table  form-control" ng-model="contacto.CUIDAD"></td>
+                                                <td><a href="javasrcritp:;" title="Adicionar contacto" ng-click="Addcontac()"><i class="fa fa-plus" style="font-size: 20px; padding: 7px"></i></a></td>
+                                            </tr>
+                                        </tbody>
+                                    </table>
+
+                                </div>
+                                <div class="form-group col-lg-4" style=" width:auto;height: auto;overflow-y: auto;">
+
+                                    <table class="table table-striped">
+                                        <thead>
+                                            <tr>
+                                                <th>Lista de contactos</th>
+                                                <th></th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                            <tr data-ng-repeat="Contacto in Contactos">
+                                                <td style="font-size:15px">{{Contacto.NOM_RAZONSOCIAL}}</td>
+                                                <td style="font-size:15px">{{Contacto.CUIDAD}}</td>
+                                                <td style="font-size:15px"><a href="javasrcritp:;" title="Adicionar contacto" style="font-size:15px"><i class="fa fa-user" style="font-size:12px"></i></a></td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -156,20 +177,32 @@
                                                 <td><input type="text" class="input_table form-control" placeholder="" ng-model="invoices.Cantidad" ng-required></td>
                                                 <td><input type="text" class="input_table  form-control" placeholder="" ng-model="invoices.Unidad"></td>
                                                 <td><input type="text" class="input_table  form-control" placeholder="" ng-model="invoices.ValorUnitario" ng:required></td>
-                                                <td><input type="text" disabled="true" class="input_table  form-control" value="{{invoices.Cantidad * invoices.ValorUnitario | currency}}"></td>
+                                                <td><input type="text" disabled="" class="input_table  form-control" value="{{invoices.Cantidad * invoices.ValorUnitario | currency}}"></td>
                                                 <td><a href="javasrcritp:;" title="Eliminar item" ng:click="removeItem($index)"><i class="fa fa-trash" style="font-size: 20px; color: #ED5565; padding: 7px"></i></a></td>
                                                 
                                             </tr>
                                             <tr>
                                                 <td></td>
                                                 <td></td>
-                                                <td><h3>Total ejecutado:</h3></td>
-                                                <td><h3>{{total() | currency}}</h3></td>
+                                                <td><h3>Presupuesto:</h3></td>
+                                                <td><h3>{{Order.TIPO_MONEDA}} - {{Order.VALOR_ESTIMAO_OFM | currency}}</h3></td>
                                             </tr>
                                             <tr>
-                                                <td><a href ng:click="addItem()" class="btn btn-primary">Nuevo Campo</a></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td><h3>Total ejecutado:</h3></td>
+                                                <td><h3>{{Order.TIPO_MONEDA}} - {{Order.EJECUTADO | currency}}</h3></td>
+                                            </tr>
+                                            <tr>
+                                                <td></td>
                                                 <td></td>
                                                 <td><h3>Disponible:</h3></td>
+                                                <td><h3>{{Order.TIPO_MONEDA}} - {{Order.DISPONIBLE | currency}}</h3></td>
+                                            </tr>
+                                            <tr>
+                                                <td><a ng:click="addItem()" class="btn btn-primary">Nuevo Campo</a></td>
+                                                <td></td>
+                                                <td><h3>Total PO:</h3></td>
                                                 <td><h3>{{total() | currency}}</h3></td>
                                             </tr>
                                         </tbody>

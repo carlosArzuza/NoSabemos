@@ -20,6 +20,13 @@ namespace WebApplication1.Controllers
             return asp.GetAllAspirantes();
         }
 
+        [HttpGet]
+        [Route("~/api/aspirantes/contactos/{aspirantes}")]
+        public IList<AspirantesEntity> Liscontactos(int aspirantes)
+        {
+            return asp.GetAllContactos(aspirantes);
+        }
+
         // GET api/aspirantes/5
         public string Get(int id)
         {

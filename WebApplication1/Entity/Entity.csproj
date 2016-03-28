@@ -45,6 +45,7 @@
     <Compile Include="AspiranteProcesoEntity.cs" />
     <Compile Include="AspirantesEntity.cs" />
     <Compile Include="ConfiguracionEntity.cs" />
+    <Compile Include="ObjetContacto.cs" />
     <Compile Include="OfmEntity.cs" />
     <Compile Include="OjectOfm.cs" />
     <Compile Include="OrdcompraEntitty.cs" />

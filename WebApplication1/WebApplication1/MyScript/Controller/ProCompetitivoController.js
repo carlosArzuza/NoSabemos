@@ -84,7 +84,7 @@
         $scope.Proceso.PROCESO = "";
         $scope.Proceso.PROCESO_INICIO;
         $scope.Proceso.TIEMPO_PROCESO = "";
-        $scope.Proceso.FECHA_INICO = "";
+        $scope.Proceso.FECHA_INICIO = "";
         $scope.Proceso.FECHA_INIC_SERVICE = "";
         $scope.Proceso.TIEMPO_EJECUCION = "";
         $scope.Proceso.DETALLE_PS = "";
@@ -173,7 +173,55 @@
         var promiseGet = ProcompetitivoServices.getAll(); //The Method Call from service
         promiseGet.then(function (pl) {
             $scope.Procesos = pl.data;
-            console.log('competitivo' + $scope.Procesos)
+            var calculo = 0;
+            angular.forEach($scope.Procesos, function (item, dato) {
+
+                var fecha1 = new Date();
+                var fecha2 = new Date(item.FECHA_INICIO);
+                var tiempo = fecha1.getTime() - fecha2.getTime();
+                var dias = Math.floor(tiempo / (1000 * 60 * 60 * 24));
+                if (dias < 0) { dias = 0; }
+                item.TRANSCURIDOS = dias;
+                
+                console.log("" + dias + "" + item.COMP_ADQUISICION)
+                if (item.ESTADO_PROC == "C") {
+                    switch (item.COMP_ADQUISICION) {
+                        case 'A':
+                            calculo = (parseInt(100) * parseInt(dias) / item.TIEMPO_PROCESO);
+                            
+                            console.log(" calculo A " + calculo);
+                            if (calculo >= 60 || calculo >= 100) { item.CUMPLIDO = "P"; }
+                            else { item.CUMPLIDO = "OK"; }
+                            break
+                        case 'B':
+                            calculo = (parseInt(100) * parseInt(dias) / item.TIEMPO_PROCESO);
+                            
+                            console.log(" calculo B " + calculo);
+                            if (calculo > 60 || calculo >= 100) { item.CUMPLIDO = "P"; }
+                            else { item.CUMPLIDO = "OK"; }
+                            break
+                        case 'C':
+                            calculo = (parseInt(100) * parseInt(dias) / item.TIEMPO_PROCESO);
+                            
+                            console.log(" calculo C " + calculo);
+                            if (calculo > 60 || calculo >= 100) { item.CUMPLIDO = "P"; }
+                            else { item.CUMPLIDO = "OK"; }
+                            break
+                        case 'D':
+                            calculo = (parseInt(100) * parseInt(dias) / item.TIEMPO_PROCESO);
+                            
+                            console.log(" calculo D " + calculo);
+                            if (calculo > 60 || calculo >= 100) { item.CUMPLIDO = "P"; }
+                            else
+                            { item.CUMPLIDO = "OK"; }
+                            break
+
+                    }
+                } else { item.CUMPLIDO ="OK"}
+                   
+                
+            });
+            
 
             $scope.$watch('currentPagePC + numPerPagePC', function () {
                 var begin = (($scope.currentPagePC - 1) * $scope.numPerPagePC)
@@ -181,6 +229,7 @@
 
                 $scope.filteredProcesos = $scope.Procesos.slice(begin, end);
             });
+            console.log($scope.Procesos)
         },
            function (errorPl) {
                console.log('Error al cargar los datos almacenados', errorPl);
@@ -282,7 +331,6 @@
                                 "hideMethod": "fadeOut"
                             };
                         }, 1100);
-                        loadRecordProcesos();
                         localStorage.removeItem("ASPIRANTE")
                         localStorage.removeItem("PROCESO")
                         $scope.Mostrar();
@@ -345,7 +393,7 @@
         Proceso.PROCESO = $scope.Proceso.PROCESO;
         Proceso.PROCESO_INICIO = $scope.Proceso.PROCESO_INICIO;
         Proceso.TIEMPO_PROCESO = $scope.Proceso.TIEMPO_PROCESO;
-        Proceso.FECHA_INICO = $scope.Proceso.FECHA_INICO;
+        Proceso.FECHA_INICIO = $scope.Proceso.FECHA_INICIO;
         Proceso.FECHA_INIC_SERVICE = $scope.Proceso.FECHA_INIC_SERVICE;
         Proceso.TIEMPO_EJECUCION = $scope.Proceso.TIEMPO_EJECUCION;
         Proceso.DETALLE_PS = $scope.Proceso.DETALLE_PS;
@@ -377,11 +425,11 @@
             };
             toastr.success("Se realizado el registro de manera exitosa.", "Notificaciones");
             inicialize();
-            loadRecord();
+            loadRecords();
             localStorage.removeItem("PROYECTO")
-            $scope.visibilidadOff();
+            $scope.visibilidadOn();
         },
-        setTimeout(function () { $scope.Cargartodo() }, 1000),
+        setTimeout(function () { $scope.Cargartodo() }, 1100),
         function (errorpl) {
             console.log(errorpl)
         });
@@ -453,24 +501,28 @@
     }
 
     var calcularFI = function (dias) {
-        $scope.Proceso.FECHA_INICO = "";
-        $scope.Proceso.FECHA_INIC_SERVICE = "";
+        $scope.Proceso.FECHA_INICIO = "";
 
-        $scope.YearAct = $scope.CurrentDate.getFullYear();
-        $scope.MesAct = ('0' + ($scope.CurrentDate.getMonth() + 1)).slice(-2);
-        $scope.DiaAct = ('0' + $scope.CurrentDate.getDate()).slice(-2);
+        if ($scope.Proceso.FECHA_INIC_SERVICE === "" || dias === "")
+        {
+            toastr.success("Verifique el campo Complejidad de aquisición ó Fecha de inicio del servicio no se encuentre vacio.", "Notificaciones");
+        }
+        else
+        {
+            $scope.YearAct = $scope.CurrentDate.getFullYear();
+            $scope.MesAct = ('0' + ($scope.CurrentDate.getMonth() + 1)).slice(-2);
+            $scope.DiaAct = ('0' + $scope.CurrentDate.getDate()).slice(-2);
 
-        $scope.Proceso.FECHA_INICO = $scope.MesAct + "/" + $scope.DiaAct + "/" + $scope.YearAct;
-        console.log($scope.Proceso.FECHA_INICO)
+            //$scope.Proceso.FECHA_INICIO = $scope.MesAct + "/" + $scope.DiaAct + "/" + $scope.YearAct;
+            //alert($scope.Proceso.FECHA_INIC_SERVICE);
+            console.log('fecha incio servicio' + $scope.Proceso.FECHA_INIC_SERVICE)
 
-        var result = new Date($scope.Proceso.FECHA_INICO);
-        result.setDate(result.getDate() - dias);
+            var result = new Date($scope.Proceso.FECHA_INIC_SERVICE);
+            result.setDate(result.getDate() - dias);
 
-        /*console.log('0' + (result.getDate() + 1));
-        console.log(('0' + (result.getMonth() + 1)));
-        console.log(result.getFullYear());*/
-
-        $scope.Proceso.FECHA_INIC_SERVICE = ('0' + (result.getMonth() + 1)).slice(-2) + "/" + ('0' + (result.getDate())).slice(-2) + "/" + result.getFullYear();
+            $scope.Proceso.FECHA_INICIO = ('0' + (result.getMonth() + 1)).slice(-2) + "/" + ('0' + (result.getDate())).slice(-2) + "/" + result.getFullYear();
+        }
+        
         //alert($scope.Proceso.FECHA_INIC_SERVICE);
     }
 

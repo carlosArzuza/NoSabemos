@@ -20,7 +20,7 @@ namespace Dal
         public string PROCESO { get; set; }
         public string PROCESO_INICIO { get; set; }
         public int TIEMPO_PROCESO { get; set; }
-        public string FECHA_INICO { get; set; }
+        public string FECHA_INICIO { get; set; }
         public string FECHA_INIC_SERVICE { get; set; }
         public int TIEMPO_EJECUCION { get; set; }
         public string DETALLE_PS { get; set; }

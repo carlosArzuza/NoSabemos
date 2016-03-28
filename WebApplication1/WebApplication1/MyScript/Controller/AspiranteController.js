@@ -65,6 +65,10 @@
         $scope.Asp.CIUDAD = "";
         $scope.Asp.DEPARTAMENTO = "";
         $scope.Asp.TELEFONO = "";
+        $scope.Asp.CONTACTO_1 = "";
+        $scope.Asp.CONTACTO_2 = "";
+        $scope.Asp.CONTACTO_3 = "";
+        $scope.Asp.CONTACTO_4 = "";
     }
     
     $scope.Add = function () {
@@ -293,11 +297,12 @@
         
         $("#guardar").attr('disabled', true)
         $("#loading").show();
+        console.log(vendor)
         AspiranteServices.post(vendor).then(function () {
             loadRecords();
             Notificacion($scope.mensajeSuccess, "success");
             $("#loading").hide();
-            $("#guardar").attr('disabled', false)},
+            $("#guardar").hide();},
              function (errorpl) {console.log(errorpl)});          
     };
 

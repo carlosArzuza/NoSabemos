@@ -1,7 +1,6 @@
-﻿
-app.service("ConfigService", function ($http) {
+﻿var uri = "http://localhost:49372";
 
-    var uri = "http://localhost:49372";
+app.service("ConfigService", function ($http) {
 
     this.get = function (id) {
         var req = $http.get(uri + '/api/Config/' + id);
@@ -48,8 +47,6 @@ app.service("ConfigService", function ($http) {
 
 app.service("PromanagerService", function ($http) {
 
-    var uri = "http://localhost:49372";
-
     this.get = function (id) {
         var req = $http.get(uri + '/api/ProjManager/' + id);
         return req;
@@ -88,8 +85,6 @@ app.service("PromanagerService", function ($http) {
 
 app.service("AmparosService", function ($http) {
 
-    var uri = "http://localhost:49372";
-
     this.getALL = function () {
         var req = $http.get(uri + '/api/Amparos/');
         return req;
@@ -113,8 +108,6 @@ app.service("AmparosService", function ($http) {
 
 app.service("AseguradoraService", function ($http) {
 
-    var uri = "http://localhost:49372";
-
     this.getALL = function () {
         var req = $http.get(uri + '/api/Aseguradoras/');
         return req;
@@ -137,8 +130,6 @@ app.service("AseguradoraService", function ($http) {
 
 
 app.service("ProyectoServices", function ($http) {
-
-    var uri = "http://localhost:49372";
 
     this.getAllConfig = function () {
         var req = $http.get(uri + '/api/Config/All');
@@ -184,11 +175,7 @@ app.service("ProyectoServices", function ($http) {
     };
 });
 
-
 app.service("ProcompetitivoServices", function ($http) {
-
-    var uri = "http://localhost:49372";
-
 
     this.getAllproyectos = function () {
         var req = $http.get(uri + '/api/Proyec');
@@ -244,13 +231,18 @@ app.service("ProcompetitivoServices", function ($http) {
 
 app.service("AspiranteServices", function ($http) {
 
-    var uri = "http://localhost:49372";
-
 
     this.getAllproyectos = function () {
         var req = $http.get(uri + '/api/aspirantes');
         return req;
     };
+
+
+    this.getAllContactos = function (aspirantes) {
+        var req = $http.get(uri + '/api/aspirantes/contactos/'+aspirantes);
+        return req;
+    };
+
 
     this.getAll = function () {
         var req = $http.get(uri + '/api/aspirantes');
@@ -277,10 +269,17 @@ app.service("AspiranteServices", function ($http) {
     };
 });
 
+app.service("ContactosServices", function ($http) {
+
+    this.post = function (obj) {
+        var req = $http.post(uri + '/api/Contactos', obj);
+        return req;
+    };
+
+    
+});
+
 app.service("OfertamercantilServices", function ($http) {
-
-    var uri = "http://localhost:49372";
-
 
     this.post = function (ofm) {
         var req = $http.post(uri + '/api/Ofertamercantil', ofm);
@@ -299,6 +298,15 @@ app.service("OfertamercantilServices", function ($http) {
 
     this.getAllorder = function (id) {
         var req = $http.get(uri + '/api/Ordercompra/' + id);
+        return req;
+    };
+
+});
+
+app.service("OrdencompraServices", function ($http) {
+
+    this.getEjecutado = function (ofm) {
+        var req = $http.get(uri + '/api/Ordercompra/ejecutado/' + ofm);
         return req;
     };
 

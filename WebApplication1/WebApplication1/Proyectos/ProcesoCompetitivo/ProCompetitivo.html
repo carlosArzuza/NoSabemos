@@ -47,22 +47,42 @@
                                 <tr>
                                     <th>Proyecto</th>
                                     <th>Detalle producto o servicio </th>
-                                    <th>Fecha inic serv.</th>
-                                    <th style="text-align:center">Tiempo de proceso</th>
                                     <th>Fecha inic proc.</th>
+                                    <th style="text-align:center">Tiempo de proceso</th>
+                                    <th>Fecha inic serv.</th>
                                     <th>Tiempo de ejecución</th>
+                                    <th>Días tránscuridos</th>
                                     <th class="text-center">Detalle</th>
                                     <th style="text-align:center">Acciones</th>
                                 </tr>
                             </thead>
                             <tbody>
-                                <tr class="gradeX" data-ng-repeat="Proceso in filteredProcesos | filter:filtrarProcesos track by $index">
-                                    <td>{{Proceso.PROYECTO}}</td>
+                                <tr class="gradeX" data-ng-repeat="Proceso in filteredProcesos | filter:filtrarProcesos track by $index" ng-style="">
+                                    <td>
+                                        <span>
+                                            <span ng-show='Proceso.CUMPLIDO == "P"'>
+                                                <span>{{Proceso.PROYECTO}} </span>
+                                            </span>
+                                            <span ng-show='Proceso.CUMPLIDO == "OK"'>
+                                                <span style="color:#676A6C">{{Proceso.PROYECTO}}</span>
+                                            </span>
+                                        </span>
+                                    </td>
                                     <td>{{Proceso.DETALLE_PS}}</td>
-                                    <td>{{Proceso.FECHA_INICO}}</td>
+                                    <td>{{Proceso.FECHA_INICIO}}</td>
                                     <td style="text-align:center">{{Proceso.TIEMPO_PROCESO}}</td>
                                     <td>{{Proceso.FECHA_INIC_SERVICE}}</td>
                                     <td style="text-align:center">{{Proceso.TIEMPO_EJECUCION}} días</td>
+                                    <td style="text-align:center">
+                                        <span>
+                                            <span ng-show='Proceso.CUMPLIDO == "P"' style="color:#ff6a00">
+                                                {{Proceso.TRANSCURIDOS}} días <i class="fa fa-warning" style="color:#ff6a00"></i>
+                                            </span>
+                                            <span ng-show='Proceso.CUMPLIDO == "OK"'>
+                                                {{Proceso.TRANSCURIDOS}} días
+                                            </span>
+                                        </span>
+                                    </td>
                                     <td>
                                         <span>
                                             <span ng-show='Proceso.ESTADO_PROC == "C"'>
@@ -98,7 +118,7 @@
                             <div data-pagination="" data-num-pages="numPagesPC()"
                                  data-current-page="currentPagePC" data-max-size="maxSize"
                                  data-boundary-links="true"></div>
-                        </div> 
+                        </div>
 
                     </div>
                 </div>
@@ -202,7 +222,7 @@
 
                                     <div class="form-group col-lg-3">
                                         <label>Fecha de inicio del proceso</label>
-                                        <input class="form-control" type="text" ng-model="Proceso.FECHA_INIC_SERVICE" disabled="">
+                                        <input class="form-control" type="text" ng-model="Proceso.FECHA_INICIO" disabled="">
                                     </div>
 
                                     <div class="form-group col-lg-3">
@@ -215,7 +235,7 @@
                                         <div class="input-group date">
                                             <span class="input-group-addon">
                                                 <i class="fa fa-calendar"></i>
-                                            </span><input type="text" class="form-control" value="{{CurrentDate | date:'MM/dd/yyyy'}}">
+                                            </span><input type="text" class="form-control" ng-model="Proceso.FECHA_INIC_SERVICE" ng-change="TimeProces()">
                                         </div>
                                     </div>
 
@@ -438,7 +458,7 @@
             keyboardNavigation: false,
             forceParse: false,
             calendarWeeks: true,
-            autoclose: true
+            autoclose: true,
         });
         document.getElementById("body").className = "md-skin fixed-sidebar fixed-nav pace-done mini-navbar";
     });

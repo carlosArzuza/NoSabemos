@@ -318,7 +318,7 @@
     <script src="MyScript/Controller/ProCompetitivoController.js"></script>
     <script src="MyScript/Controller/Ofertamercantilontroller.js"></script>
     <script src="MyScript/Controller/ordencompraController.js"></script>
-
+    <script src="MyScript/Controller/NotificacionesController.js"></script>
 
 
 

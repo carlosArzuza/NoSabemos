@@ -83,6 +83,7 @@ var app;
                 })
                 .when('/Notificaciones', {
                     templateUrl: 'Notificaciones/Notificaciones.html',
+                    controller: "NotificacionesController"
                 })
                 .when('/Historial', {
                     templateUrl: 'Historial/Historial.html',

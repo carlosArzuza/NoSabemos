@@ -49,6 +49,7 @@
     <Compile Include="OfmEntity.cs" />
     <Compile Include="OjectOfm.cs" />
     <Compile Include="OrdcompraEntitty.cs" />
+    <Compile Include="PolizaEntity.cs" />
     <Compile Include="ProcompetitivoEntity.cs" />
     <Compile Include="ProjerManagerEntity.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

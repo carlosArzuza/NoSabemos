@@ -310,12 +310,13 @@ app.service("OrdencompraServices", function ($http) {
         return req;
     };
 
+});
 
-    this.getAfe = function (id) {
-        var req = $http.get(uri + '/api/Ordercompra/afe/' + id);
+app.service("NotificacionesServices", function ($http) {
+
+    this.getAllPolizas = function () {
+        var req = $http.get(uri + '/api/notificaciones');
         return req;
     };
-
-
 
 });

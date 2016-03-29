@@ -31,6 +31,13 @@ namespace WebApplication1.Controllers
             return ord.GetEjecutado(ofm);
         }
 
+        [HttpGet]
+        [Route("~/api/Ordercompra/afe/{id}")]
+        public string GetAfe(int id)
+        {
+            return ord.Proyectoproceso(id);
+        }
+
         // POST: api/Ordercompra
         public void Post([FromBody]string value)
         {

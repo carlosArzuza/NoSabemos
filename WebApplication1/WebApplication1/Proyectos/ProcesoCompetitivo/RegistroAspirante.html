@@ -66,22 +66,26 @@
                     <table class="table table-striped">
                         <thead>
                             <tr>
-                                <th>Nit</th>
-                                <th>Nombre/razón social</th>
-                                <th>Correo</th>
+                                <th>Vendor Id</th>
+                                <th>Empresa</th>
+                                <th>E-mail</th>
+                                <th>Telefonos</th>
                                 <th style="text-align:center">Acciones</th>
                             </tr>
                         </thead>
                         <tbody>
-                            <tr class="gradeX" ng-repeat="Asp in filteredVendors|orderBy:'NOM_RAZONSOCIAL' |filter:filtrarVendors track by $index">
+                            <tr class="gradeX" ng-repeat="Asp in filteredVendors|orderBy:'EMPRESA' |filter:filtrarVendors track by $index">
                                 <td>
-                                    {{Asp.NIT_CEDULA}}
+                                    {{Asp.VENDORID}}
                                 </td>
                                 <td>
-                                    {{Asp.NOM_RAZONSOCIAL}}
+                                    {{Asp.EMPRESA}}
                                 </td>
                                 <td>
                                     {{Asp.CORREO}}
+                                </td>
+                                <td>
+                                    {{Asp.TELEFONO}} - {{Asp.CELULAR}}
                                 </td>
                                 <td style="width:120px;text-align:center" class="center">
                                     <a href="javasrcritp:;" title="Editar datos" ng-click="Edit(Asp)"><i class="fa fa-edit" style="font-size:20px;color:#1A7BB9;padding-right:5px"></i></a>
@@ -114,15 +118,15 @@
                 <div class="modal-body">
                     <form role="form" name="userForm" novalidate>
                         <div class="form-group" ng-class="{ 'has-error' : userForm.id.$invalid && !userForm.id.$pristine }">
-                            <label>Nit*</label>
-                            <input type="text" name="id" ng-model="Asp.NIT_CEDULA" class="form-control" required>
+                            <label>Vendor id*</label>
+                            <input type="text" name="id" ng-model="Asp.VENDORID" class="form-control" required>
                         </div>
                         <div class="form-group" ng-class="{ 'has-error' : userForm.nombre.$invalid && !userForm.nombre.$pristine }">
-                            <label>Nombre /razón social*</label>
-                            <input type="text" name="nombre" ng-model="Asp.NOM_RAZONSOCIAL" class="form-control" required>
+                            <label>Empresa*</label>
+                            <input type="text" name="nombre" ng-model="Asp.EMPRESA" class="form-control" required>
                         </div>
                         <div class="form-group" ng-class="{ 'has-error' : userForm.email.$invalid && !userForm.email.$pristine }">
-                            <label>Correo*</label>
+                            <label>E-Mail*</label>
                             <input type="text" name="email" ng-model="Asp.CORREO" class="form-control" required>
                         </div>
                         <div class="form-group">
@@ -140,6 +144,10 @@
                         <div class="form-group">
                             <label>Teléfono</label>
                             <input type="text" class="form-control" ng-model="Asp.TELEFONO">
+                        </div>
+                        <div class="form-group">
+                            <label>Celular</label>
+                            <input type="text" class="form-control" ng-model="Asp.CELULAR">
                         </div>
                     </form>
                 </div>
@@ -161,15 +169,15 @@
                 <div class="modal-body">
                     <form role="form">
                         <div class="form-group">
-                            <label>Nit*</label>
-                            <input type="text" name="id" ng-model="Asp.NIT_CEDULA" class="form-control">
+                            <label>Vendor Id*</label>
+                            <input type="text" name="id" ng-model="Asp.VENDORID" class="form-control">
                         </div>
                         <div class="form-group" >
-                            <label>Nombre /razón social*</label>
-                            <input type="text" name="nombre" ng-model="Asp.NOM_RAZONSOCIAL" class="form-control" >
+                            <label>Empresa*</label>
+                            <input type="text" name="nombre" ng-model="Asp.EMPRESA" class="form-control" >
                         </div>
                         <div class="form-group">
-                            <label>Correo*</label>
+                            <label>E-Mail*</label>
                             <input type="text" name="email" ng-model="Asp.CORREO" class="form-control" >
                         </div>
                         <div class="form-group">
@@ -187,6 +195,10 @@
                         <div class="form-group">
                             <label>Teléfono</label>
                             <input type="text" class="form-control" ng-model="Asp.TELEFONO">
+                        </div>
+                        <div class="form-group">
+                            <label>Celular</label>
+                            <input type="text" class="form-control" ng-model="Asp.CELULAR">
                         </div>
                     </form>
                 </div>

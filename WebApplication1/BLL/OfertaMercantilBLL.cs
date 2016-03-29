@@ -78,6 +78,7 @@ namespace BLL
                    ofm.OBJETO_OFM =item.OBJETO_OFM;
                    ofm.LUGRA_EJECUCION_OFM=item.LUGRA_EJECUCION_OFM;
                    ofm.TIPO_MONEDA=item.TIPO_MONEDA;
+                   ofm.PROC_OFM = item.PROC_OFM;
                    ofm.VALOR_ESTIMAO_OFM = item.VALOR_ESTIMAO_OFM;
                    ofm.CONTRATISTA = item.CONTRATISTA;
                    lisofm.Add(ofm);

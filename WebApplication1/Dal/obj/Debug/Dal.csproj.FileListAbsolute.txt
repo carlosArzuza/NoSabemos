@@ -270,3 +270,11 @@ C:\Users\ADMIN\Documents\GitHub\NoSabemos\WebApplication1\Dal\obj\Debug\Dal.pdb
 C:\Users\ADMIN\Documents\GitHub\NoSabemos\WebApplication1\Dal\obj\Debug\Dal.Migrations.corecciones.resources
 C:\Users\ADMIN\Documents\GitHub\NoSabemos\WebApplication1\Dal\obj\Debug\Dal.Migrations.Po_detalle.resources
 C:\Users\ADMIN\Documents\GitHub\NoSabemos\WebApplication1\Dal\obj\Debug\Dal.Migrations.contactos.resources
+C:\Users\ADMIN\Documents\GitHub\NoSabemos\WebApplication1\Dal\obj\Debug\Dal.Migrations.PO_Vendors.resources
+C:\Users\ADMIN\Documents\GitHub\NoSabemos\WebApplication1\Dal\obj\Debug\Dal.Migrations.proce_proyec.resources
+C:\Users\ADMIN\Documents\GitHub\NoSabemos\WebApplication1\Dal\obj\Debug\Dal.Migrations.pro.resources
+C:\Users\ADMIN\Documents\GitHub\NoSabemos\WebApplication1\Dal\obj\Debug\Dal.Migrations.cambios_pro.resources
+C:\Users\ADMIN\Documents\GitHub\NoSabemos\WebApplication1\Dal\obj\Debug\Dal.Migrations.aapp.resources
+C:\Users\ADMIN\Documents\GitHub\NoSabemos\WebApplication1\Dal\obj\Debug\Dal.Migrations.VEDORS.resources
+C:\Users\ADMIN\Documents\GitHub\NoSabemos\WebApplication1\Dal\obj\Debug\Dal.Migrations.addcuidad.resources
+C:\Users\ADMIN\Documents\GitHub\NoSabemos\WebApplication1\Dal\obj\Debug\Dal.Migrations.c1.resources

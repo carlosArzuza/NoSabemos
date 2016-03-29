@@ -1,0 +1,229 @@
+﻿<div class="row wrapper border-bottom white-bg page-heading">
+    <div class="col-lg-10">
+        <ol class="breadcrumb">
+            <li>
+                <a href="#/home">Inicio</a>
+            </li>
+            <li>
+                <a>Proyectos</a>
+            </li>
+            <li>
+                <a href="#/Proyectos/ProCompetitivo">Proceso competitivo</a>
+            </li>
+            <li class="active">
+                <strong>Detalle proceso competitivo</strong>
+            </li>
+        </ol>
+
+    </div>
+    <div class="col-lg-2">
+
+    </div>
+</div>
+        <div class="row">
+                <div class="col-lg-12" id="detallecomp">
+                    <div class="wrapper wrapper-content animated fadeInUp">
+                        <div class="ibox">
+                            <div class="ibox-content">
+                                <div class="row">
+                                    <div class="col-lg-12">
+                                        <div class="m-b-md">
+                                            
+                                            <h2>{{ProCompetitivo.DETALLE_PS}}</h2>
+                                        </div>
+                                        <dl class="dl-horizontal">
+                                            
+                                        </dl>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <dl class="dl-horizontal">
+                                        <dt>Complejidad</dt>
+                                        <dd><span class="label label-primary">{{ProCompetitivo.COMP_ADQUISICION}}</span></dd>
+                                    </dl>
+                                    <div class="col-lg-5">
+                                        <dl class="dl-horizontal">
+                                            <dt>Proceso:</dt>
+                                            <dd>{{ProCompetitivo.PROCESO}}</dd>
+                                            <dt>Fecha del proceso :</dt>
+                                            <dd>{{ProCompetitivo.FECHA_INIC_SERVICE}}</dd>
+                                            <dt>Fecha del servicio :</dt>
+                                            <dd>{{ProCompetitivo.FECHA_INICO}}</dd>
+                                            <dt>Tiempo del proceso :</dt>
+                                            <dd>{{ProCompetitivo.TIEMPO_PROCESO}}</dd>
+                                            <dt>Categoría :</dt>
+                                            <dd>{{ProCompetitivo.CATEGORIA}}</dd>
+                                            <dt>Familia :</dt>
+                                            <dd>{{ProCompetitivo.FAMILIA}}</dd>
+                                           </dl>
+                                    </div>
+                                    <div class="col-lg-7" id="cluster_info">
+                                        <dl class="dl-horizontal">
+                                            <dt>Origen :</dt>
+                                            <dd>{{ProCompetitivo.ORIGEN}}</dd>
+                                            <dt>Tiempo de ejecución :</dt>
+                                            <dd>{{ProCompetitivo.TIEMPO_EJECUCION}}</dd>
+                                            <dt>Cantidad :</dt>
+                                            <dd>{{ProCompetitivo.CANTIDAD}}</dd>
+                                            <dt>Valor estimado :</dt>
+                                            <dd>{{ProCompetitivo.PRESUPUESTO | currency}}</dd>
+                                            <dt>Lugar de ejecución :</dt>
+                                            <dd>{{ProCompetitivo.LUGAR_EJECUCION}}</dd>
+                                            <dt>Valor real :</dt>
+                                            <dd>{{ProCompetitivo.VALOR_TOTAL | currency}}</dd>
+                                            
+                                        </dl>
+                                    </div>
+                                </div>
+                                <div class="row m-t-sm">
+                                    <div class="col-lg-12">
+                                        <div class="panel blank-panel">
+                                            <div class="panel-heading">
+                                                <div class="panel-options">
+                                                    <ul class="nav nav-tabs">
+                                                        <li class="active"><a href="" data-toggle="tab">Aspirantes</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="panel-body">
+                                                <div class="tab-content">
+                                                    <div class="tab-pane active" id="tab-1">
+                                                        <div class="feed-activity-list" data-ng-repeat="AspirantesPro in AspirantesPros">
+                                                            <div class="feed-element">
+                                                                <a href="" class="pull-left">
+                                                                    <i class="fa fa-user fa-3x" style="color: #757575; "></i>
+                                                                </a>
+                                                                <div class="media-body ">
+                                                                    <small class="pull-right"></small>
+                                                                    <strong></strong><strong>{{AspirantesPro.NOM_RAZONSOCIAL}}</strong><br>
+                                                                    
+                                                                    <div class="row">
+                                                                        <div class="col-lg-4">
+                                                                            <small>Nit : {{AspirantesPro.NIT_CEDULA}}</small><br />
+                                                                            <small>Correo: {{AspirantesPro.CORREO}}</small><br />
+                                                                        </div>
+                                                                        <div class="col-lg-4">
+                                                                            <small>Dirección :{{AspirantesPro.DIRECCION}}</small><br />
+                                                                            <small>Ciudad: {{AspirantesPro.CIUDAD}}</small><br />
+                                                                        </div>
+                                                                        <div class="col-lg-4">
+                                                                            <small>Departamento : {{AspirantesPro.DEPARTAMENTO}}</small><br />
+                                                                            <small>Telefono : {{AspirantesPro.TELEFONO}}</small><br />
+                                                                        </div>
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            <div class="col-lg-6" ng-show="ocultar">
+                <div class="wrapper wrapper-content animated fadeInUp">
+                    <div class="ibox">
+                        <div class="ibox-content">
+                            <div class="row">
+                                <div class="col-lg-12">
+                                    <div class="m-b-md">
+
+                                        <h2>{{ProCompetitivo.DETALLE_PS}}</h2>
+                                    </div>
+                                    <dl class="dl-horizontal"></dl>
+                                </div>
+                            </div>
+                            <div class="row">
+                                <dl class="dl-horizontal">
+                                    <dt>Complejidad</dt>
+                                    <dd><span class="label label-primary">{{ProCompetitivo.COMP_ADQUISICION}}</span></dd>
+                                </dl>
+                                <div class="col-lg-5">
+                                    <dl class="dl-horizontal">
+                                        <dt>Proceso:</dt>
+                                        <dd>{{ProCompetitivo.PROCESO}}</dd>
+                                        <dt>Fecha del proceso :</dt>
+                                        <dd>{{ProCompetitivo.FECHA_INIC_SERVICE}}</dd>
+                                        <dt>Fecha del servicio :</dt>
+                                        <dd>{{ProCompetitivo.FECHA_INICO}}</dd>
+                                        <dt>Tiempo del proceso :</dt>
+                                        <dd>{{ProCompetitivo.TIEMPO_PROCESO}}</dd>
+                                        <dt>Categoría :</dt>
+                                        <dd>{{ProCompetitivo.CATEGORIA}}</dd>
+                                        <dt>Familia :</dt>
+                                        <dd>{{ProCompetitivo.FAMILIA}}</dd>
+                                    </dl>
+                                </div>
+                                <div class="col-lg-7" id="cluster_info">
+                                    <dl class="dl-horizontal">
+                                        <dt>Origen :</dt>
+                                        <dd>{{ProCompetitivo.ORIGEN}}</dd>
+                                        <dt>Tiempo de ejecución :</dt>
+                                        <dd>{{ProCompetitivo.TIEMPO_EJECUCION}}</dd>
+                                        <dt>Cantidad :</dt>
+                                        <dd>{{ProCompetitivo.CANTIDAD}}</dd>
+                                        <dt>Valor estimado :</dt>
+                                        <dd>{{ProCompetitivo.PRESUPUESTO | currency}}</dd>
+                                        <dt>Lugar de ejecución :</dt>
+                                        <dd>{{ProCompetitivo.LUGAR_EJECUCION}}</dd>
+                                        <dt>Valor real :</dt>
+                                        <dd>{{ProCompetitivo.VALOR_TOTAL | currency}}</dd>
+
+                                    </dl>
+                                </div>
+                            </div>
+                            <div class="row m-t-sm">
+                                <div class="col-lg-12">
+                                    <div class="panel blank-panel">
+                                        <div class="panel-heading">
+                                            <div class="panel-options">
+                                                <ul class="nav nav-tabs">
+                                                    <li class="active"><a href="" data-toggle="tab">Aspirantes</a></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                        <div class="panel-body">
+                                            <div class="tab-content">
+                                                <div class="tab-pane active" id="tab-1">
+                                                    <div class="feed-activity-list" data-ng-repeat="AspirantesPro in AspirantesPros">
+                                                        <div class="feed-element">
+                                                            <a href="" class="pull-left">
+                                                                <i class="fa fa-user fa-3x" style="color: #757575; "></i>
+                                                            </a>
+                                                            <div class="media-body ">
+                                                                <small class="pull-right"></small>
+                                                                <strong></strong><strong>{{AspirantesPro.NOM_RAZONSOCIAL}}</strong><br>
+
+                                                                <div class="row">
+                                                                    <div class="col-lg-4">
+                                                                        <small>Nit : {{AspirantesPro.NIT_CEDULA}}</small><br />
+                                                                        <small>Correo: {{AspirantesPro.CORREO}}</small><br />
+                                                                    </div>
+                                                                    <div class="col-lg-4">
+                                                                        <small>Dirección :{{AspirantesPro.DIRECCION}}</small><br />
+                                                                        <small>Ciudad: {{AspirantesPro.CIUDAD}}</small><br />
+                                                                    </div>
+                                                                    <div class="col-lg-4">
+                                                                        <small>Departamento : {{AspirantesPro.DEPARTAMENTO}}</small><br />
+                                                                        <small>Telefono : {{AspirantesPro.TELEFONO}}</small><br />
+                                                                    </div>
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            </div>

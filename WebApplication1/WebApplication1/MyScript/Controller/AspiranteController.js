@@ -58,11 +58,11 @@
 
     function inicialice() {
         $("#loading").hide();
-        $scope.Asp.NIT_CEDULA = "";
-        $scope.Asp.NOM_RAZONSOCIAL = "";
+        $scope.Asp.VENDORID = "";
+        $scope.Asp.EMPRESA = "";
         $scope.Asp.CORREO = "";
         $scope.Asp.DIRECCION = "";
-        $scope.Asp.CIUDAD = "";
+        $scope.Asp.CUIDAD = "";
         $scope.Asp.DEPARTAMENTO = "";
         $scope.Asp.TELEFONO = "";
         $scope.Asp.CONTACTO_1 = "";
@@ -74,8 +74,8 @@
     $scope.Add = function () {
         var aspirante = {};
 
-        aspirante.NIT_CEDULA = $scope.Asp.NIT_CEDULA;
-        aspirante.NOM_RAZONSOCIAL = $scope.Asp.NOM_RAZONSOCIAL;
+        aspirante.VENDORID = $scope.Asp.VENDORID;
+        aspirante.EMPRESA = $scope.Asp.EMPRESA;
         aspirante.CORREO = $scope.Asp.CORREO;
         aspirante.DIRECCION = $scope.Asp.DIRECCION;
         aspirante.CIUDAD = $scope.Asp.CIUDAD;
@@ -123,7 +123,7 @@
 
         aspirante.ASPIRANTE_ID = $scope.Asp.ASPIRANTE_ID;
         aspirante.NIT = $scope.Asp.NIT;
-        aspirante.NOM_RAZONSOCIAL = $scope.Asp.NOM_RAZONSOCIAL;
+        aspirante.EMPRESA = $scope.Asp.EMPRESA;
         aspirante.CORREO = $scope.Asp.CORREO;
         aspirante.DIRECCION = $scope.Asp.DIRECCION;
         aspirante.CIUDAD = $scope.Asp.CIUDAD;

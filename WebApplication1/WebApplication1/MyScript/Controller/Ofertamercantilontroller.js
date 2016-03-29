@@ -306,7 +306,7 @@
     $scope.Cargar = function () {
         $scope.AspirantesPro = this.AspirantesPro;
         $scope.OFM.CONTRATISTA = $scope.AspirantesPro.ASPIRANTE_ID;
-        $scope.OFM.VENDOR = $scope.AspirantesPro.NOM_RAZONSOCIAL;
+        $scope.OFM.VENDOR = $scope.AspirantesPro.EMPRESA;
         console.log($scope.AspirantesPro);
         $scope.OFM.FECHA_FINAL_OFM = "";
         $scope.OFM.VIGENCIA = "";
@@ -355,6 +355,7 @@
         OFM.VALOR_ESTIMAO_OFM = $scope.OFM.VALOR_ESTIMAO_OFM;
         OFM.VALOR_REAL_OFM = $scope.OFM.VALOR_REAL_OFM;
         OP.NUMERO_PO = $scope.OFM.NO_PO;
+        OP.PROVEEDOR = $scope.OFM.CONTRATISTA;
         OFM.PROC_OFM = ID_COMPETITIVO;
         console.log(Polizas)
         var dto = {
@@ -389,6 +390,7 @@
                             archivos = [];
                             $scope.Ocultar();
                             initialize();
+                            windows.location = "/index.html#/OFM/REGOFM";
 
                         }
 
@@ -413,6 +415,7 @@
                     swal("Mensaje de Notificacion", " se ha realizado el registro de manera exítosa.", "success");
                     loadRecord();
                     $scope.Mostrar();
+                    windows.location = "/index.html#/OFM/REGOFM";
                 }
 
             },

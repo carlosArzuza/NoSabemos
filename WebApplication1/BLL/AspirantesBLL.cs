@@ -16,14 +16,15 @@ namespace BLL
             {
                 foreach (var item in a)
                 {
-                    var dto = contex.Aspirantes.Where(t => t.NIT_CEDULA == item.NIT_CEDULA).FirstOrDefault();
+                    var dto = contex.Aspirantes.Where(t => t.VENDORID == item.VENDORID).FirstOrDefault();
                     if (dto != null)
                     {
-                        dto.NOM_RAZONSOCIAL = item.NOM_RAZONSOCIAL;
+                        dto.EMPRESA = item.EMPRESA;
                         dto.TELEFONO = item.TELEFONO;
                         dto.DEPARTAMENTO = item.DEPARTAMENTO;
-                        dto.CUIDAD = item.CUIDAD;
+                        dto.CIUDAD = item.CIUDAD;
                         dto.CORREO = item.CORREO;
+                        dto.CELULAR = item.CELULAR;
                         dto.DIRECCION = item.DIRECCION;
                         dto.CONTACTO_1 = item.CONTACTO_1;
                         dto.CONTACTO_2 = item.CONTACTO_2;
@@ -33,12 +34,13 @@ namespace BLL
                     else
                     {
                         Aspirantes asp = new Aspirantes();
-                        asp.NIT_CEDULA = item.NIT_CEDULA;
-                        asp.NOM_RAZONSOCIAL = item.NOM_RAZONSOCIAL;
+                        asp.VENDORID = item.VENDORID;
+                        asp.EMPRESA = item.EMPRESA;
                         asp.TELEFONO = item.TELEFONO;
-                        asp.CUIDAD = item.CUIDAD;
+                        asp.CIUDAD = item.CIUDAD;
                         asp.DEPARTAMENTO = item.DEPARTAMENTO;
                         asp.CORREO = item.CORREO;
+                        asp.CELULAR = item.CELULAR;
                         asp.DIRECCION = item.DIRECCION;
                         asp.CONTACTO_1 = item.CONTACTO_1;
                         asp.CONTACTO_2 = item.CONTACTO_2;
@@ -64,13 +66,14 @@ namespace BLL
                     {
                         AspirantesEntity aspirante = new AspirantesEntity();
                         aspirante.ASPIRANTE_ID= item.ASPIRANTE_ID;
-                        aspirante.NIT_CEDULA = item.NIT_CEDULA;
-                        aspirante.NOM_RAZONSOCIAL = item.NOM_RAZONSOCIAL;
+                        aspirante.VENDORID = item.VENDORID;
+                        aspirante.EMPRESA = item.EMPRESA;
                         aspirante.CORREO = item.CORREO;
                         aspirante.DIRECCION = item.DIRECCION;
-                        aspirante.CUIDAD = item.CUIDAD;
+                        aspirante.CIUDAD = item.CIUDAD;
                         aspirante.DEPARTAMENTO = item.DEPARTAMENTO;
                         aspirante.TELEFONO = item.TELEFONO;
+                        aspirante.CELULAR = item.CELULAR;
                         LisAsp.Add(aspirante);
                     }
                     return LisAsp;
@@ -85,7 +88,7 @@ namespace BLL
             using (var contex = new ModelContex())
             {
                 var result = contex.Aspirantes.Where(a => a.ASPIRANTE_ID == aspirantes).FirstOrDefault();
-                string dato =result.NIT_CEDULA;
+                string dato =result.VENDORID;
                 var dto = contex.Aspirantes.Where(c => c.CONTACTO_1 == dato || c.CONTACTO_2 == dato
                   || c.CONTACTO_3 == dato || c.CONTACTO_4 == dato).ToList();
                 List<AspirantesEntity> LisAsp = new List<AspirantesEntity>();
@@ -96,11 +99,11 @@ namespace BLL
                     {
                         AspirantesEntity aspirante = new AspirantesEntity();
                         aspirante.ASPIRANTE_ID = item.ASPIRANTE_ID;
-                        aspirante.NIT_CEDULA = item.NIT_CEDULA;
-                        aspirante.NOM_RAZONSOCIAL = item.NOM_RAZONSOCIAL;
+                        aspirante.VENDORID = item.VENDORID;
+                        aspirante.EMPRESA = item.EMPRESA;
                         aspirante.CORREO = item.CORREO;
                         aspirante.DIRECCION = item.DIRECCION;
-                        aspirante.CUIDAD = item.CUIDAD;
+                        aspirante.CIUDAD = item.CIUDAD;
                         aspirante.DEPARTAMENTO = item.DEPARTAMENTO;
                         aspirante.TELEFONO = item.TELEFONO;
                         LisAsp.Add(aspirante);

@@ -12,11 +12,12 @@ namespace Dal
         [Key]
         public int ID_PO_DETALLE { get; set; }
         public string NUMERO_POD { get; set; }
-        public string PRODUCTO { get; set; }
+        public string LINEA { get; set; }
+        public string DESCRIPCION { get; set; }
         public decimal CANTIDAD { get; set; }
-        public string UNIDAD_PO { get; set; }
-        public decimal VALOR_UNI { get; set; }
-        public decimal VALOR_TOTAL { get; set; }
+        public string UNIDAD { get; set; }
+        public decimal VALORUNITARIO { get; set; }
+        public decimal VALORTOTAL { get; set; }
 
     }
 }

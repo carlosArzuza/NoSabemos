@@ -290,7 +290,7 @@
         swal({
             title: "Mensaje de confirmación",
             text: "¿Esta seguro que desea agregar este aspirante?" +
-            "\n" + $scope.Aspirante.NOM_RAZONSOCIAL,
+            "\n" + $scope.Aspirante.EMPRESA,
             type: "warning",
             showCancelButton: true,
             confirmButtonColor: "#DD6B55",
@@ -332,8 +332,7 @@
                             };
                         }, 1100);
                         localStorage.removeItem("ASPIRANTE")
-                        localStorage.removeItem("PROCESO")
-                        $scope.Mostrar();
+                        localStorage.removeItem("PROCESO");
 
                     },
                     function (errorpl) {

@@ -24,13 +24,6 @@
 
     $scope.invoice = [];
 
-    $scope.invoice = {
-        items: [{
-            qty: 10,
-            description: 'item',
-            cost: 9.95}]
-    };
-
     $scope.addItem = function() {
         $scope.invoice.push({
             qty: 1,
@@ -59,6 +52,7 @@
         var promiseGet = OfertamercantilServices.getAll(); //The Method Call from service
         promiseGet.then(function (pl) {
             $scope.OFMS = pl.data;
+            console.log($scope.OFMS);
         },
            function (errorPl) {
                console.log('Error al cargar los datos almacenados', errorPl);
@@ -77,6 +71,18 @@
                console.log('Error al cargar los datos almacenados', errorPl);
            });
     }
+
+    var AfeProyecto = function (id) {
+        var promiseGet = OrdencompraServices.getAfe(id); //The Method Call from service
+        promiseGet.then(function (pl) {
+           
+            $scope.Order.AFE = pl.data;
+        },
+           function (errorPl) {
+               console.log('Error al cargar los datos almacenados', errorPl);
+           });
+    }
+
     $scope.getOrder = function (id) {
         var promiseGet = OfertamercantilServices.getAllorder(id); //The Method Call from service
         promiseGet.then(function (pl) {
@@ -115,6 +121,7 @@
         $scope.Order.TIPO_MONEDA = $scope.OFM.TIPO_MONEDA;
         localStorage.setItem("PADRE", $scope.OFM.CONTRATISTA);
         localStorage.setItem("MONEDA", $scope.Order.TIPO_MONEDA);
+        AfeProyecto($scope.OFM.PROC_OFM);
         Listcontactos($scope.OFM.CONTRATISTA);
         Ejecutado($scope.Order.NO_OFM);
         $scope.Order.DISPONIBLE =parseFloat($scope.Order.VALOR_ESTIMAO_OFM) - parseFloat(EJECUTADO);
@@ -129,7 +136,7 @@
     $scope.json_string = "";
 
     $scope.mensajeError = "Debe seleccionar una hoja valida.";
-    $scope.mensajeErrorHoja = 'No existe una hoja llamada \"Orden\" en el libro seleccionado';
+    $scope.mensajeErrorHoja = 'No existe una hoja llamada \"Orden de compra\" en el libro seleccionado';
     $scope.mensajeSuccess = "Se han cargado los datos de manera exitosa.";
 
     function Notificacion(mensaje, Accion) {
@@ -192,6 +199,7 @@
                 if (result === 1) {
                     Notificacion("Contacto creado de manera exitosa", "success");
                     Listcontactos(localStorage.getItem("PADRE"));
+                    contacto = {};
                 }
             }
         },
@@ -206,7 +214,7 @@
         $scope.excelFile = files[0];
         XLSXReaderService.readFile($scope.excelFile, $scope.showPreview, $scope.showJSONPreview).then(function (xlsxData) {
             $scope.sheets = xlsxData.sheets;
-            if ($scope.sheets["Orden"] === undefined) {
+            if ($scope.sheets["PO"] === undefined) {
                 Notificacion($scope.mensajeErrorHoja, "error");
                 $scope.btnG = false;
             } else {
@@ -214,7 +222,7 @@
                 $scope.isProcessing = false;
                 // mi ediciones
                 var file_name = document.getElementById("uploadBtn").value;
-                console.log("Excel " + $scope.sheets["Orden"]);
+                console.log("Excel " + $scope.sheets["PO"]);
             }
             
         });
@@ -226,14 +234,16 @@
             if ($scope.sheets !== undefined) {
                 var obj2 = $scope.sheets[$scope.sheet];
                 var obj = [];
-                if ($scope.sheet == "Orden") {
+                if ($scope.sheet == "PO") {
                     for (var j = 0; j < obj2.length; j++) {
-                        if (obj2[j].Producto !== "" && obj2[j].Producto !== null && obj2[j].Producto !== undefined) {
+                        if (obj2[j].Descripcion !== "" && obj2[j].Descripcion !== null && obj2[j].Descripcion !== undefined) {
                             obj.push(obj2[j]);
+                            console.log(obj2[j])
                         }
                     }
                     Notificacion($scope.mensajeSuccess, "success")
                     $scope.invoice = obj;
+                    console.log('datos hoja'+$scope.invoice)
                 } else {
 
                     Notificacion($scope.mensajeError, "error")
@@ -241,7 +251,7 @@
 
 
             } else {
-                toastr.error("Ha ocurrido un Error.", "SAC-Notificaciones");
+                toastr.error("Ha ocurrido un Error.", "Notificaciones");
             }
         } catch (Exepcion) {
             Notificacion($scope.mensajeError, "error")

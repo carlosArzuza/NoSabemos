@@ -142,8 +142,8 @@ namespace BLL
         }
 
         /// <summary>
-        /// Metodo retorna una lista de procesos competitivos que ya cuentan
-        /// con un aspirante ganador, y se encuentra
+        /// Metodo retorna una lista de procesos competitivos que  cuentan
+        /// con un aspirante ganador, y estan 
         /// listo para realizar la oferta mercantil
         /// </summary>
         /// <returns></returns>
@@ -235,11 +235,11 @@ namespace BLL
                     {
                         AspirantesEntity aspirante = new AspirantesEntity();
                         aspirante.ASPIRANTE_ID = item.ASPIRANTE_ID;
-                        aspirante.NIT_CEDULA = item.NIT_CEDULA;
-                        aspirante.NOM_RAZONSOCIAL = item.NOM_RAZONSOCIAL;
+                        aspirante.VENDORID = item.VENDORID;
+                        aspirante.EMPRESA = item.EMPRESA;
                         aspirante.CORREO = item.CORREO;
                         aspirante.DIRECCION = item.DIRECCION;
-                        aspirante.CUIDAD = item.CUIDAD;
+                        aspirante.CIUDAD = item.CIUDAD;
                         aspirante.DEPARTAMENTO = item.DEPARTAMENTO;
                         aspirante.TELEFONO = item.TELEFONO;
                         resul.Add(aspirante);
@@ -268,5 +268,6 @@ namespace BLL
                 }
             }
         }
+
     }
 }

@@ -136,6 +136,38 @@
     <Compile Include="Migrations\201603271347156_contactos.Designer.cs">
       <DependentUpon>201603271347156_contactos.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\201603281346168_PO_Vendors.cs" />
+    <Compile Include="Migrations\201603281346168_PO_Vendors.Designer.cs">
+      <DependentUpon>201603281346168_PO_Vendors.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603281502579_proce_proyec.cs" />
+    <Compile Include="Migrations\201603281502579_proce_proyec.Designer.cs">
+      <DependentUpon>201603281502579_proce_proyec.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603281518144_pro.cs" />
+    <Compile Include="Migrations\201603281518144_pro.Designer.cs">
+      <DependentUpon>201603281518144_pro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603281528260_cambios_pro.cs" />
+    <Compile Include="Migrations\201603281528260_cambios_pro.Designer.cs">
+      <DependentUpon>201603281528260_cambios_pro.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603281604191_aapp.cs" />
+    <Compile Include="Migrations\201603281604191_aapp.Designer.cs">
+      <DependentUpon>201603281604191_aapp.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603281945173_VEDORS.cs" />
+    <Compile Include="Migrations\201603281945173_VEDORS.Designer.cs">
+      <DependentUpon>201603281945173_VEDORS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603282032115_add-cuidad.cs" />
+    <Compile Include="Migrations\201603282032115_add-cuidad.Designer.cs">
+      <DependentUpon>201603282032115_add-cuidad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201603282145231_c1.cs" />
+    <Compile Include="Migrations\201603282145231_c1.Designer.cs">
+      <DependentUpon>201603282145231_c1.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Oferta_Mercantil.cs" />
     <Compile Include="Orden_Compra.cs" />
@@ -215,6 +247,30 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\201603271347156_contactos.resx">
       <DependentUpon>201603271347156_contactos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603281346168_PO_Vendors.resx">
+      <DependentUpon>201603281346168_PO_Vendors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603281502579_proce_proyec.resx">
+      <DependentUpon>201603281502579_proce_proyec.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603281518144_pro.resx">
+      <DependentUpon>201603281518144_pro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603281528260_cambios_pro.resx">
+      <DependentUpon>201603281528260_cambios_pro.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603281604191_aapp.resx">
+      <DependentUpon>201603281604191_aapp.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603281945173_VEDORS.resx">
+      <DependentUpon>201603281945173_VEDORS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603282032115_add-cuidad.resx">
+      <DependentUpon>201603282032115_add-cuidad.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201603282145231_c1.resx">
+      <DependentUpon>201603282145231_c1.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

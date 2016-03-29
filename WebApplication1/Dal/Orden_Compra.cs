@@ -21,7 +21,7 @@ namespace Dal
         public decimal TOTAL_PO { get; set; }
         public string ESTADO_PO { get; set; }
 
-         [ForeignKey("NUMERO_POD")]
+        [ForeignKey("NUMERO_POD")]
         public ICollection<Orden_Compra_detalle> Orden_Compra_Detalle { get; set; }
 
     }

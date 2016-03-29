@@ -15,8 +15,8 @@ namespace BLL
             using (var contex = new ModelContex())
             {
                 var result = contex.Aspirantes.Where(cont => cont.ASPIRANTE_ID == objc.padre).FirstOrDefault();
-                var contac = contex.Aspirantes.Where(c => c.CONTACTO_1 == result.NIT_CEDULA || c.CONTACTO_2 == result.NIT_CEDULA
-                || c.CONTACTO_3 == result.NIT_CEDULA || c.CONTACTO_4 == result.NIT_CEDULA).ToList();
+                var contac = contex.Aspirantes.Where(c => c.CONTACTO_1 == result.VENDORID || c.CONTACTO_2 == result.VENDORID
+                || c.CONTACTO_3 == result.VENDORID || c.CONTACTO_4 == result.VENDORID).ToList();
                 if (contac.Count() >= 4)
                 {
                     return 0;
@@ -26,28 +26,28 @@ namespace BLL
                 {
                     contex.Aspirantes.Add(objc.contacto);
                     contex.SaveChanges();
-                    var updcontac = contex.Aspirantes.Where(cont => cont.NIT_CEDULA == objc.contacto.NIT_CEDULA).FirstOrDefault();
+                    var updcontac = contex.Aspirantes.Where(cont => cont.VENDORID == objc.contacto.VENDORID).FirstOrDefault();
                     if (updcontac.CONTACTO_1 ==null)
                     {
-                        updcontac.CONTACTO_1 = result.NIT_CEDULA;
+                        updcontac.CONTACTO_1 = result.VENDORID;
                     }
                     else
                     {
                         if (result.CONTACTO_2 == null)
                         {
-                            updcontac.CONTACTO_2 = result.NIT_CEDULA;
+                            updcontac.CONTACTO_2 = result.VENDORID;
                         }
                         else
                         {
                             if (result.CONTACTO_3 == null)
                             {
-                                updcontac.CONTACTO_3 = result.NIT_CEDULA;
+                                updcontac.CONTACTO_3 = result.VENDORID;
                             }
                             else
                             {
                                 if (result.CONTACTO_4 == null)
                                 {
-                                    updcontac.CONTACTO_4 = result.NIT_CEDULA;
+                                    updcontac.CONTACTO_4 = result.VENDORID;
                                 }
                             }
                         }

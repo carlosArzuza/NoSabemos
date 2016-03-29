@@ -47,6 +47,7 @@ namespace Dal
         [ForeignKey("ID_PROCESO")]
         public virtual ICollection<Aspirante_Proceso> Aspirante_Proceso { get; set; }
 
-        public virtual Proyecto proyecto_procompetitivo { get; set; }
+        public virtual Proyecto proyecto_proceso { get; set; }
+
     }
 }

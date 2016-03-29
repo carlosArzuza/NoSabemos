@@ -20,5 +20,6 @@ namespace Entity
         public string TIPO_MONEDA { get; set; }
         public decimal VALOR_ESTIMAO_OFM { get; set; }
         public decimal VALOR_REAL_OFM { get; set; }
+        public int PROC_OFM { get; set; }
     }
 }

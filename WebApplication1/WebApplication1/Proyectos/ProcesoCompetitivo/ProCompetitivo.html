@@ -143,167 +143,166 @@
                         <div class="tab-content">
                             <div id="tab-1" class="tab-pane active">
                                 <div class="panel-body">
-                                    <div class="form-group col-lg-6">
-                                        <label>Seleccione un proyecto</label>
-                                        <input type="text" placeholder="Proyecto" class="form-control" ng-click="LoadModal()" ng-model="Proyec.PROYECTO" title="Hacer clic para cargar la lista de proyectos">
-                                    </div>
-                                    <div class="form-group col-lg-3">
-                                        <label>Categoría</label>
-                                        <select class="form-control" ng-model="Proceso.CATEGORIA">
-                                            <option></option>
-                                            <option ng-repeat="Confi in ConfiCate">{{Confi.NOMBRE_CONFIG}}</option>
-                                        </select>
-
-                                    </div>
-                                    <div class="form-group col-lg-3">
-                                        <label>Tipo</label>
-                                        <select class="form-control" ng-model="Proceso.TIPO">
-                                            <option></option>
-                                            <option>Servicio</option>
-                                            <option>Producto</option>
-                                            <option>Producto & Servicio.</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-lg-3">
-                                        <label>Origen</label>
-                                        <select class="form-control" ng-model="Proceso.ORIGEN">
-                                            <option></option>
-                                            <option>Nacional</option>
-                                            <option>Importado</option>
-                                            <option>Nacional o Importado</option>
-                                            <option>Nacional e Importado</option>
-                                        </select>
-                                    </div>
-                                    <div class="form-group col-lg-3">
-                                        <label>Familia</label>
-                                        <select class="form-control" ng-model="Proceso.FAMILIA">
-                                            <option></option>
-                                            <option ng-repeat="Confi in ConfiFml">{{Confi.NOMBRE_CONFIG}}</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group col-lg-6">
-                                        <label>Descripción general</label>
-                                        <input type="text" placeholder="Descripción General" class="form-control" ng-model="Proceso.DESC_GENERAL">
-                                    </div>
-                                    <div class="form-group col-lg-3">
-                                        <label>Complejidad adquisición</label>
-                                        <select class="form-control" ng-model="Proceso.COMP_ADQUISICION " ng-change="TimeProces()">
-                                            <option></option>
-                                            <option>A</option>
-                                            <option>B</option>
-                                            <option>C</option>
-                                            <option>D</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group col-lg-3">
-                                        <label>Proceso</label>
-                                        <select class="form-control" ng-model="Proceso.PROCESO">
-                                            <option></option>
-                                            <option>Compras</option>
-                                            <option>Contrato</option>
-                                            <option>PO con T&C</option>
-                                            <option>Reparaciones</option>
-                                            <option>Items en consignación</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group col-lg-3">
-                                        <label>Proceso de inicio</label>
-                                        <select class="form-control" ng-model="Proceso.PROCESO_INICIO ">
-                                            <option></option>
-                                            <option>RQ</option>
-                                            <option>SOW</option>
-                                            <option>SOLPED</option>
-                                            <option>RPS</option>
-                                        </select>
-                                    </div>
-
-                                    <div class="form-group col-lg-3">
-                                        <label>Fecha de inicio del proceso</label>
-                                        <input class="form-control" type="text" ng-model="Proceso.FECHA_INICIO" disabled="">
-                                    </div>
-
-                                    <div class="form-group col-lg-3">
-                                        <label>Tiempo del proceso</label>
-                                        <input class="form-control" type="text" ng-model="Proceso.TIEMPO_PROCESO" disabled="">
-                                    </div>
-
-                                    <div class="form-group col-lg-3" id="data_1">
-                                        <label class="font-noraml">Fecha de inicio del servicio</label>
-                                        <div class="input-group date">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-calendar"></i>
-                                            </span><input type="text" class="form-control" ng-model="Proceso.FECHA_INIC_SERVICE" ng-change="TimeProces()">
+                                    <form role="form" name="userForm" novalidate>
+                                        <div class="form-group col-lg-6" ng-class="{'has-error':userForm.PROYECTO.$invalid && !userForm.PROYECTO.$pristine }">
+                                            <label>Seleccione un proyecto*</label>
+                                            <input type="text" placeholder="Proyecto" name="PROYECTO" class="form-control" ng-click="LoadModal()" ng-model="Proyec.PROYECTO" title="Hacer clic para cargar la lista de proyectos" required>
                                         </div>
-                                    </div>
+                                        <div class="form-group col-lg-3">
+                                            <label>Categoría</label>
+                                            <select class="form-control" ng-model="Proceso.CATEGORIA">
+                                                <option></option>
+                                                <option ng-repeat="Confi in ConfiCate">{{Confi.NOMBRE_CONFIG}}</option>
+                                            </select>
 
-                                    <div class="form-group col-lg-3">
-                                        <label>Tiempo de ejecución</label>
-                                        <input class="form-control" type="number" ng-model="Proceso.TIEMPO_EJECUCION">
-                                    </div>
+                                        </div>
+                                        <div class="form-group col-lg-3">
+                                            <label>Tipo</label>
+                                            <select class="form-control" ng-model="Proceso.TIPO">
+                                                <option></option>
+                                                <option>Servicio</option>
+                                                <option>Producto</option>
+                                                <option>Producto & Servicio.</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-lg-3">
+                                            <label>Origen</label>
+                                            <select class="form-control" ng-model="Proceso.ORIGEN">
+                                                <option></option>
+                                                <option>Nacional</option>
+                                                <option>Importado</option>
+                                                <option>Nacional o Importado</option>
+                                                <option>Nacional e Importado</option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-lg-3">
+                                            <label>Familia</label>
+                                            <select class="form-control" ng-model="Proceso.FAMILIA">
+                                                <option></option>
+                                                <option ng-repeat="Confi in ConfiFml">{{Confi.NOMBRE_CONFIG}}</option>
+                                            </select>
+                                        </div>
 
-                                    <div class="form-group col-lg-3">
-                                        <label>Cantidad</label>
-                                        <input class="form-control" type="number" ng-model="Proceso.CANTIDAD">
-                                    </div>
-                                    <div class="form-group col-lg-6">
-                                        <label>Detalle producto o servicio</label>
-                                        <input class="form-control" type="text" ng-model="Proceso.DETALLE_PS">
-                                    </div>
-                                    <div class="form-group col-lg-3">
-                                        <label>Unidad</label>
-                                        <select class="form-control" ng-model="Proceso.UNIDAD">
-                                            <option></option>
-                                            <option value="Lts">Lts</option>
-                                            <option value="Bb">Bb</option>
-                                            <option value="Gls">Gls</option>
-                                            <option value="Box">Box</option>
-                                            <option value="Bkt">Bkt</option>
-                                            <option value="CUM">CUM</option>
-                                            <option value="G">G</option>
-                                            <option value="HR">HR</option>
-                                            <option value="IN">IN</option>
-                                            <option value="Kg">Kg</option>
-                                            <option value="KM">KM</option>
-                                            <option value="Lb">Lb</option>
-                                            <option value="M">M</option>
-                                            <option value="Mil">Mil</option>
-                                            <option value="MT">MT</option>
-                                            <option value="Mth">Mth</option>
-                                            <option value="TON">TON</option>
-                                            <option value="EA">EA</option>
-                                            <option value="SET">SET</option>
-                                            <option value="WELL">WELL</option>
-                                            <option value="Ft">Ft</option>
-                                        </select>
-                                    </div>
+                                        <div class="form-group col-lg-6">
+                                            <label>Descripción general</label>
+                                            <input type="text" placeholder="Descripción General" class="form-control" ng-model="Proceso.DESC_GENERAL">
+                                        </div>
+                                        <div class="form-group col-lg-3" ng-class="{'has-error':userForm.COMP_ADQUISICION.$invalid && !userForm.COMP_ADQUISICION.$pristine }">
+                                            <label>Complejidad adquisición*</label>
+                                            <select class="form-control" name="COMP_ADQUISICION" ng-model="Proceso.COMP_ADQUISICION " ng-change="TimeProces()" required>
+                                                <option></option>
+                                                <option>A</option>
+                                                <option>B</option>
+                                                <option>C</option>
+                                                <option>D</option>
+                                            </select>
+                                        </div>
 
-                                    <div class="form-group col-lg-3">
-                                        <label>Tipo de modena</label>
-                                        <select class="form-control" ng-model="Proceso.TIPO_MONEDA">
-                                            <option></option>
-                                            <option>USD</option>
-                                            <option>COP</option>
-                                        </select>
-                                    </div>
+                                        <div class="form-group col-lg-3">
+                                            <label>Proceso</label>
+                                            <select class="form-control" ng-model="Proceso.PROCESO">
+                                                <option></option>
+                                                <option>Compras</option>
+                                                <option>Contrato</option>
+                                                <option>PO con T&C</option>
+                                                <option>Reparaciones</option>
+                                                <option>Items en consignación</option>
+                                            </select>
+                                        </div>
 
-                                    <div class="form-group col-lg-3">
-                                        <label>Presupuesto objetivo</label>
-                                        <input type="text" placeholder="" class="form-control" ng-model="Proceso.PRESUPUESTO">
-                                    </div>
-                                    <div class="form-group col-lg-3">
-                                        <label>Jurisdicción</label>
-                                        <input class="form-control" type="text" ng-model="Proceso.LUGAR_EJECUCION">
-                                    </div>
-                                    <div class="form-group col-lg-3">
-                                        <label>Valor Real</label>
-                                        <input class="form-control" type="text" ng-model="Proceso.VALOR_TOTAL">
-                                    </div>
+                                        <div class="form-group col-lg-3">
+                                            <label>Proceso de inicio</label>
+                                            <select class="form-control" ng-model="Proceso.PROCESO_INICIO ">
+                                                <option></option>
+                                                <option>RQ</option>
+                                                <option>SOW</option>
+                                                <option>SOLPED</option>
+                                                <option>RPS</option>
+                                            </select>
+                                        </div>
 
+                                        <div class="form-group col-lg-3">
+                                            <label>Fecha de inicio del proceso</label>
+                                            <input class="form-control" type="text" ng-model="Proceso.FECHA_INICIO" disabled="">
+                                        </div>
 
+                                        <div class="form-group col-lg-3">
+                                            <label>Tiempo del proceso</label>
+                                            <input class="form-control" type="text" ng-model="Proceso.TIEMPO_PROCESO" disabled="">
+                                        </div>
 
+                                        <div class="form-group col-lg-3" id="data_1" >
+                                            <label class="font-noraml">Fecha de inicio del servicio*</label>
+                                            <div class="input-group date" ng-class="{'has-error':userFormP.FECHA_INIC_SERVICE.$invalid && !userFormP.FECHA_INIC_SERVICE.$pristine }">
+                                                <span class="input-group-addon">
+                                                    <i class="fa fa-calendar"></i>
+                                                </span><input type="text" class="form-control" name="FECHA_INIC_SERVICE" ng-model="Proceso.FECHA_INIC_SERVICE" ng-change="TimeProces()" required>
+                                            </div>
+                                        </div>
+
+                                        <div class="form-group col-lg-3">
+                                            <label>Tiempo de ejecución</label>
+                                            <input class="form-control" type="number" ng-model="Proceso.TIEMPO_EJECUCION">
+                                        </div>
+
+                                        <div class="form-group col-lg-3">
+                                            <label>Cantidad</label>
+                                            <input class="form-control" type="number" ng-model="Proceso.CANTIDAD">
+                                        </div>
+                                        <div class="form-group col-lg-6">
+                                            <label>Detalle producto o servicio</label>
+                                            <input class="form-control" type="text" ng-model="Proceso.DETALLE_PS">
+                                        </div>
+                                        <div class="form-group col-lg-3">
+                                            <label>Unidad</label>
+                                            <select class="form-control" ng-model="Proceso.UNIDAD">
+                                                <option></option>
+                                                <option value="Lts">Lts</option>
+                                                <option value="Bb">Bb</option>
+                                                <option value="Gls">Gls</option>
+                                                <option value="Box">Box</option>
+                                                <option value="Bkt">Bkt</option>
+                                                <option value="CUM">CUM</option>
+                                                <option value="G">G</option>
+                                                <option value="HR">HR</option>
+                                                <option value="IN">IN</option>
+                                                <option value="Kg">Kg</option>
+                                                <option value="KM">KM</option>
+                                                <option value="Lb">Lb</option>
+                                                <option value="M">M</option>
+                                                <option value="Mil">Mil</option>
+                                                <option value="MT">MT</option>
+                                                <option value="Mth">Mth</option>
+                                                <option value="TON">TON</option>
+                                                <option value="EA">EA</option>
+                                                <option value="SET">SET</option>
+                                                <option value="WELL">WELL</option>
+                                                <option value="Ft">Ft</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-lg-3">
+                                            <label>Tipo de modena</label>
+                                            <select class="form-control" ng-model="Proceso.TIPO_MONEDA">
+                                                <option></option>
+                                                <option>USD</option>
+                                                <option>COP</option>
+                                            </select>
+                                        </div>
+
+                                        <div class="form-group col-lg-3">
+                                            <label>Presupuesto objetivo</label>
+                                            <input type="text" placeholder="" class="form-control" ng-model="Proceso.PRESUPUESTO">
+                                        </div>
+                                        <div class="form-group col-lg-3">
+                                            <label>Jurisdicción</label>
+                                            <input class="form-control" type="text" ng-model="Proceso.LUGAR_EJECUCION">
+                                        </div>
+                                        <div class="form-group col-lg-3">
+                                            <label>Valor Real</label>
+                                            <input class="form-control" type="text" ng-model="Proceso.VALOR_TOTAL">
+                                        </div>
+                                    </form>
                                 </div>
 
                             </div>
@@ -326,7 +325,7 @@
                             </div>
                         </div>
                         <div class="panel-footer" style="background-color:white">
-                            <center><button type="button" class="btn btn-primary" ng-click="Add()">Registrar</button></center>
+                            <center><button type="button" class="btn btn-primary" ng-disabled="userForm.$invalid" ng-click="Add()">Registrar</button></center>
                         </div>
                     </div>
                 </div>
@@ -357,9 +356,9 @@
                 <br />
                 <div class="row">
                     <div>
-                        <ul class="nav metismenu" id="side-menu" data-ng-repeat="Aspirante in filteredAspirantes|orderBy:'NOM_RAZONSOCIAL' | filter:filtrarAspirantes track by $index " ng-click="CargarAsp()">
+                        <ul class="nav metismenu" id="side-menu" data-ng-repeat="Aspirante in filteredAspirantes|orderBy:'EMPRESA' | filter:filtrarAspirantes track by $index " ng-click="CargarAsp()">
                             <li>
-                                <a><i class="fa fa-user"></i> <span class="nav-label">{{Aspirante.NOM_RAZONSOCIAL}}</span></a>
+                                <a><i class="fa fa-user"></i> <span class="nav-label">{{Aspirante.EMPRESA}}</span></a>
                             </li>
                         </ul>
                     </div>

@@ -27,6 +27,7 @@ namespace Dal
         [ForeignKey("PROYECTO_COMPETITIVO")]
         public virtual ICollection<Proceso_Competitivo> Proc_Competitivos { get; set; }
 
+        public virtual Proceso_Competitivo proyecto_proceso { get; set; }
    }
        
 }

@@ -57,5 +57,29 @@ namespace BLL
                 return result;
             }
         }
+
+
+        /// <summary>
+        /// metodo retorna el AFE perteneciente del proceso competitivo
+        /// </summary>
+        /// <param name="id_competitvo"></param>
+        /// <returns></returns>
+        public string Proyectoproceso(int id_competitivo)
+        {
+            using (var contex = new ModelContex())
+            {
+                var result = contex.Proceso_Competitivo.Where(p => p.ID_COMPETITIVO==id_competitivo).FirstOrDefault();
+                if (result != null)
+                {
+                    var datos = contex.Proyecto.Where(c => c.PROYEC_ID == result.PROYECTO_COMPETITIVO).FirstOrDefault();
+                    if (datos != null)
+                    {
+                        return datos.AFE;
+                    }
+    
+                }
+                return null;
+            }
+        }
     }
 }
